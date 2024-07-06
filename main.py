@@ -42,3 +42,5 @@ power_index = new_power_index
 
 new_rankings = [team for team in rankings if team.name in fbs_teams]
 rankings = new_rankings
+
+# If team is in the top 25 generate a report
