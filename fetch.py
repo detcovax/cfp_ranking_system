@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-from main import current_week, year
+from setup import current_week, year
 
 #fetch game data
 # List of URLs to fetch data from
@@ -30,3 +30,5 @@ while n <= current_week:
             print(f'Data fetched from {url}')
         else:
             print(f'Failed to retieve the webpage {url}. Status code: {response.status_code}')
+            
+soup = BeautifulSoup(html_combined, 'html.parser')

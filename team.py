@@ -13,3 +13,9 @@ class Team:
         
     def format_name(self, name):
         return name.lower().replace(r' ', r'_').replace(r'-', r'_').replace(r'.',r'').replace(r"'",r'').replace(r'&',r'').replace(r'(',r'').replace(r')',r'')
+    
+    def resetTeam(self):
+        self.record = [0,0,0]
+        self.margin = 0
+        self.champ = False
+        self.credits = 0
