@@ -1,5 +1,4 @@
 #VERSION NOTES
 
-In previous version we used an old version of the test code to refactor and create modules
-
-In this version we will attempt to start over and make the modules functional and logic linear
+working on adding in game module.
+continuing to build out team module and report method. continuing to consider refactoring of main module to keep code light and clean.
