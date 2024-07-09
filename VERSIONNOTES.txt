@@ -1,0 +1,5 @@
+#VERSION NOTES
+
+In previous version we used an old version of the test code to refactor and create modules
+
+In this version we will attempt to start over and make the modules functional and logic linear

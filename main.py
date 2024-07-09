@@ -1,46 +1,55 @@
-from setup import *
-from teams_list import teams, team_name_to_object
-from conferences import power_4_teams
-from evaluate import evaluateGames
-from calculate import calculateCredits
-from parse import unique_games_dict
-    
-for team in teams:
-    # Reset teams
-    team.resetTeam()
-    # Apply a bonus credit to power 4 teams
-    if team.name in power_4_teams:
-        team.credits = 3000
+class Team():
+    def __init__(self, name):
+        self.name = name
+        self.powerIndex = 0
+        self.cfpRank = 0
+        self.rank = 0
+        self.games_played = []
+        self.record = [0,0,0]
+        self.points = [0,0]
+        self.yards = [0,0]
+        self.conference_champ = False
+
+    def print_report(self):
+        report_text = ""
+        report_text += "__________________________________________________________\n"
+        report_text += self.name + "\n"
+        report_text += "Power Index: " + str(self.powerIndex) + "\n"
+        report_text += "CFP Rank: " + str(self.cfpRank) + "\n"
+        report_text += "Rank: " + str(self.rank) + "\n"
+        report_text += "Record: " + str(self.record[0]) + "-" + str(self.record[1])
+        if self.record[2] != 0:
+            report_text += "-" + str(self.record[2])
+        report_text += "\n"
+        report_text += "Point Margin: " + str(self.points[0]-self.points[1]) + "\n"
+        report_text += "Yard Margin: " + str(self.yards[0]-self.yards[1]) + "\n"
+        report_text += "__________________________________________________________\n"
+        print(report_text)
+
+def print_top25_reports():
+    for team in top25:
+        team.print_report()
+
+def print_other_reports():
+    for team in report_list:
+        if team not in top25:
+            team.print_report()
+
+teams = []
+top25 = []
+report_list = []
+
+def main():
+    Team1 = Team("team1")
+    teams.append(Team1)
+    top25.append(Team1)
+    report_list.append(Team1)
+    #print_powerIndex()
+    #print_rankings()
+    #print_cfp_rankings()
+    print_top25_reports()
+    print_other_reports()
 
 
-evaluateGames()
-
-# Power Index
-power_index = sorted(teams, key=lambda team: (-team.record[0] + (4 if team.name not in power_4_teams else 0), team.record[1] + (4 if team.name not in power_4_teams else 0), -team.margin))
-
-calculateCredits()
-
-# Rankings
-rankings = sorted(teams, key=lambda team: (-team.credits, -team.record[0] + (1 if team.name not in power_4_teams else 0), team.record[1] + (1 if team.name not in power_4_teams else 0), -team.champ, -team.margin))
-#head-to-head preference
-for n in range(50):
-    for game_name in unique_games_dict:
-        game = unique_games_dict[game_name]
-        if game.winner is not None:
-            winner = team_name_to_object.get(game.winner)
-            loser = team_name_to_object.get(game.loser)
-        if winner == rankings[n] and loser == rankings[n-1] and loser.credits - winner.credits < 100:
-            # Swap the position of the winner and loser in the rankings for head-to-head win if the credits are close enough
-            rankings[n], rankings[n-1] = rankings[n-1], rankings[n]
-            
-#keep only the FBS teams in standings
-fbs_teams = []
-fbs_standings_url = 'https://www.ncaa.com/standings/football/fbs'
-
-new_power_index = [team for team in power_index if team.name in fbs_teams]
-power_index = new_power_index
-
-new_rankings = [team for team in rankings if team.name in fbs_teams]
-rankings = new_rankings
-
-# If team is in the top 25 generate a report
+if __name__ == '__main__':
+    main()
