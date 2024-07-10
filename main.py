@@ -1,3 +1,4 @@
+import sys
 from team import *
 from game import *
 from evaluate import *
@@ -9,12 +10,11 @@ games = []
 
 powerIndex = []
 rankings = []
-top25 = []
 report_list = []
 
 
 def main():
-    global teams, games,powerIndex, rankings, top25, report_list
+    global teams, games,powerIndex, rankings, report_list
 
     #create a few fake teams for testing purposes
     Team1 = Team("team1")
@@ -25,7 +25,7 @@ def main():
     teams.append(Team3)
 
     #create a fake game for testing purposes
-    game1 = Game(Team1, Team2, [10,7])
+    game1 = Game(Team1, Team2, (10,7))
     games.append(game1)
 
     evaluate_games(games)
@@ -34,18 +34,23 @@ def main():
     powerIndex = generate_powerIndex(teams)
     rankings = generate_rankings(teams)
 
-    if len(rankings) < 25:
-        top25 = rankings[:len(rankings)]
-    else:
-        top25 = rankings[:25]
-    
     report_list.append(Team3)
     
-    print_top25(top25)
+    print_top25(rankings[:25] if len(rankings) >= 25 else rankings)
     print("\n" + "Team Reports:")
-    print_top25_reports(top25)
-    print_other_reports(report_list, top25)
+    print_top25_reports(rankings[:25] if len(rankings) >= 25 else rankings)
+    print_other_reports(report_list, rankings[:25] if len(rankings) >= 25 else rankings)
 
 
 if __name__ == '__main__':
-    main()
+    print("Starting Analysis...")
+    print(".")
+
+    OGstdout = sys.stdout
+    with open('output.txt', 'w') as output_file:
+        sys.stdout = output_file
+        main()
+        sys.stdout = OGstdout
+
+    print(".")
+    print("... Done. *Output saved to output text file")

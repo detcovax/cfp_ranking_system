@@ -1,5 +1,14 @@
 #VERSION NOTES
 
+looking to modify how powerIndex and rankings are generated.
+We want the power index to be mostly based on wins/losses and points margin withing wins/losses to just rank the SOR basically against each other.
+Then we will use game results against powerindex to generate the rankings. based on this idea though of assigning credits based on points scored against powerful opponents, we want to include more data in the power index to actually rank team based on "ability to perform" and then the rankings will be a more accurate "did you actually perform".
+Take notes from original test version to see how this was done, it did a pretty good job.
+
+Notes: output prints to txt file now.
+
+.................................................
+
 continue to add functionality to modules and define functions and methods with goal of finishing report building phase. be ready to import data once complete.
 
 addign teams and games mannually, can evaluate game, assign credits, generate rankings and reports, and print to console. All functional so far.
