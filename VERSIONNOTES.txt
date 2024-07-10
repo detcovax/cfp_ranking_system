@@ -1,4 +1,14 @@
 #VERSION NOTES
 
+continue to add functionality to modules and define functions and methods with goal of finishing report building phase. be ready to import data once complete.
+
+addign teams and games mannually, can evaluate game, assign credits, generate rankings and reports, and print to console. All functional so far.
+
+Just clean up and make sure everything we want is there then we can start creating module(s) to parse html and fetch data from online sources.
+
+Note: yard margin will always show zero until we actually assign yards earned and against to a team right now that list is empty.
+
+.................................................
+
 working on adding in game module.
 continuing to build out team module and report method. continuing to consider refactoring of main module to keep code light and clean.
