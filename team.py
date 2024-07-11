@@ -50,7 +50,7 @@ class Team:
             report_text += "      "
             report_text += (str(game.away_team.rank) + ". " if game.away_team.rank is not None else "") + str(game.away_team.name) + " (" + str(game.result[1]) + ")" + "   @   " + (str(game.home_team.rank) + ". " if game.home_team.rank is not None else "") + str(game.home_team.name) + " (" + str(game.result[0]) + ")   Final\n"
         
-        report_text += "\n" + "Total Credits: " + str(self.credits) + "\n"
+        report_text += "\n" + " Total Credits: " + str(self.credits) + "\n"
         
         report_text += "__________________________________________________________\n"
         print(report_text)
