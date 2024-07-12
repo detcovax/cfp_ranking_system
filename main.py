@@ -27,6 +27,8 @@ def main():
     #create a fake game for testing purposes
     game1 = Game(Team1, Team2, (10,7))
     games.append(game1)
+    game2 = Game(Team2, Team3, (17,27))
+    games.append(game2)
 
     #evaluate games and calculate credits
     evaluate_games(games)
@@ -40,6 +42,10 @@ def main():
     report_list.append(Team3)
     
     #print reports
+    print("College Football Rankings Generated")
+    print("\n" + "Power Index:")
+    print_powerIndex(powerIndex)
+    print("\n" + "Top 25 Rankings:")
     print_top25(rankings[:25] if len(rankings) >= 25 else rankings)
     print("\n" + "Team Reports:")
     print_top25_reports(rankings[:25] if len(rankings) >= 25 else rankings)
@@ -57,4 +63,8 @@ if __name__ == '__main__':
         sys.stdout = OGstdout
 
     print(".")
+    print("evaluating games...")
+    print("calculating credits...")
+    print("evaluating teams...")
+    print("output results...")
     print("... Done. *Output saved to output text file")

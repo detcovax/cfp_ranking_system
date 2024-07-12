@@ -1,44 +1,53 @@
-Top 25:
- 1. team1 (1-0)
- 2. team3 (0-0)
- 3. team2 (0-1)
+College Football Rankings Generated
+
+Power Index:
+ 1. team3 (1-0) (+10)
+ 2. team1 (1-0) (+3)
+ 3. team2 (0-2) (-13)
+
+Top 25 Rankings:
+ 1. team3 (1-0) (1)
+ 2. team1 (1-0) (1)
+ 3. team2 (0-2) (-2)
 
 Team Reports:
 __________________________________________________________
-1. team1
+1. team3
    Power Index: 1
    Record: 1-0
-   Point Margin: +3
+   Point Margin: +10
    Yard Margin: 0
 
    Schedule:
-      3. team2 (7)   @   1. team1 (10)   Final
+      1. team3 (27)   @   3. team2 (17)   Final
 
  Total Credits: 1
 __________________________________________________________
 
 __________________________________________________________
-2. team3
+2. team1
    Power Index: 2
-   Record: 0-0
-   Point Margin: 0
+   Record: 1-0
+   Point Margin: +3
    Yard Margin: 0
 
    Schedule:
+      3. team2 (7)   @   2. team1 (10)   Final
 
- Total Credits: 0
+ Total Credits: 1
 __________________________________________________________
 
 __________________________________________________________
 3. team2
    Power Index: 3
-   Record: 0-1
-   Point Margin: -3
+   Record: 0-2
+   Point Margin: -13
    Yard Margin: 0
 
    Schedule:
-      3. team2 (7)   @   1. team1 (10)   Final
+      3. team2 (7)   @   2. team1 (10)   Final
+      1. team3 (27)   @   3. team2 (17)   Final
 
- Total Credits: -1
+ Total Credits: -2
 __________________________________________________________
 
