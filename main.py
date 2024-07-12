@@ -3,7 +3,7 @@ from team import *
 from game import *
 from evaluate import *
 from generate import *
-from printing import *
+from reports import *
 
 teams = []
 games = []
@@ -28,14 +28,18 @@ def main():
     game1 = Game(Team1, Team2, (10,7))
     games.append(game1)
 
+    #evaluate games and calculate credits
     evaluate_games(games)
     calculate_credits(teams)
 
+    #generate rankings
     powerIndex = generate_powerIndex(teams)
     rankings = generate_rankings(teams)
 
+    #add teams we have requested reports for to list
     report_list.append(Team3)
     
+    #print reports
     print_top25(rankings[:25] if len(rankings) >= 25 else rankings)
     print("\n" + "Team Reports:")
     print_top25_reports(rankings[:25] if len(rankings) >= 25 else rankings)

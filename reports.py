@@ -5,9 +5,9 @@ def print_top25(top25):
 
 def print_top25_reports(top25):
     for team in top25:
-        team.print_report()
+        print(team.report())
 
 def print_other_reports(report_list, top25):
     for team in report_list:
         if team not in top25:
-            team.print_report()
+            print(team.report())

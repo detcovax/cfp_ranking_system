@@ -14,7 +14,7 @@ class Team:
         self.conf_champ = False
         self.credits = 0
 
-    def print_report(self):
+    def report(self):
         report_text = ""
         report_text += "__________________________________________________________\n"
         
@@ -53,4 +53,4 @@ class Team:
         report_text += "\n" + " Total Credits: " + str(self.credits) + "\n"
         
         report_text += "__________________________________________________________\n"
-        print(report_text)
+        return report_text
