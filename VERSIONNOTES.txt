@@ -1,5 +1,10 @@
 #VERSION NOTES
 
+most of the basic report printing and ranking structure is in place.
+just need to continue to iterate on the ranking equations, and determine what data is needed before I begin to build the data fetch.
+
+.................................................
+
 looking to modify how powerIndex and rankings are generated.
 We want the power index to be mostly based on wins/losses and points margin withing wins/losses to just rank the SOR basically against each other.
 Then we will use game results against powerindex to generate the rankings. based on this idea though of assigning credits based on points scored against powerful opponents, we want to include more data in the power index to actually rank team based on "ability to perform" and then the rankings will be a more accurate "did you actually perform".
