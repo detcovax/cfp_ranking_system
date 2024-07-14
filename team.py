@@ -13,6 +13,12 @@ class Team:
         self.yards = [0,0]
         self.conf_champ = False
         self.credits = 0
+        
+        self.roster = []
+        self.nonActivePlayers = []
+        
+
+
 
     def report(self):
         report_text = ""
