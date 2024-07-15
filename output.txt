@@ -51,3 +51,15 @@ __________________________________________________________
  Total Credits: -2
 __________________________________________________________
 
+
+How to read the output
+Power Index: No. Team Name (W-L) (Points Margin)
+Top 25 Rankings: Rk. Team Name (W-L) (Total Credits)
+Team Report:
+Rk. Team Name
+   Ranking Details
+   Record
+   Margin Details
+   Schedule
+      Away Team (score)   @   Home Team (score)   Result
+Total Creidts

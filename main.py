@@ -50,6 +50,9 @@ def main():
     print("\n" + "Team Reports:")
     print_top25_reports(rankings[:25] if len(rankings) >= 25 else rankings)
     print_other_reports(report_list, rankings[:25] if len(rankings) >= 25 else rankings)
+    print("\n" + "How to read the output" + "\n" + "Power Index: No. Team Name (W-L) (Points Margin)" + "\n" + "Top 25 Rankings: Rk. Team Name (W-L) (Total Credits)")
+    print("Team Report:" + "\n" + "Rk. Team Name" + "\n" + "   Ranking Details" + "\n" + "   Record" + "\n" + "   Margin Details" + "\n" + "   Schedule" + "\n" + "      Away Team (score)   @   Home Team (score)   Result" + "\n" + "Total Creidts")
+
 
 
 if __name__ == '__main__':
