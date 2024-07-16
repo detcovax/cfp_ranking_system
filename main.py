@@ -10,11 +10,12 @@ games = []
 
 powerIndex = []
 rankings = []
+cfpRankings = []
 report_list = []
 
 
 def main():
-    global teams, games,powerIndex, rankings, report_list
+    global teams, games,powerIndex, rankings, cfpRankings, report_list
 
     #create a few fake teams for testing purposes
     Team1 = Team("team1")
@@ -47,6 +48,8 @@ def main():
     print_powerIndex(powerIndex)
     print("\n" + "Top 25 Rankings:")
     print_top25(rankings[:25] if len(rankings) >= 25 else rankings)
+    print("\n" + "CFP Rankings:")
+    print_cfpRankings(cfpRankings)
     print("\n" + "Team Reports:")
     print_top25_reports(rankings[:25] if len(rankings) >= 25 else rankings)
     print_other_reports(report_list, rankings[:25] if len(rankings) >= 25 else rankings)
