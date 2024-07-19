@@ -13,7 +13,6 @@ rankings = []
 cfpRankings = []
 report_list = []
 
-
 def main():
     global teams, games,powerIndex, rankings, cfpRankings, report_list
 
@@ -59,18 +58,33 @@ def main():
 
 
 if __name__ == '__main__':
-    print("Starting Analysis...")
-    print(".")
 
     OGstdout = sys.stdout
-    with open('output.txt', 'w') as output_file:
-        sys.stdout = output_file
-        main()
-        sys.stdout = OGstdout
 
+    print("Fetch Data...")
+    print(".")
+    with open('data.log', 'w') as output_file:
+        sys.stdout = output_file
+        print("we will log data fetch steps here")
+        sys.stdout = OGstdout
+    print(".")
+
+    print("Starting Analysis...")
+    print(".")
     print(".")
     print("evaluating games...")
     print("calculating credits...")
     print("evaluating teams...")
+    print(".")
+
+    with open('output.txt', 'w') as output_file:
+        sys.stdout = output_file
+        main()
+        sys.stdout = OGstdout
+    print(".")
     print("output results...")
-    print("... Done. *Output saved to output text file")
+
+    print(".")
+    print(".")
+
+    print("... Done. *Output saved to output text file *data fetch steps logged to data.log")
