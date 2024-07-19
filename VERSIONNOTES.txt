@@ -1,5 +1,10 @@
 #VERSION NOTES
 
+Basic reporting strucutre is in place. Time to start building data fetching module.
+Once data fetch is complete we need to clean and store the data for later use.
+
+.................................................
+
 most of the basic report printing and ranking structure is in place.
 just need to continue to iterate on the ranking equations, and determine what data is needed before I begin to build the data fetch.
 
