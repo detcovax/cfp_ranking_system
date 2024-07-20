@@ -4,6 +4,7 @@ from game import *
 from evaluate import *
 from generate import *
 from reports import *
+import fetch
 
 teams = []
 games = []
@@ -67,6 +68,8 @@ if __name__ == '__main__':
         sys.stdout = output_file
         print("we will log data fetch steps here")
         sys.stdout = OGstdout
+    fetch.request_html()
+    fetch.write2json()
     print(".")
 
     print("Starting Analysis...")

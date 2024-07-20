@@ -1,0 +1,23 @@
+{
+    "conferences": {
+        "bigten": [
+            {
+                "ohio-state": {
+                    "games": [],
+                    "players": []
+                }
+            }
+        ],
+        "sec": [],
+        "big12": [],
+        "acc": [],
+        "pac12": [],
+        "mountainwest": [],
+        "mac": [],
+        "sunbelt": [],
+        "american": [],
+        "fcs": [],
+        "d2": [],
+        "d3": []
+    }
+}
