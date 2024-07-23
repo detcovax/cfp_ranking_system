@@ -1,5 +1,9 @@
 #VERSION NOTES
 
+Begin fetch module build. We want to have an idea what formating we want for the data storage so we can request the correct data from our web scraping. NCAA.com has alot of great data that we can request but first how do we want to break it down and are we going to pull that data by team, by game, or by player? Then how do we connect everything up inside the Team module? This line of thinking shoudl clear up structure questions and allow us to start thinking in terms of our first requests.
+
+.................................................
+
 Basic reporting strucutre is in place. Time to start building data fetching module.
 Once data fetch is complete we need to clean and store the data for later use.
 
