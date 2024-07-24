@@ -12,6 +12,7 @@ games = []
 powerIndex = []
 rankings = []
 cfpRankings = []
+apRankings = []
 report_list = []
 
 def main():
@@ -50,6 +51,8 @@ def main():
     print_top25(rankings[:25] if len(rankings) >= 25 else rankings)
     print("\n" + "CFP Rankings:")
     print_cfpRankings(cfpRankings)
+    print("\n" + "AP Top 25 Rankings:")
+    print_apRankings(apRankings)
     print("\n" + "Team Reports:")
     print_top25_reports(rankings[:25] if len(rankings) >= 25 else rankings)
     print_other_reports(report_list, rankings[:25] if len(rankings) >= 25 else rankings)
@@ -61,15 +64,18 @@ def main():
 if __name__ == '__main__':
 
     OGstdout = sys.stdout
+    dataLog_fileName = "data.log"
+    outputText_fileName = "output.txt"
 
     print("Fetch Data...")
     print(".")
-    with open('data.log', 'w') as output_file:
+    with open(dataLog_fileName, 'w') as output_file:
         sys.stdout = output_file
-        print("we will log data fetch steps here")
+        print("Data Fetch Log\n")
+        fetch.request_html()
+        fetch.write2json()
         sys.stdout = OGstdout
-    fetch.request_html()
-    fetch.write2json()
+    print(f"*data fetch steps logged to {dataLog_fileName}")
     print(".")
 
     print("Starting Analysis...")
@@ -84,10 +90,10 @@ if __name__ == '__main__':
         sys.stdout = output_file
         main()
         sys.stdout = OGstdout
-    print(".")
-    print("output results...")
-
-    print(".")
+    print(f"output results... \n *output saved to {outputText_fileName}")
     print(".")
 
-    print("... Done. *Output saved to output text file *data fetch steps logged to data.log")
+    print(".")
+    print(".")
+
+    print("... Done.")

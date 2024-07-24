@@ -5,11 +5,12 @@ from bs4 import BeautifulSoup
 
 # Step 1: Define data source as a set of urls
 urls = []
-ncaa_scores_url_base = "https://www.ncaa.com/scoreboard/football/"
-ncaa_rankings_url_base = "https://www.ncaa.com/rankings/football/"
-ncaa_standings_url_base = "https://www.ncaa.com/standings/football/"
-ncaa_stats_url_base = "https://www.ncaa.com/stats/football/"
-    # I need to get a list of all the teams, previously I did this by scrapping the scoreboard page for game results and list out each unique instance of a team, then create a team based on each one. Somethign liek this might work again. Maybe ncaa site jsut has a list of all teams somewhere to make it easier? Alternatively I could start from the standings page to pull all the teams by conference.
+ncaa_scores_url_base = "https://www.ncaa.com/scoreboard/football/"; urls.append(ncaa_scores_url_base)
+ncaa_rankings_url_base = "https://www.ncaa.com/rankings/football/"; urls.append(ncaa_rankings_url_base)
+ncaa_standings_url_base = "https://www.ncaa.com/standings/football/"; urls.append(ncaa_standings_url_base)
+ncaa_stats_url_base = "https://www.ncaa.com/stats/football/"; urls.append(ncaa_stats_url_base)
+
+    # I need to get a list of all the teams, previously I did this by scrapping the scoreboard page for game results and list out each unique instance of a team, then create a team based on each one. Somethign liek this might work again. Maybe ncaa site just has a list of all teams somewhere to make it easier? Alternatively I could start from the standings page to pull all the teams by conference.
 
 # Step 2: Request html from urls
 def request_html():

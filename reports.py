@@ -14,6 +14,14 @@ def print_cfpRankings(cfpRankings):
         for index, team in enumerate(cfpRankings):
             print(f" {index+1}. {team.name}")
 
+def print_apRankings(apRankings):
+    if len(apRankings) == 0:
+        print("No AP Top 25 Rankings")
+        return
+    else:
+        for index, team in enumerate(apRankings):
+            print(f" {index+1}. {team.name}")
+
 def print_top25_reports(top25):
     for team in top25:
         print(team.report())

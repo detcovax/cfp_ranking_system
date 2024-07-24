@@ -1,1 +1,6 @@
-we will log data fetch steps here
+Data Fetch Log
+
+Failed to retieve the webpage https://www.ncaa.com/scoreboard/football/. Status code: 404
+Success retieving the webpage https://www.ncaa.com/rankings/football/. Status code: 200
+Success retieving the webpage https://www.ncaa.com/standings/football/. Status code: 200
+Success retieving the webpage https://www.ncaa.com/stats/football/. Status code: 200

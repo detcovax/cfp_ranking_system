@@ -6,6 +6,7 @@ class Team:
         self.conference = None
         self.powerIndex = None
         self.cfpRank = None
+        self.apRank = None
         self.rank = None
         self.games_played = []
         self.record = [0,0,0]
@@ -32,6 +33,9 @@ class Team:
         
         if self.cfpRank != None:
             report_text += "   CFP Rank: " + str(self.cfpRank) + "\n"
+
+        if self.apRank != None:
+            report_text += "   AP Top 25 Rank: " + str(self.apRank) + "\n"
         
         report_text += "   Record: " + str(self.record[0]) + "-" + str(self.record[1])
         if self.record[2] != 0:
