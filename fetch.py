@@ -26,20 +26,7 @@ def request_html():
 # Step 4: Clean data and store in a json file to be accessed later
 def write2json():
 # Initial JSON structure
-    data = {"conferences":{
-        "bigten":[],
-        "sec":[],
-        "big12":[],
-        "acc":[],
-        "pac12":[],
-        "mountainwest":[],
-        "mac":[],
-        "sunbelt":[],
-        "american":[],
-        "fcs":[],
-        "d2":[],
-        "d3":[]
-    }}
+    data = {}
 
     # Save to a JSON file
     with open('data.json', 'w') as f:
@@ -52,11 +39,12 @@ def write2json():
         data = json.load(f)
 
     # Add a player to the Ohio State Buckeyes
-    newTeams = [{"ohio-state":{"games":[],"players":[]}},
-                #{"michigan":{"games":[],"players":[]}}
-            ]
-    for newTeam in newTeams:
-        data["conferences"]["bigten"].append(newTeam)
+    newTeams = {
+        "ohio-state": {"div": "fbs", "conf": "bigten"},
+        "michigan": {"div": "fbs", "conf": "bigten"}
+    }
+
+    data.update(newTeams)
 
     # Save the updated data back to the JSON file
     with open('data.json', 'w') as f:
