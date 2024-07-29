@@ -3,14 +3,51 @@ import json, requests
 from bs4 import BeautifulSoup
 
 
+# Step 0: Get a full ist of schools
+def get_listOfAllSchools():
+    ncaa_schools_index_base = "https://www.ncaa.com/schools-index/"
+    page = 0
+    all_schools = []
+
+    while True:
+        response = requests.get(ncaa_schools_index_base + str(page))
+        if response.status_code == 200:
+            print(f"Successfully retrieving the webpage {ncaa_schools_index_base + str(page)}. Status code: {response.status_code}")
+
+            # Parse the HTML
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            # Find the table
+            table = soup.find('table', class_='responsive-enabled')
+            if table:
+                tbody = table.find('tbody')
+                if tbody:
+                    rows = tbody.find_all('tr')
+                    for row in rows:
+                        # Extract the school name from the <td> element
+                        school_name_td = row.find_all('td')[2]
+                        if school_name_td:
+                            school_name = school_name_td.get_text(strip=True)
+                            if school_name:
+                                all_schools.append(school_name)
+
+            page += 1
+
+        else:
+            print(f"End of schools list or error retrieving page {page}. Status code: {response.status_code}")
+            break
+    
+    return all_schools
+
+
 # Step 1: Define data source as a set of urls
+ncaa_schools = get_listOfAllSchools()
+
 urls = []
 ncaa_scores_url_base = "https://www.ncaa.com/scoreboard/football/"; urls.append(ncaa_scores_url_base)
 ncaa_rankings_url_base = "https://www.ncaa.com/rankings/football/"; urls.append(ncaa_rankings_url_base)
 ncaa_standings_url_base = "https://www.ncaa.com/standings/football/"; urls.append(ncaa_standings_url_base)
 ncaa_stats_url_base = "https://www.ncaa.com/stats/football/"; urls.append(ncaa_stats_url_base)
-
-    # I need to get a list of all the teams, previously I did this by scrapping the scoreboard page for game results and list out each unique instance of a team, then create a team based on each one. Somethign liek this might work again. Maybe ncaa site just has a list of all teams somewhere to make it easier? Alternatively I could start from the standings page to pull all the teams by conference.
 
 # Step 2: Request html from urls
 def request_html():

@@ -1,5 +1,30 @@
 Data Fetch Log
 
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/0. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/1. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/2. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/3. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/4. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/5. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/6. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/7. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/8. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/9. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/10. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/11. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/12. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/13. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/14. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/15. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/16. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/17. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/18. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/19. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/20. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/21. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/22. Status code: 200
+Successfully retrieving the webpage https://www.ncaa.com/schools-index/23. Status code: 200
+End of schools list or error retrieving page 24. Status code: 404
 Failed to retieve the webpage https://www.ncaa.com/scoreboard/football/. Status code: 404
 Success retieving the webpage https://www.ncaa.com/rankings/football/. Status code: 200
 Success retieving the webpage https://www.ncaa.com/standings/football/. Status code: 200

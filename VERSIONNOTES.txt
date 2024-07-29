@@ -1,5 +1,9 @@
 #VERSION NOTES
 
+I have a full ist of all schools retrieved from parsing the NCAA.com site for all schools. I can now use this list to request base info from NCAA.com about each school. This info would be things like division, conference, and roster.
+
+.................................................
+
 Been playing aroudn with the fetch modeling. I want to be certain the form of the data stored is useful in the most effective way for the goals right now.
 
 .................................................

@@ -16,7 +16,7 @@ apRankings = []
 report_list = []
 
 def main():
-    global teams, games,powerIndex, rankings, cfpRankings, report_list
+    global ncaa_schools, teams, games,powerIndex, rankings, cfpRankings, report_list
 
     #create a few fake teams for testing purposes
     Team1 = Team("team1")
