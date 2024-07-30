@@ -5,7 +5,9 @@ from evaluate import *
 from generate import *
 from reports import *
 import fetch
+import json
 
+ncaa_schools = []
 teams = []
 games = []
 
@@ -72,11 +74,36 @@ if __name__ == '__main__':
     with open(dataLog_fileName, 'w') as output_file:
         sys.stdout = output_file
         print("Data Fetch Log\n")
-        fetch.request_html()
-        fetch.write2json()
+        ncaa_schools = fetch.get_listOfAllSchools()
+        #fetch.request_html()
+        #fetch.write2json()
         sys.stdout = OGstdout
     print(f"*data fetch steps logged to {dataLog_fileName}")
     print(".")
+
+
+    data = {}
+    with open('data.json', 'w') as json_file:
+        json.dump(data, json_file, indent=4)
+    
+    with open('data.json', 'r') as json_file:
+        data = json.load(json_file)
+    
+    new_data = {}
+    for school in ncaa_schools:
+        school_data = {
+            f"{school}": {
+                "div": "None",
+                "conf": "None",
+                "roster": []
+                }
+            }
+        new_data.update(school_data)
+    data.update(new_data)
+
+    with open('data.json', 'w') as json_file:
+        json.dump(data, json_file, indent=4)
+
 
     print("Starting Analysis...")
     print(".")

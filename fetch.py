@@ -2,6 +2,13 @@
 import json, requests
 from bs4 import BeautifulSoup
 
+# urls = []
+# ncaa_scores_url_base = "https://www.ncaa.com/scoreboard/football/"; urls.append(ncaa_scores_url_base)
+# ncaa_rankings_url_base = "https://www.ncaa.com/rankings/football/"; urls.append(ncaa_rankings_url_base)
+# ncaa_standings_url_base = "https://www.ncaa.com/standings/football/"; urls.append(ncaa_standings_url_base)
+# ncaa_stats_url_base = "https://www.ncaa.com/stats/football/"; urls.append(ncaa_stats_url_base)
+
+
 
 # Step 0: Get a full ist of schools
 def get_listOfAllSchools():
@@ -23,72 +30,29 @@ def get_listOfAllSchools():
                 tbody = table.find('tbody')
                 if tbody:
                     rows = tbody.find_all('tr')
+                    if not rows:
+                        # If no rows are found, assume end of list
+                        print(f"No rows found on page {page}. Ending pagination.")
+                        break
+
                     for row in rows:
-                        # Extract the school name from the <td> element
-                        school_name_td = row.find_all('td')[2]
-                        if school_name_td:
-                            school_name = school_name_td.get_text(strip=True)
-                            if school_name:
-                                all_schools.append(school_name)
+                        # Extract the href attribute from the first <td><a href="..."> element
+                        school_name_td = row.find_all('td')[0]  # Assuming the href is in the first <td>
+                        a_tag = school_name_td.find('a')
+                        if a_tag and 'href' in a_tag.attrs:
+                            href_value = a_tag['href']
+                            # Extract the abbreviated and hyphenated name from the href attribute
+                            school_slug = href_value.split('/')[-1]  # Take the last part of the URL
+                            if school_slug:
+                                all_schools.append(school_slug)
+            else:
+                print(f"No table found on page {page}. Ending pagination.")
+                break
 
             page += 1
 
         else:
-            print(f"End of schools list or error retrieving page {page}. Status code: {response.status_code}")
+            print(f"Error retrieving page {page}. Status code: {response.status_code}. Ending pagination.")
             break
     
     return all_schools
-
-
-# Step 1: Define data source as a set of urls
-ncaa_schools = get_listOfAllSchools()
-
-urls = []
-ncaa_scores_url_base = "https://www.ncaa.com/scoreboard/football/"; urls.append(ncaa_scores_url_base)
-ncaa_rankings_url_base = "https://www.ncaa.com/rankings/football/"; urls.append(ncaa_rankings_url_base)
-ncaa_standings_url_base = "https://www.ncaa.com/standings/football/"; urls.append(ncaa_standings_url_base)
-ncaa_stats_url_base = "https://www.ncaa.com/stats/football/"; urls.append(ncaa_stats_url_base)
-
-# Step 2: Request html from urls
-def request_html():
-    for url in urls:
-        response = requests.get(url)
-        if response.status_code == 200:
-            print(f"Success retieving the webpage {url}. Status code: {response.status_code}")
-        else:
-            print(f"Failed to retieve the webpage {url}. Status code: {response.status_code}")
-
-# Step 3: Parse html, identify and collect data
-
-# Step 4: Clean data and store in a json file to be accessed later
-def write2json():
-# Initial JSON structure
-    data = {}
-
-    # Save to a JSON file
-    with open('data.json', 'w') as f:
-        json.dump(data, f, indent=4)
-        
-        
-        
-    # Load the JSON file
-    with open('data.json', 'r') as f:
-        data = json.load(f)
-
-    # Add a player to the Ohio State Buckeyes
-    newTeams = {
-        "ohio-state": {"div": "fbs", "conf": "bigten"},
-        "michigan": {"div": "fbs", "conf": "bigten"}
-    }
-
-    data.update(newTeams)
-
-    # Save the updated data back to the JSON file
-    with open('data.json', 'w') as f:
-        json.dump(data, f, indent=4)
-
-
-
-# Step 5: Querry through data and prepare for evaluation
-    # I will need to go through the data and pick out all the players and create each one in a list on the team roster atribute
-    # I will then need to go through the data again and assign all the fields to the teams and players accordingly.

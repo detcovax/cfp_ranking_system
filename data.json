@@ -1,10 +1,5847 @@
 {
-    "ohio-state": {
-        "div": "fbs",
-        "conf": "bigten"
+    "abilene-christian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "academy-of-art": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "adams-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "adelphi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "adrian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "agnes-scott": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "air-force": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "akron": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ala-huntsville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alabama": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alabama-am": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alabama-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alas-anchorage": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alas-fairbanks": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "albany-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "albany-st-ga": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "albertus-magnus": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "albion": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "albright": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alcorn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alderson-broaddus": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alfred": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alfred-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "allegheny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "allen": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alvernia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "alverno": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "am-corpus-chris": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "american": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "american-intl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "american-pr": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "amherst": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "anderson-in": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "anderson-sc": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "angelo-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "anna-maria": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "appalachian-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "arcadia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "arizona": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "arizona-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ark-fort-smith": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ark-monticello": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ark-pine-bluff": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "arkansas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "arkansas-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "arkansas-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "armstrong": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "army": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "asbury": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ashland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "assumption": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "aub-montgomery": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "auburn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "augsburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "augustana-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "augustana-sd": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "aurora": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "austin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "austin-peay": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "averett": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "azusa-pacific": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "babson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bakersfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "baldwin-wallace": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ball-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "baptist-bible-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bard": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "barry": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "barton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "baruch": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bates": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bay-path": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "baylor": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "becker": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "belhaven": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bellarmine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "belmont": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "belmont-abbey": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "beloit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bemidji-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "benedict": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "benedictine-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bentley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "berea": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "berry": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bethany-lutheran": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bethany-wv": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bethel-mn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bethune-cookman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "binghamton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "biola": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "birmingham-so": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "black-hills-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "blackburn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bloomfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bloomsburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bluefield-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bluffton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "boise-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "boston-college": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "boston-u": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bowdoin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bowie-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bowling-green": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bradley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "brandeis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "brevard": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bridgeport": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bridgewater-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bridgewater-va": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "brockport": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "brooklyn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "brown": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bryant": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bryn-athyn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bryn-mawr": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "bucknell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "buena-vista": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "buffalo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "buffalo-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "butler": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "byu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "byu-hawaii": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cabrini": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cairn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-lutheran": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-poly": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-poly-pomona": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-dom-hills": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-east-bay": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-fullerton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-la": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-monterey-bay": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-northridge": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-san-bdino": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-san-marcos": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cal-st-stanislaus": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "caldwell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "california": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "california-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "california-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "caltech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "calvin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cameron": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "campbell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "canisius": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "capital": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "carleton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "carnegie-mellon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "carroll-wi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "carson-newman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "carthage": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "case": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "castleton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "catawba": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "catholic": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cazenovia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ccny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cedar-crest": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cedarville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "centenary-la": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "centenary-nj": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-ark": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-conn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-ia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-mich": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-mo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-okla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-st-oh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "central-wash": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "centre": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chadron-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chaminade": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chapman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "charleston-so": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "charleston-wv": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "charlotte": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chatham": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chattanooga": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chestnut-hill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cheyney": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chicago": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chicago-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chico-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chowan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "chris-newport": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "christian-bros": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cincinnati": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "citadel": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "city-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "claflin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "claremont-m-s": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clarion": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clark-atlanta": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clark-ma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clarke": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clarkson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clayton-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "clemson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cleveland-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "coast-guard": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "coastal-caro": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cobleskill-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "coe": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "coker": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "col-of-charleston": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colby": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colby-sawyer": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colgate": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colo-christian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colorado": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colorado-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colorado-mesa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colorado-mines": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colorado-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "colorado-st-pueblo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "columbia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "columbus-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concord": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-chicago": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-irvine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-mhead": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-or": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-st-paul": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-tx": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "concordia-wi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "connecticut-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "converse": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "coppin-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cornell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "cornell-college": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "covenant": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "creighton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "crown-mn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "curry": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "daemen": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dallas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dallas-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "daniel-webster": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dartmouth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "davenport": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "davidson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "davis-elkins": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dayton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dean-college": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "defiance": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "delaware": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "delaware-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "delaware-valley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "delta-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "denison": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "denver": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "depaul": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "depauw": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "desales": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "detroit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dickinson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dist-columbia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dominican-ca": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dominican-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dominican-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dowling": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "drake": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "drew": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "drexel": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "drury": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dubuque": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "duke": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "duquesne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "dyouville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "earlham": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "east-carolina": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "east-central": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "east-mennonite": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "east-stroudsburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "east-tenn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "east-tex-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-conn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-ill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-ky": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-mich": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-nazarene": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-nm": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-ore": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eastern-wash": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eckerd": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "edgewood": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "edinboro": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "edward-waters": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "elizabeth-city-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "elizabethtown": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "elmhurst": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "elmira": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "elms": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "elon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "embry-riddle-fl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "emerson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "emmanuel-ga": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "emmanuel-ma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "emory": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "emory-henry": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "emporia-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "endicott": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "erskine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "eureka": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "evansville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "evergreen-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fairfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fairleigh-dickinson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fairmont-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "farmingdale-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fayetteville-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fdu-florham": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "felician": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ferris-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ferrum": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fgcu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "findlay": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "finlandia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fisk": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fitchburg-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fiu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fla-atlantic": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fla-southern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "flagler": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "florida": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "florida-am": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "florida-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "florida-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fontbonne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fordham": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fort-hays-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fort-lewis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fort-valley-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "framingham-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "francis-marion": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "franciscan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "frank-marsh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "franklin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "franklin-pierce": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fredonia-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fresno-pacific": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "fresno-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "frostburg-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "furman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ga-southern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ga-southwestern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gallaudet": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gannon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gardner-webb": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "geneva": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "george-fox": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "george-mason": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "george-washington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "georgetown": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "georgia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "georgia-college": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "georgia-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "georgia-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "georgian-court": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gettysburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "glenville-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "goldey-beacom": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gonzaga": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gordon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "goucher": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "grambling": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "grand-canyon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "grand-valley-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "green-bay": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "green-mountain": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "greensboro": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "greenville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "grinnell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "grove-city": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gru-augusta": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "guilford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gust-adolphus": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "gwynedd-mercy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hamilton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hamline": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hampden-sydney": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hampton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hanover": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hardin-simmons": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "harding": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hartford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hartwick": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "harvard": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "haverford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hawaii": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hawaii-hilo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hawaii-pacific": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "heidelberg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "henderson-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hendrix": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "high-point": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hilbert": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hillsdale": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hiram": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hobart": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hofstra": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hollins": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "holy-cross": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "holy-family": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "holy-names": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hood": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hope": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "houghton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "houston": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "houston-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "howard": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "howard-payne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "humboldt-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "hunter": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "huntingdon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "husson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "idaho": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "idaho-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "iit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ill-chicago": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ill-springfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ill-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "illinois": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "illinois-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "illinois-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "immaculata": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "incarnate-word": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "indiana": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "indiana-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "indiana-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "indianapolis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "iona": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "iowa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "iowa-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "iowa-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ipfw": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ithaca": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "iuindy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "jackson-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "jacksonville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "jacksonville-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "james-madison": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "jessup": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "john-carroll": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "john-jay": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "johns-hopkins": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "johnson-c-smith": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "johnson-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "johnson-wales-ri": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "juniata": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "jwu-denver": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kalamazoo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kansas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kansas-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kean": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "keene-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kennesaw-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kent-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kentucky": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kentucky-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kenyon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "keuka": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "keystone": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "king-tn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kings-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "knox": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "kutztown": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ky-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "la-lafayette": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "la-monroe": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "la-roche": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "la-salle": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "la-sierra": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "la-verne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lafayette": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lagrange": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lake-erie": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lake-forest": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lake-superior-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lakeland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lamar": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lambuth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lancaster-bible": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lander": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lane": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "langston": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lasell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lawrence": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "le-moyne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lebanon-valley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lee": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lees-mcrae": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lehigh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lehman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lemoyne-owen": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lenoir-rhyne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lesley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "letourneau": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lewis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lewis-clark": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "liberty": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "limestone": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lincoln-christian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lincoln-memorial": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lincoln-mo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lincoln-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lindenwood-mo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "linfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lipscomb": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "liu-post": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "livingstone": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lock-haven": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "long-beach-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "long-island": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "longwood": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "loras": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "louisiana-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "louisiana-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "louisville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "loyola-chicago": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "loyola-maryland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "loyola-marymount": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lsu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lubbock-christian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "luther": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lycoming": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lynchburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lyndon-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lynn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "lyon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "macalester": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "macmurray": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "maine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "maine-maritime": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "malone": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "manchester": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "manhattan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "manhattanville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mansfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "maranatha-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marian-wi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marietta": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marquette": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mars-hill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marshall": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "martin-luther": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mary": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mary-baldwin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mary-hardin-baylor": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mary-washington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "maryland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marymount-va": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "maryville-mo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "maryville-tn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "marywood": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mass-maritime": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "massachusetts": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mcdaniel": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mckendree": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mcla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mcmurry": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mcneese-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "md-east-shore": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "me-farmington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "me-presque-isle": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "medaille": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "medgar-evers": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "memphis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "menlo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mercer": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "merchant-marine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mercy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mercyhurst": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "meredith": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "merrimack": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "messiah": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "methodist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "metro-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "miami-fl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "miami-oh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
     },
     "michigan": {
-        "div": "fbs",
-        "conf": "bigten"
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "michigan-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "michigan-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "middle-tenn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "middlebury": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "midwestern-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "miles": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "millersville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "millikin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mills": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "millsaps": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "milwaukee": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minn-crookston": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minn-duluth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minn-morris": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minn-st-mankato": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minn-st-moorhead": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minnesota": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "minot-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "misericordia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mississippi-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mississippi-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mississippi-val": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "missouri": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "missouri-snt": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "missouri-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mitchell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mo-southern-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mo-st-louis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mo-western-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "molloy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "monmouth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "monmouth-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mont-st-billings": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "montana": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "montana-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "montclair-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "montevallo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "moravian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "morehead-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "morehouse": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "morgan-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "morningside": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "morris-brown": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mount-holyoke": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mount-ida": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mount-olive": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mount-union": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "msoe": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mt-aloysius": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mt-mary": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mt-st-joseph": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mt-st-mary-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mt-st-marys": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "mt-st-vincent": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "muhlenberg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "murray-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "muskingum": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "navy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nazareth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nc-at": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nc-central": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nc-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "neb-kearney": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "neb-omaha": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "neb-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nebraska": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "neumann": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nevada": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-england-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-hampshire": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-haven": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-jersey-city": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-mexico": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-mexico-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-orleans": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-rochelle": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "new-york-u": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "newberry": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "newbury": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "newman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "niagara": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nicholls-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nichols": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "njit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nm-highlands": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "norfolk-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-ala": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-carolina": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-carolina-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-central-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-central-mn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-dakota": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-dakota-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-florida": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-georgia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-greenville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-park": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "north-texas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northeastern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northeastern-ill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northeastern-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northern-ariz": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northern-colo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northern-ill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northern-ky": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northern-mich": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northern-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwest-mo-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwest-nazarene": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwestern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwestern-okla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwestern-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwestern-st-paul": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "northwood-mi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "norwich": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "notre-dame": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "notre-dame-de-namur": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "notre-dame-md": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "notre-dame-oh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nova-southeastern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nyack": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "nyit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oakland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oakland-city": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oberlin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "occidental": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oglethorpe": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ohio": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ohio-dominican": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ohio-northern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ohio-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ohio-valley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ohio-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "okla-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "okla-christian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "okla-panhandle": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oklahoma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oklahoma-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "old-dominion": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "old-westbury": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ole-miss": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "olivet": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oneonta-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oral-roberts": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oregon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oregon-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "oswego-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "otterbein": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ouachita-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ozarks-ar": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pace": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pacific": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pacific-lutheran": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pacific-or": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "paine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "palm-beach-atl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-st-abington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-st-altoona": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-st-behrend": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-st-berks": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-st-harrisburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "penn-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pepperdine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pfeiffer": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "philadelphia-u": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "piedmont": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pine-manor": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pitt-bradford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pitt-greensburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pitt-johnstown": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pittsburg-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pittsburgh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "plattsburgh-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "plymouth-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "point-loma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "polytechnic-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pomona-pitzer": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "portland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "portland-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "post": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pr-bayamon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pr-cayey": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pr-humacao": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pr-mayaguez": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pr-rio-piedras": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "prairie-view": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "pratt-institute": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "presbyterian": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "presentation": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "princeton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "principia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "providence": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "puget-sound": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "purchase-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "purdue": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "purdue-northwest": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "queens-nc": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "queens-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "quincy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "quinnipiac": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "radford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ramapo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "randolph": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "randolph-macon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "redlands": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "regis-co": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "regis-ma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "reneau-university": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rensselaer": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rhode-island": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rhode-island-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rhodes": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rice": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "richard-stockton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "richmond": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rider": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ripon": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rivier": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "roanoke": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "robert-morris": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "roberts-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rochester-inst": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rochester-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rockford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rockhurst": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "roger-williams": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rogers-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rollins": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rose-hulman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rosemont": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rowan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rust": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rutgers": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rutgers-camden": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "rutgers-newark": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sacramento-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sacred-heart": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sage-colleges": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saginaw-valley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-johns-mn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-josephs": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-leo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-louis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-martins": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-michaels": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-rose": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "saint-vincent": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "salem": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "salem-intl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "salem-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "salisbury": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "salve-regina": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sam-houston-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "samford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "san-diego": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "san-diego-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "san-fran-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "san-francisco": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "san-jose-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "santa-clara": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sarah-lawrence": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "savannah-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sc-aiken": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "scad": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "schreiner": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "scranton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "seattle": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "seattle-pacific": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "seton-hall": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "seton-hill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sewanee": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "shaw": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "shenandoah": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "shepherd": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "shippensburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "shorter": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "siena": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "simmons": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "simon-fraser": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "simpson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sioux-falls": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "siu-edwardsville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "skidmore": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "slippery-rock": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "smith": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "smu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sonoma-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-ala": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-carolina": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-carolina-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-dakota": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-dakota-mines": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-dakota-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "south-fla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southampton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southeast-mo-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southeastern-la": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southeastern-okla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-ark": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-california": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-conn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-ill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-ind": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-me": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-miss": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-nazarene": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-nh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-u": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-utah": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-va": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-vt": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southern-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southwest-baptist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southwest-minn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southwestern-okla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "southwestern-tx": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "spalding": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "spelman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "spring-hill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "springfield": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-andrews": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-anselm": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-augustines": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-benedict": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-bonaventure": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-catherine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-cloud-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-edwards": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-elizabeth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-francis-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-francis-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-francis-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-john-fisher": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-johns-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-joseph-ct": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-josephs-brkln": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-josephs-in": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-josephs-li": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-josephs-me": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-lawrence": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-marys-ca": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-marys-in": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-marys-md": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-marys-mn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-marys-tx": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-norbert": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-olaf": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-pauls": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-peters": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-scholastica": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-thomas-aquinas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-thomas-fl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-thomas-mn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "st-thomas-tx": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stanford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "staten-island": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stephen-f-austin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stephens": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stetson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stevens": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stevenson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stillman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stonehill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "stony-brook": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suffolk": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sul-ross-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-canton": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-cortland": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-delhi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-geneseo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-maritime": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-morrisville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-new-paltz": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "suny-potsdam": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sunyit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "susquehanna": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "swarthmore": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "sweet-briar": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "syracuse": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tampa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tarleton-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tbd": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tcnj": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tcu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "temple": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tennessee": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tennessee-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tennessee-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tex-am-commerce": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tex-am-intl": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tex-am-kingsville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tex-permian-basin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-am": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-arlington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-dallas": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-lutheran": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-southern": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-tyler": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "texas-womans": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "thiel": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "thomas-me": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "thomas-more": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tiffin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "toledo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "towson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "transylvania": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "trevecca-nazarene": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "trine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "trinity-ct": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "trinity-tx": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "trinity-washington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "troy": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "truman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tufts": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tulane": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tulsa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tusculum": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "tuskegee": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "u-new-england": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uab": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ualr": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-colo-springs": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-davis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-irvine": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-riverside": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-san-diego": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-santa-barbara": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uc-santa-cruz": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ucf": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ucla": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uconn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "umass-boston": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "umass-dartmouth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "umass-lowell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "umbc": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "umkc": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "unc-asheville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "unc-greensboro": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "unc-pembroke": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "unc-wilmington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uni": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "union-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "union-tn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "unlv": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "upper-iowa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "urbana": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ursinus": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ursuline": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "usc-beaufort": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "usc-upstate": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "ut-martin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utah": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utah-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utah-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utah-valley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utep": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utica": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utrgv": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "utsa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "uva-wise": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "va-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "valdosta-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "valley-forge-chrst": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "valparaiso": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "vanderbilt": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "vassar": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "vcu": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "vermont": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "villanova": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "virginia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "virginia-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "virginia-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "virginia-union": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "vmi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wabash": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wagner": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wake-forest": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "walsh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "warren-wilson-college": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wartburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wash-jeff": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wash-lee": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "washburn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "washington": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "washington-adventist": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "washington-col": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "washington-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "washington-st-louis": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wayne-st-mi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wayne-st-ne": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "waynesburg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "weber-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "webster": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wellesley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wells": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wentworth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wesley": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wesleyan-ct": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wesleyan-ga": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-ala": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-chester": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-florida": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-ga": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-liberty": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-tex-am": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-va-tech": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-va-wesleyan": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-virginia": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "west-virginia-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-caro": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-conn-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-ill": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-ky": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-mich": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-new-eng": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-nm": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-ore": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "western-wash": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "westfield-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "westminster-mo": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "westminster-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "westminster-ut": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "westmont-college": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wheaton-il": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wheaton-ma": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wheeling-jesuit": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wheelock": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "whitman": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "whittier": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "whitworth": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wichita-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "widener": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wilkes": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "willamette": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "william-jewell": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "william-mary": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "william-peace": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "william-penn": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "william-smith": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "williams": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wilmington-de": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wilmington-oh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wilson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wingate": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "winona-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "winston-salem": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "winthrop": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-eau-claire": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-la-crosse": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-lutheran": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-oshkosh": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-parkside": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-platteville": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-river-falls": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-stevens-point": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-stout": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-superior": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wis-whitewater": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wisconsin": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wittenberg": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wm-paterson": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wofford": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wooster": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "worcester-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wpi": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wright-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "wyoming": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "xavier": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "yale": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "yeshiva": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "york-ny": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "york-pa": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "young-harris": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
+    },
+    "youngstown-st": {
+        "div": "None",
+        "conf": "None",
+        "roster": []
     }
 }
