@@ -10,16 +10,15 @@ from bs4 import BeautifulSoup
 
 
 
-# Step 0: Get a full ist of schools
 def get_listOfAllSchools():
-    ncaa_schools_index_base = "https://www.ncaa.com/schools-index/"
+    ncaa_schools_index_baseurl = "https://www.ncaa.com/schools-index/"
     page = 0
     all_schools = []
 
     while True:
-        response = requests.get(ncaa_schools_index_base + str(page))
+        response = requests.get(ncaa_schools_index_baseurl + str(page))
         if response.status_code == 200:
-            print(f"Successfully retrieving the webpage {ncaa_schools_index_base + str(page)}. Status code: {response.status_code}")
+            print(f"Successfully retrieving the webpage {ncaa_schools_index_baseurl + str(page)}. Status code: {response.status_code}")
 
             # Parse the HTML
             soup = BeautifulSoup(response.content, 'html.parser')
@@ -56,3 +55,41 @@ def get_listOfAllSchools():
             break
     
     return all_schools
+
+def get_school_base_info(school_name):
+    ncaa_school_base_url = "https://www.ncaa.com/schools/"
+    school_base_info = {}
+
+    response = requests.get(ncaa_school_base_url + school_name)
+    if response.status_code == 200:
+        print(f"Successfully retrieved the webpage {ncaa_school_base_url + school_name}. Status code: {response.status_code}")
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Extracting True Name
+        trueName_header = soup.find('h1', class_='school-name')
+        if trueName_header:
+            true_name = trueName_header.text.strip()
+            school_base_info['Name'] = true_name
+
+        # Extracting Nickname
+        nickname_dd = soup.find('dt', text='Nickname')
+        if nickname_dd:
+            nickname = nickname_dd.find_next_sibling('dd').text.strip()
+            school_base_info['Nickname'] = nickname
+
+        # Extracting Division Information
+        division_div = soup.find('div', class_='division-location')
+        if division_div:
+            school_division = division_div.text.strip().split('-')[0].strip()
+            school_base_info['Division'] = school_division
+        
+        # Extracting Conference Information
+        conference_dd = soup.find('dt', text='Conference')
+        if conference_dd:
+            school_conference = conference_dd.find_next_sibling('dd').text.strip()
+            school_base_info['Conference'] = school_conference
+
+    else:
+        print(f"{ncaa_school_base_url + school_name} ... Failed to retrieve the webpage. Status code: {response.status_code}")
+
+    return school_base_info

@@ -1,6 +1,10 @@
 #VERSION NOTES
 
-I have created a json file with all schools in it from NCAA html. tiem to pull base team info.
+Successful so far. Able to fetch full list of schools, and get base info of Name, Nickname, Div, and Conf. All is working great so far, and updated main function to write fetch progress to console for UX.
+
+.................................................
+
+I have created a json file with all schools in it from NCAA html. time to pull base team info.
 
 .................................................
 

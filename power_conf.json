@@ -1,0 +1,7 @@
+{
+    "bigten": {"dataName": "Big Ten", "autonomous": "true"},
+    "sec": {"dataName": "Southeastern", "autonomous": "true"},
+    "big12": {"dataName": "Big 12", "autonomous": "true"},
+    "acc": {"dataName": "Atlantic Coast", "autonomous": "true"},
+    "pac12": {"dataName": "Pac-12", "autonomous": "false"}
+}

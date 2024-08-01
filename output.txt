@@ -1,3 +1,4 @@
+Start of output file
 College Football Rankings Generated
 
 Power Index:
@@ -68,4 +69,4 @@ Rk. Team Name
    Margin Details
    Schedule
       Away Team (score)   @   Home Team (score)   Result
-Total Creidts
+Total Credits
