@@ -149,7 +149,7 @@ Successfully retrieved the webpage https://www.ncaa.com/schools/buffalo-st. Stat
 Successfully retrieved the webpage https://www.ncaa.com/schools/butler. Status code: 200
 Successfully retrieved the webpage https://www.ncaa.com/schools/byu. Status code: 200
 https://www.ncaa.com/schools/byu-hawaii ... Failed to retrieve the webpage. Status code: 404
-Successfully retrieved the webpage https://www.ncaa.com/schools/cabrini. Status code: 200
+https://www.ncaa.com/schools/cabrini ... Failed to retrieve the webpage. Status code: 404
 Successfully retrieved the webpage https://www.ncaa.com/schools/cairn. Status code: 200
 Successfully retrieved the webpage https://www.ncaa.com/schools/cal-lutheran. Status code: 200
 Successfully retrieved the webpage https://www.ncaa.com/schools/cal-poly. Status code: 200
@@ -1113,7 +1113,7 @@ Successfully retrieved the webpage https://www.ncaa.com/schools/waynesburg. Stat
 Successfully retrieved the webpage https://www.ncaa.com/schools/weber-st. Status code: 200
 Successfully retrieved the webpage https://www.ncaa.com/schools/webster. Status code: 200
 Successfully retrieved the webpage https://www.ncaa.com/schools/wellesley. Status code: 200
-Successfully retrieved the webpage https://www.ncaa.com/schools/wells. Status code: 200
+https://www.ncaa.com/schools/wells ... Failed to retrieve the webpage. Status code: 404
 Successfully retrieved the webpage https://www.ncaa.com/schools/wentworth. Status code: 200
 https://www.ncaa.com/schools/wesley ... Failed to retrieve the webpage. Status code: 404
 Successfully retrieved the webpage https://www.ncaa.com/schools/wesleyan-ct. Status code: 200

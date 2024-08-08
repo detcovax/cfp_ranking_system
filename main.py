@@ -104,7 +104,7 @@ if __name__ == '__main__':
         sys.stdout = output_file
         ncaa_schools = fetch.get_listOfAllSchools()
         sys.stdout = OGstdout
-    print(f"fetch completed. {len(ncaa_schools)} schools found.")
+    print(f"{len(ncaa_schools)} schools found. fetch completed.")
     print(f"*data fetch steps logged to {dataLog_fileName}")
     print(".")
 

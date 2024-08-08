@@ -3,6 +3,7 @@ import json, requests
 from bs4 import BeautifulSoup
 
 # urls = []
+# https://collegefootballdata.com/
 # ncaa_scores_url_base = "https://www.ncaa.com/scoreboard/football/"; urls.append(ncaa_scores_url_base)
 # ncaa_rankings_url_base = "https://www.ncaa.com/rankings/football/"; urls.append(ncaa_rankings_url_base)
 # ncaa_standings_url_base = "https://www.ncaa.com/standings/football/"; urls.append(ncaa_standings_url_base)
@@ -93,3 +94,6 @@ def get_school_base_info(school_name):
         print(f"{ncaa_school_base_url + school_name} ... Failed to retrieve the webpage. Status code: {response.status_code}")
 
     return school_base_info
+
+def get_team_roster(school_name):
+    pass

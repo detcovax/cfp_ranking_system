@@ -713,12 +713,7 @@
         "Conference": "Big 12"
     },
     "byu-hawaii": {},
-    "cabrini": {
-        "Name": "Cabrini University",
-        "Nickname": "Cavaliers",
-        "Division": "Division III",
-        "Conference": "Atlantic East"
-    },
+    "cabrini": {},
     "cairn": {
         "Name": "Cairn University",
         "Nickname": "Highlanders",
@@ -1374,7 +1369,7 @@
         "Name": "Curry College",
         "Nickname": "Colonels",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "daemen": {
         "Name": "Daemen College",
@@ -1433,9 +1428,9 @@
     },
     "defiance": {
         "Name": "Defiance College",
-        "Nickname": "Yellow Jackets",
-        "Division": "Division III",
-        "Conference": "Heartland Collegiate Athletic"
+        "Nickname": "",
+        "Division": ",",
+        "Conference": "Independent"
     },
     "delaware": {
         "Name": "University of Delaware",
@@ -1778,7 +1773,7 @@
         "Name": "Endicott College",
         "Nickname": "Gulls",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "erskine": {
         "Name": "Erskine College",
@@ -2140,7 +2135,7 @@
         "Name": "Gordon College",
         "Nickname": "Fighting Scots",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "goucher": {
         "Name": "Goucher College",
@@ -2267,7 +2262,7 @@
         "Name": "University of Hartford",
         "Nickname": "Hawks",
         "Division": "Division I",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "hartwick": {
         "Name": "Hartwick College",
@@ -2957,7 +2952,7 @@
         "Name": "The Lincoln University (Pa.)",
         "Nickname": "Lions",
         "Division": "Division II",
-        "Conference": "East Coast"
+        "Conference": "Central Atlantic Collegiate"
     },
     "lindenwood-mo": {
         "Name": "Lindenwood University",
@@ -3867,7 +3862,7 @@
         "Name": "Nichols College",
         "Nickname": "Bison",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "njit": {
         "Name": "New Jersey Institute of Technology",
@@ -4708,7 +4703,7 @@
         "Name": "Roger Williams University",
         "Nickname": "Hawks",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "rogers-st": {
         "Name": "Rogers State University",
@@ -5507,7 +5502,7 @@
         "Name": "Suffolk University",
         "Nickname": "Rams",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "sul-ross-st": {
         "Name": "Sul Ross State University",
@@ -5845,7 +5840,7 @@
         "Name": "University of New England",
         "Nickname": "Nor'easters",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "uab": {
         "Name": "UAB",
@@ -6292,17 +6287,12 @@
         "Division": "Division III",
         "Conference": ""
     },
-    "wells": {
-        "Name": "Wells College",
-        "Nickname": "Express",
-        "Division": "Division III",
-        "Conference": "Allegheny Mountain Collegiate"
-    },
+    "wells": {},
     "wentworth": {
         "Name": "Wentworth Institute of Technology",
         "Nickname": "Leopards",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "wesley": {},
     "wesleyan-ct": {
@@ -6411,7 +6401,7 @@
         "Name": "Western New England University",
         "Nickname": "Golden Bears",
         "Division": "Division III",
-        "Conference": "Commonwealth Coast"
+        "Conference": "of New England"
     },
     "western-nm": {
         "Name": "Western New Mexico University",
