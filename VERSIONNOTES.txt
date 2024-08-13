@@ -1,5 +1,9 @@
 #VERSION NOTES
 
+Begining to play with API to maybe be more robust.
+
+.................................................
+
 https://collegefootballdata.com/ has an API I thin kmight work better. lets maybe use that to get the info and then it will work better when i go to fetch the roaster, games, and other data.
 
 .................................................
