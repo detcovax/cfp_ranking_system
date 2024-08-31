@@ -1,5 +1,9 @@
 #VERSION NOTES
 
+API is working to pull all games from a season played so far. Can I start building a rankin from this so far?
+
+.................................................
+
 Begining to play with API to maybe be more robust.
 
 .................................................
