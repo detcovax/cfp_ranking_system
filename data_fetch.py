@@ -2,8 +2,37 @@ import cfbd, json
 import config
 from team import Team
 
-season_year = config.year # int | Season year (optional)
-week = config.week # int | Week filter (optional)
+# Get Season Year from user input and validate
+while True:
+    season_year = input("What Year/Season to fetch? ")  # int | Season year (optional)
+    if season_year == "":
+        while True:
+            confirm_default_year = input("Confirm use of default year? (y/n) ")
+            if "y" in confirm_default_year.lower():
+                print(f"Using default year: {config.year}")
+                season_year = config.year
+                break
+            elif "n" in confirm_default_year.lower():
+                continue
+            else:
+                print("Invalid input.")
+        break
+    elif season_year.isdigit() and len(season_year) == 4:
+        season_year = int(season_year)
+        break
+    else:
+        print("Must enter a valid year (YYYY). Try again.")
+
+# get week in season from user input and validate
+while True:
+    season_week = input("What Week of the season to fetch rankings for? ")  # int | Season year (optional)
+    if season_week.isdigit():
+        season_week = int(season_week)
+        break
+    else:
+        print("Must enter a valid number as the week. Try again.")
+week = season_week # int | Week filter (optional)
+
 season_type = 'both' # str | Season type filter (regular or postseason) (optional) (default to regular)
 
 
