@@ -24,12 +24,12 @@ for team_info in teams.values():
     team.roster=team_info.get("Roster")
     team_list.append(team)
     
-    
+
     
 power_index = sorted(
     team_list, key=lambda team:(
-        -team.record[0]/(team.record[0]+team.record[1]+team.record[2] if team.record[0]+team.record[1]+team.record[2] != 0 else 1) - (1 if "fbs" in team.league.lower() else 0) - (2 if "big ten" in team.league.lower() or "sec" in team.league.lower() else 0) - (1 if "big 12" in team.league.lower() or "acc" in team.league.lower() else 0),
-        team.record[1]/(team.record[0]+team.record[1]+team.record[2] if team.record[0]+team.record[1]+team.record[2] != 0 else 1) + (1 if "fbs" not in team.league.lower() else 0),
+        (team.record[1] + (1 if "fbs" not in team.league.lower() else 0)) / sum(g for g in team.record) if sum(team.record) != 0 else 0,
+        -(team.record[0] + (1 if "fbs" in team.league.lower() else 0) + (2 if "big ten" in team.league.lower() or "sec" in team.league.lower() else 0) + (1 if "big 12" in team.league.lower() or "acc" in team.league.lower() else 0)) / sum(g for g in team.record) if sum(team.record) != 0 else 0,
         -team.record[0],
         team.record[1],
         -team.margin/(team.record[0]+team.record[1]+team.record[2] if team.record[0]+team.record[1]+team.record[2] != 0 else 1),
@@ -56,7 +56,7 @@ for team in team_list:
     #     if "big ten" in team.league.lower() or "sec" in team.league.lower():
     #         team.credits += 50
     if team.champ:
-        team.credits += 50
+        team.credits += 100
     for game, game_info in team.games_played.items():
         home_team = game_info.get("home_team")
         away_team = game_info.get("away_team")
@@ -70,28 +70,70 @@ for team in team_list:
             opponent_league = f'{game_info.get("home_division")}' + ' - ' + f'{game_info.get("home_conference")}'
         else:
             opponent_league = 'none'
-        opp_scaling = 1
-        if "fbs" in opponent_league.lower():
-            opp_scaling *= 3
-            if "big ten" in opponent_league.lower() or "sec" in opponent_league.lower():
-                opp_scaling *= 2
-            elif "acc" in opponent_league.lower() or "big 12" in opponent_league.lower():
-                opp_scaling *= 1
+
+        point_margin = abs(game_info.get("home_points")-game_info.get("away_points")) if game_info.get("home_points") is not None and game_info.get("away_points") is not None else 0
+        point_margin_multiplier = point_margin/7
+        if point_margin_multiplier < 1:
+            point_margin_multiplier = 1
+        
+        if game_info.get("result") == "Win":
+            win_scale = 1
+            if "fbs" in opponent_league.lower():
+                win_scale *= 10
+                if "big ten" in opponent_league.lower() or "sec" in opponent_league.lower():
+                    win_scale *= 5
+                elif "acc" in opponent_league.lower() or "big 12" in opponent_league.lower():
+                    win_scale *= 3
+            elif "fcs" in opponent_league.lower():
+                win_scale *= 2
+            if opponent_power !=0:
+                if opponent_power < 5:
+                    win_scale *= 12
+                elif opponent_power < 10:
+                    win_scale *= 10
+                elif opponent_power < 15:
+                    win_scale *= 7
+                elif opponent_power < 25:
+                    win_scale *= 5
+                elif opponent_power < 50:
+                    win_scale *= 3
+                elif opponent_power < 100:
+                    win_scale *= 2
+                    
+        elif game_info.get("result") == "Loss" and point_margin > 0:
+            win_scale = -1
+            if "fbs" not in opponent_league.lower():
+                if "fcs" not in opponent_league.lower():
+                    win_scale *= 10
+                else:
+                    win_scale *= 5
             else:
-                opp_scaling *= 0.5
-        elif "fcs" in opponent_league.lower():
-            opp_scaling *= 1
+                if "big ten" not in opponent_league.lower() and "sec" not in opponent_league.lower():
+                    if "acc" not in opponent_league.lower() and "big 12" not in opponent_league.lower():
+                        win_scale *= 3
+                    else:
+                        win_scale *= 2
+            if opponent_power < 100:
+                if opponent_power > 25:
+                    win_scale *= 2
+                elif opponent_power > 50:
+                    win_scale *= 3
+            else:
+                win_scale *= 5
+                
         else:
-            opp_scaling *= 0.5
-        win_multiplier = 1 if game_info.get("result") == "Win" else -1 if game_info.get("result") == "Loss" else 0
-        point_margin_multiplier = abs(game_info.get("home_points")-game_info.get("away_points"))/7
-        credits = int(point_margin_multiplier*win_multiplier*opp_scaling)
+            win_scale = 0
+        
+        credits = point_margin_multiplier*win_scale*power_diff/1000
+        if abs(credits) < 1 and abs(credits) !=0 and point_margin > 0:
+            credits = credits/abs(credits)
+        credits = int(credits)
         team.games_played[game]["win_credits"] = credits
         team.credits += credits
 
 rankings = sorted(power_index, key=lambda team: (-team.credits))
 
-# fix head to head matchups if credits are no more than 100 less (only works on adjacent teams for now)
+# fix head to head matchups if credits are no more than 100 or less (only works on adjacent teams for now)
 for rank, team in enumerate(rankings, start=1):
     for game, game_info in team.games_played.items():
         home_team = game_info.get("home_team")
