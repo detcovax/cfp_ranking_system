@@ -63,7 +63,7 @@ for team in team_list:
         opponent_name = home_team if home_team != team.name else away_team
         opponent_power = power_index_rank.get(opponent_name, 0)  # Default to 0 if opponent not found
         team_power = power_index_rank.get(team.name, 0)  # Get the current team's rank
-        power_diff = abs(team_power - opponent_power)
+        power_diff = abs(team_power - opponent_power) # NEED TO FIX THE POWER DIFF
         if home_team == team.name:
             opponent_league = f'{game_info.get("away_division")}' + ' - ' + f'{game_info.get("away_conference")}'
         elif away_team == team.name:
@@ -124,7 +124,7 @@ for team in team_list:
         else:
             win_scale = 0
         
-        credits = point_margin_multiplier*win_scale*power_diff/1000
+        credits = point_margin_multiplier*win_scale*power_diff/1000     # NEED TO FIX THE POWER DIFF (JUST MULTIPLIES BY ABS DIFF, NEED TO CONSIDER IF OPP IS HIGHER LOWER)
         if abs(credits) < 1 and abs(credits) !=0 and point_margin > 0:
             credits = credits/abs(credits)
         credits = int(credits)
