@@ -45,6 +45,17 @@ for rank, team in enumerate(power_index, start=1):
         opponent_name = home_team if home_team != team.name else away_team
         if game_info.get("result") == "Win" and power_index[rank-1].name == opponent_name and ((power_index[rank-1].record[0]-power_index[rank-1].record[1]) - (team.record[0]-team.record[1])) <= 2:
             power_index[rank], power_index[rank-1] = power_index[rank-1], power_index[rank]
+
+
+# Fix teams with little or no game data (e.g., 0-0 records)
+no_data_teams = []
+for team in power_index[:]:  # Use a copy of the list to avoid issues while modifying it
+    if sum(team.record) == 0:  # If the team has not played any games
+        power_index.remove(team)
+        no_data_teams.append(team)
+# Append teams with no game data to the back of the list
+power_index.extend(no_data_teams)
+        
        
 # Step 1: Calculate Power Index Ranks
 power_index_rank = {team.name: rank for rank, team in enumerate(power_index, start=1)}
