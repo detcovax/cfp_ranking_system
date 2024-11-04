@@ -1,0 +1,146 @@
+Playoff Rankings:
+Seed 1: Army (CFP Eval: 7.0)
+Seed 2: Indiana (CFP Eval: 7.0)
+Seed 3: Miami (CFP Eval: 7.0)
+Seed 4: BYU (CFP Eval: 7.0)
+Seed 5: Iowa State (CFP Eval: 7.0)
+Seed 6: Oregon (CFP Eval: 7.0)
+Seed 7: Penn State (CFP Eval: 6.0)
+Seed 8: Navy (CFP Eval: 6.0)
+Seed 9: Pittsburgh (CFP Eval: 6.0)
+Seed 10: SMU (CFP Eval: 5.0)
+Seed 11: Missouri (CFP Eval: 5.0)
+Seed 12: Liberty (CFP Eval: 5.0)
+
+Overall Rankings:
+1. Army
+2. Indiana
+3. Iowa State
+4. Miami
+5. Oregon
+6. BYU
+7. Penn State
+8. Navy
+9. Pittsburgh
+10. SMU
+11. Missouri
+12. Illinois
+13. Duke
+14. Georgia
+15. Clemson
+16. Tennessee
+17. Washington State
+18. Texas
+19. Liberty
+20. UNLV
+21. Kansas State
+22. Memphis
+23. Texas A&M
+24. Notre Dame
+25. Louisiana
+26. LSU
+27. UL Monroe
+28. Ohio State
+29. Syracuse
+30. Boise State
+31. Toledo
+32. Tulane
+33. Colorado
+34. San José State
+35. Wisconsin
+36. Vanderbilt
+37. Cincinnati
+38. Eastern Michigan
+39. Nebraska
+40. Georgia Southern
+41. North Texas
+42. Alabama
+43. Western Kentucky
+44. Sam Houston
+45. Ole Miss
+46. Texas Tech
+47. James Madison
+48. Arizona State
+49. Georgia Tech
+50. Rutgers
+51. Buffalo
+52. Arkansas
+53. Coastal Carolina
+54. Minnesota
+55. Utah
+56. Michigan State
+57. Oklahoma
+58. Western Michigan
+59. TCU
+60. Virginia Tech
+61. Iowa
+62. Louisville
+63. Maryland
+64. UConn
+65. Ohio
+66. Colorado State
+67. Florida
+68. Northern Illinois
+69. South Carolina
+70. Marshall
+71. Virginia
+72. Oregon State
+73. Arkansas State
+74. Michigan
+75. Fresno State
+76. Texas State
+77. Washington
+78. Boston College
+79. New Mexico
+80. Central Michigan
+81. Bowling Green
+82. Wake Forest
+83. UCF
+84. North Carolina
+85. West Virginia
+86. Oklahoma State
+87. Northwestern
+88. Miami (OH)
+89. UTSA
+90. Old Dominion
+91. South Alabama
+92. California
+93. East Carolina
+94. South Florida
+95. Baylor
+96. Kentucky
+97. Charlotte
+98. Arizona
+99. USC
+100. Nevada
+101. App State
+102. Georgia State
+103. Louisiana Tech
+104. Hawai'i
+105. Tulsa
+106. Kansas
+107. Florida Atlantic
+108. Temple
+109. Stanford
+110. Florida International
+111. Houston
+112. Rice
+113. Middle Tennessee
+114. UCLA
+115. Auburn
+116. New Mexico State
+117. Ball State
+118. Florida State
+119. UAB
+120. Utah State
+121. Purdue
+122. Air Force
+123. Akron
+124. Massachusetts
+125. UTEP
+126. Mississippi State
+127. Troy
+128. Southern Miss
+129. Wyoming
+130. Kennesaw State
+131. Kent State

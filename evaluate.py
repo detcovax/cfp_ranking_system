@@ -1,6 +1,75 @@
 import json
 import config
 from team import Team
+import requests
+from bs4 import BeautifulSoup
+
+def create_playoff_rankings(rankings):
+    # Sort teams based on their overall scores in descending order
+    sorted_teams = rankings
+    top_conference_champions = []
+    
+    #if a conf does not have a formal champion named yet, just take the standings leader.
+    leaders = {}
+    standings_url = "https://www.ncaa.com/standings/football/fbs"
+    try:
+        response = requests.get(standings_url)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            conferences = soup.find_all('figure', class_='standings-conference')
+            for conference in conferences:
+                conference_name = conference.get_text(strip=True)
+                if 'independent' not in conference_name.lower():
+                    table = conference.find_next('table')
+                    rows = table.find_all('tr')
+                    for row in rows:
+                        team_td = row.find('td', class_="standings-team")
+                        if team_td:
+                            conference_leader = team_td.get_text(strip=True).replace('St.', 'State').replace(' (FL)', '').replace(' West Point','').replace('Ga.', 'Georgia').replace('Ky.', 'Kentucky').replace('Mich.', 'Michigan')
+                            leaders[conference_name] = conference_leader
+                            break   # Stop after the first valid team is found
+        else:
+            raise Exception(response)
+    except Exception as e:
+        print(f"Error requesting standings from ncaa.com: {e}")
+    
+    # print('Leaders:')    
+    # for conference_name in leaders:
+    #     print(' ',conference_name,'-',leaders[conference_name])
+        
+    # Identify the highest-ranked conference champions
+    while len(top_conference_champions) < 5:
+        for team in sorted_teams:
+            for conference_name, leader in leaders.items():
+                #leader.replace('St.', 'State').replace('(FL)', '')
+                if team.name.lower() == leader.lower():
+                    top_conference_champions.append(team)
+                    break
+            if len(top_conference_champions) == 5:
+                break
+    # print('Qualifying Leaders:')
+    # for team in top_conference_champions:
+    #     print(' ',team.name,'-',team.league)
+                
+    #Add top 4 champions
+    playoff_rankings = top_conference_champions[:4]
+    
+    #add the next 8 teams
+    while len(playoff_rankings) < 12:
+        for team in sorted_teams:
+            if team not in playoff_rankings:
+                playoff_rankings.append(team)
+            if len(playoff_rankings) == 12:
+                break
+                
+    # check the last champion are included
+    if top_conference_champions[4] not in playoff_rankings:
+        playoff_rankings[-1] = top_conference_champions[4]
+    
+    return playoff_rankings
+
+
 
 # Load the JSON file
 with open(config.data_file, 'r') as json_file:
@@ -198,6 +267,10 @@ for true_rank, team in enumerate(true_rankings, start=1):
     team.true_rank = true_rank
 true_rankings_rank_d = {team.name: true_rank for true_rank, team in enumerate(true_rankings, start=1)}
 
+# Create a playoff scenario
+playoff_seedings = create_playoff_rankings(true_rankings)
+
+
 with open('rankings.txt', 'w', encoding="utf-8") as output_file:
     output_file.write("Dave's Power Index:")
     for rank, team in enumerate(power_index, start=1):
@@ -245,7 +318,21 @@ with open('rankings.txt', 'w', encoding="utf-8") as output_file:
             else:
                 output_file.write(f'(Error {team.record})')
             output_file.write(f' ({team.power + team.rank})')
-            
+    output_file.write('\n\n\nCFP Playoff Bracket Scenario:')
+    for seed, team in enumerate(playoff_seedings, start=1):
+        output_file.write('\n ')
+        output_file.write(f'{seed}. {team.name} ({team.league.split("-")[1].strip()})')
+        output_file.write(f" (Champion)" if team.champ == True else "")
+    output_file.write('\n First Teams Out:')
+    first_teams_out = []
+    for rank, team in enumerate(true_rankings, start=1):
+        if team not in playoff_seedings:
+            first_teams_out.append(team)
+            output_file.write(f' {team.name}')
+            output_file.write(f" - {team.league.split(r'-')[1].strip()} Champion" if team.champ == True else "")
+            output_file.write(f',')
+        if len(first_teams_out) >= 4:
+            break
 
 with open('reports.txt', 'w', encoding="utf-8") as output_file:
     output_file.write("Team Reports:\n")
