@@ -58,7 +58,7 @@ def create_playoff_rankings(rankings):
     #add the next 8 teams
     while len(playoff_rankings) < 12:
         for team in sorted_teams:
-            if team not in playoff_rankings:
+            if team not in playoff_rankings and 'fbs' in team.league:
                 playoff_rankings.append(team)
             if len(playoff_rankings) == 12:
                 break
@@ -326,7 +326,7 @@ with open('rankings.txt', 'w', encoding="utf-8") as output_file:
     output_file.write('\n First Teams Out:')
     first_teams_out = []
     for rank, team in enumerate(true_rankings, start=1):
-        if team not in playoff_seedings:
+        if team not in playoff_seedings and 'fbs' in team.league:
             first_teams_out.append(team)
             output_file.write(f' {team.name}')
             output_file.write(f" - {team.league.split(r'-')[1].strip()} Champion" if team.champ == True else "")
