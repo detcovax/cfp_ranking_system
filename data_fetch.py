@@ -107,7 +107,7 @@ for game in games:
             away_team.games_played[game_title]["result"] = "Tie"
         # Championship Scenario
         if isinstance((game.notes), str):
-            if "championship" in game.notes.lower():
+            if "championship" in game.notes.lower() and "round" not in game.notes.lower():
                 if margin > 0:
                     home_team.champ = True
                 elif margin < 0:
