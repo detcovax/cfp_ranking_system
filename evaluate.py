@@ -97,10 +97,10 @@ for team_info in teams.values():
     
 power_index = sorted(
     team_list, key=lambda team:(
-        (team.record[1] + (1 if "fbs" not in team.league.lower() else 0)) / sum(g for g in team.record) if sum(team.record) != 0 else 0,
-        -(team.record[0] + (1 if "fbs" in team.league.lower() else 0) + (2 if "big ten" in team.league.lower() or "sec" in team.league.lower() else 0) + (1 if "big 12" in team.league.lower() or "acc" in team.league.lower() else 0)) / sum(g for g in team.record) if sum(team.record) != 0 else 0,
-        -team.record[0],
-        team.record[1],
+        (team.record[1] + (5 if "fbs" not in team.league.lower() else 0)) / sum(g for g in team.record) if sum(team.record) != 0 else 0,
+        -(team.record[0] + (2 if "fbs" in team.league.lower() else 0) + (2 if "big ten" in team.league.lower() or "sec" in team.league.lower() else 0) + (1 if "big 12" in team.league.lower() or "acc" in team.league.lower() else 0)) / sum(g for g in team.record) if sum(team.record) != 0 else 0,
+        -team.record[0] + (2 if "fbs" in team.league.lower() else 0) + (2 if "big ten" in team.league.lower() or "sec" in team.league.lower() else 0) + (1 if "big 12" in team.league.lower() or "acc" in team.league.lower() else 0),
+        team.record[1] + (2 if "fbs" not in team.league.lower() else 0),
         -team.margin/(team.record[0]+team.record[1]+team.record[2] if team.record[0]+team.record[1]+team.record[2] != 0 else 1),
         -team.margin
         )
@@ -274,7 +274,7 @@ playoff_seedings = create_playoff_rankings(true_rankings)
 with open('rankings.txt', 'w', encoding="utf-8") as output_file:
     output_file.write("Dave's Power Index:")
     for rank, team in enumerate(power_index, start=1):
-        if rank > 15:
+        if rank > 25:
             break
         else:
             output_file.write('\n ')
