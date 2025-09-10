@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: cfbd
+Version: 5.0.10a1
+Summary: College Football Data API
+Home-page: https://github.com/CFBD/cfbd-python
+Author-email: admin@collegefootballdata.com
+License: MIT
+Keywords: OpenAPI,OpenAPI-Generator,College Football Data API
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3<2.1.0,>=1.25.3
+Requires-Dist: python-dateutil
+Requires-Dist: pydantic<2,>=1.10.5
+Requires-Dist: aenum
+
+    This API is in limited Beta for Patreon subscribers. It may have bugs and is subject to changes. API keys can be acquired from the CollegeFootballData.com website.
+    
