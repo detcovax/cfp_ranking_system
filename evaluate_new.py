@@ -181,8 +181,6 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                     win = False
                 power_scale = classification_weights.get(opponent["classification"], 0.1) * conference_weights.get(opponent["conference"], 1.0) * other_weights.get(opponent_name, 1.0)
                 power_rating_multiplier = (10 ** ((len(return_list)+1 - opponent["dave_power"]) / len(return_list))) / 10
-                if (i == 0) and (j == 0):
-                    print(f"{team['school']}: {power_rating_multiplier}")
                 if win:
                     power_scale *= power_rating_multiplier
                 else:
@@ -250,6 +248,7 @@ final_rankings = sorted(
     reverse=False
 )
 
+# Rankings to file
 with open("rankings.txt", 'w', encoding="utf-8") as file:
     file.write("2025 DAVE Rankings\n")
 
@@ -321,3 +320,83 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         file.write(f"{line}\n")
         if i <= 25:
             print(f"{i_string} {team['abbreviation']}", end=", " if i < 25 else "\n")
+
+
+# Individual team reports
+with open("reports.txt", 'w', encoding="utf-8") as file:
+    for i, team in enumerate(final_rankings, start=1):
+        i_string = f"{i}."
+        rank_text = f"{i_string:<3}"
+        team_string = f"{team['school']} ({team['abbreviation']})"
+        team_text = f"{team_string:<15}"
+        record_text = f"({team['record'][0]}-{team['record'][1]})"
+        margin_text = f"({team['margin']:+d})"
+        list_by_credits = [_['school'] for _ in dave_rank]
+        list_by_power = [_['school'] for _ in dave_power]
+        list_by_off = [_['school'] for _ in dave_offense]
+        list_by_def = [_['school'] for _ in dave_defense]
+        credits_text = f"    Credits: #{list_by_credits.index(team['school'])+1}"
+        power_text = f"    Power: #{list_by_power.index(team['school'])+1}"
+        off_text = f"    Offesnse: #{list_by_off.index(team['school'])+1}"
+        def_text = f"    Defense: #{list_by_def.index(team['school'])+1}"
+        line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10}\n{credits_text}\n{power_text}\n{off_text}\n{def_text}"
+        file.write(f"{line}")
+        file.write("\n    Schedule:")
+        for game in team['games']:
+            homeTeam, homePoints = (game['homeTeam'], game['homePoints'])
+            awayTeam, awayPoints = (game['awayTeam'], game['awayPoints'])
+            opponent = awayTeam if homeTeam == team['school'] else homeTeam
+            teamPoints, opponentPoints = (homePoints, awayPoints) if (homeTeam == team['school']) else (awayPoints, homePoints)
+            if teamPoints != None and opponentPoints != None:
+                win = teamPoints > opponentPoints
+                line_precursor = f"{'W' if win else 'L'}"
+                line_precursor = f"{line_precursor:<5}"
+                homePoints_str = f" ({homePoints})"
+                awayPoints_str = f" ({awayPoints})"
+            else:
+                line_precursor = f"{game['week']}"
+                homePoints_str = ''
+                awayPoints_str = ''
+            ranked_teams = [_['school'] for _ in final_rankings]
+            try:
+                awayRank = ranked_teams.index(awayTeam) + 1
+            except:
+                awayRank = None
+            try:
+                homeRank = ranked_teams.index(homeTeam) + 1
+            except:
+                homeRank = None
+            away_str = f"{f'#{awayRank}' if awayRank != None else ''} {awayTeam}" + awayPoints_str
+            home_str = f"{f'#{homeRank}' if awayRank != None else ''} {homeTeam}" + homePoints_str
+            line = f"\n     {line_precursor:<5} {away_str:<25} {'@':<5} {home_str:<25}"
+            file.write(f"{line}")
+        file.write(f"\n\n\n")
+
+with open("playoff_predictor.txt", "w", encoding="utf-8") as file:
+    champs = dict()
+    teams = []
+    for i, team in enumerate(final_rankings, start=1):
+        if i <= 12:
+            teams.append(team['school'])
+        conf = team['conference']
+        if conf not in champs.keys() and conf != 'FBS Independents':
+            champs[conf] = team['school']
+        if len(champs) >= 5:
+            break
+    champs_added_counter = 0
+    for conf, team in champs.items():
+        if team not in teams:
+            del teams[-(champs_added_counter+1)]
+            teams.append(champs[conf])
+            champs_added_counter += 1
+    # print(f"champs_added_counter={champs_added_counter}")
+    
+    file.write(f"1. {teams[0]}")
+    file.write(f"\n2. {teams[1]}")
+    file.write(f"\n3. {teams[2]}")
+    file.write(f"\n4. {teams[3]}")
+    file.write("\n")
+    file.write(f"\n5. {teams[4]:<10} v.   12. {teams[11]}")
+    file.write(f"\n6. {teams[5]:<10} v.   11. {teams[10]}")
+    file.write(f"\n7. {teams[6]:<10} v.   10. {teams[9]}")
+    file.write(f"\n8. {teams[7]:<10} v.   9. {teams[8]}")
