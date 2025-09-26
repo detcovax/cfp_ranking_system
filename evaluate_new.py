@@ -391,12 +391,21 @@ with open("playoff_predictor.txt", "w", encoding="utf-8") as file:
             champs_added_counter += 1
     # print(f"champs_added_counter={champs_added_counter}")
     
+    file.write("Byes:\n")
     file.write(f"1. {teams[0]}")
     file.write(f"\n2. {teams[1]}")
     file.write(f"\n3. {teams[2]}")
     file.write(f"\n4. {teams[3]}")
     file.write("\n")
+    file.write("\nRound 1:")
     file.write(f"\n5. {teams[4]:<10} v.   12. {teams[11]}")
     file.write(f"\n6. {teams[5]:<10} v.   11. {teams[10]}")
     file.write(f"\n7. {teams[6]:<10} v.   10. {teams[9]}")
     file.write(f"\n8. {teams[7]:<10} v.   9. {teams[8]}")
+
+    file.write("\n\nOutside Looking In:")
+    outside_counter = 0
+    for i, team in enumerate(final_rankings, start=1):
+        if (i <= 25) and (team['school'] not in teams):
+            file.write(f"\n{team['school']}")
+            outside_counter += 1
