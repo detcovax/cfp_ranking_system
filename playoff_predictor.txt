@@ -5,23 +5,23 @@ Byes:
 #4 Ole Miss
 
 Round 1:
-#5 Vanderbilt v.   #12 (C)Memphis
-#6 Missouri   v.   #11 Tennessee
-#7 Oklahoma   v.   #10 Miami
+#5 Oklahoma   v.   #12 (C)Memphis
+#6 Alabama    v.   #11 BYU
+#7 Missouri   v.   #10 Miami
 #8 USC        v.   #9 Texas Tech
 
 Outside Looking In:
-#12 Texas A&M
-#13 Iowa State
-#14 Alabama
-#15 Louisville
-#16 BYU
-#17 LSU
-#18 Michigan
-#19 Memphis
-#20 Notre Dame
-#21 Maryland
-#22 Georgia
-#23 Utah
-#24 Penn State
-#25 Georgia Tech
+#12 Vanderbilt
+#13 Tennessee
+#14 Texas A&M
+#15 Georgia
+#16 Michigan
+#17 Notre Dame
+#18 Illinois
+#19 Virginia
+#20 LSU
+#21 Iowa State
+#22 Memphis
+#23 Georgia Tech
+#24 Utah
+#25 Louisville
