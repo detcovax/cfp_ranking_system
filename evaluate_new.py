@@ -49,19 +49,19 @@ def get_defensive_rating(team):
         return (-sp + fpi) / 7
     except (IndexError, KeyError, TypeError):
         return 0  # default value
-# def get_specialTeams_rating(team):
-#     try:
-#         sp = team["ratings"]["sp"][0]["specialTeams"]["rating"]
-#         fpi = team["ratings"]["fpi"][0]["efficiencies"]["specialTeams"]
-#         return (sp + fpi) / 7
-#     except (IndexError, KeyError, TypeError):
-#         return 0  # default value
+def get_specialTeams_rating(team):
+    try:
+        sp = team["ratings"]["sp"][0]["specialTeams"]["rating"]
+        fpi = team["ratings"]["fpi"][0]["efficiencies"]["specialTeams"]
+        return ((sp*7) + fpi) / 7 / 2
+    except (IndexError, KeyError, TypeError):
+        return 0  # default value
 def get_efficiency_rating(team):
     try:
         o = get_offensive_rating(team)
         d = get_defensive_rating(team)
-        # s = get_specialTeams_rating(team)
-        return (o + d)
+        s = get_specialTeams_rating(team)
+        return (o + d + s)
     except (IndexError, KeyError, TypeError):
         return 1  # default value)
 
@@ -120,6 +120,10 @@ dave_defense = sorted(teams, key=get_defensive_rating, reverse=True)
 for i, team in enumerate(dave_defense, start=1):
     team["dave_defense"] = round(get_defensive_rating(team), ndigits=2)
 
+dave_specialTeams = sorted(teams, key=get_specialTeams_rating, reverse=True)
+for i, team in enumerate(dave_specialTeams, start=1):
+    team["dave_specialTeams"] = round(get_specialTeams_rating(team), ndigits=2)
+
 dave_power = sorted(teams, key=get_power_rating, reverse=True)
 for i, team in enumerate(dave_power, start=1):
     team["power_rating"] = round(get_power_rating(team), ndigits=3)
@@ -130,17 +134,17 @@ for i, team in enumerate(dave_power, start=1):
 # Base multiplier by classification (FBS vs others)
 classification_weights = {
     "fbs": 1.0,   # baseline
-    "fcs": 0.01,   # less value for win, more penalty for loss
-    "ii": 0.001,
-    "iii": 0.0001,
+    "fcs": 0.5,   # less value for win, more penalty for loss
+    "ii": 0.25,
+    "iii": 0.1,
 }
 
 # Conference strength weights (relative difficulty within FBS)
 conference_weights = {
-    "SEC": 2.0,
-    "Big Ten": 2.0,
-    "Big 12": 1.5,
-    "ACC": 1.5,
+    "SEC": 1.25,
+    "Big Ten": 1.25,
+    "Big 12": 1.2,
+    "ACC": 1.2,
     "Pac-12": 1.0,   # adjust for "Power 5" perception
     "American Athletic": 1.0,
     "Mountain West": 1.0,
@@ -158,7 +162,7 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
     return_list = []
     for i, team in enumerate(team_list, start=1):
         return_list_team = team.copy()
-        return_list_team["power_rating"] = i
+        return_list_team["power_rank"] = i
         return_list.append(return_list_team)
     for i, team in enumerate(return_list):
         record = [0, 0]
@@ -180,7 +184,7 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                     record[1] += 1
                     win = False
                 power_scale = classification_weights.get(opponent["classification"], 0.1) * conference_weights.get(opponent["conference"], 1.0) * other_weights.get(opponent_name, 1.0)
-                power_rating_multiplier = (10 ** ((len(return_list)+1 - opponent["dave_power"]) / len(return_list))) / 10
+                power_rating_multiplier = (10 ** ((len(return_list)+1 - opponent["power_rank"]) / len(return_list))) / 10
                 if win:
                     power_scale *= power_rating_multiplier
                 else:
@@ -189,6 +193,7 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                 win_credits = math.asinh(margin) * power_scale
                 total_margin += margin
                 total_credits += win_credits
+                team["games"][j]["dave_info"] = {"winCredits": win_credits, "power_scale": power_scale, "power_rating_multiplier": power_rating_multiplier}
             except TypeError:
                 pass
         team["record"] = record
@@ -207,7 +212,7 @@ teams_by_record = sorted(
     )
 
 n = 1
-it_count = 5
+it_count = 10
 ratings = teams_by_record
 while n <= it_count:
     print_line = f"Rating Teams: {it_count - n}s"
@@ -253,7 +258,7 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
     file.write("2025 DAVE Rankings\n")
 
     file.write("\n\nDAVE OFFENSE:\n")
-    print(f"Offensive Power Ratings: ", end="")
+    # print(f"Offensive Power Ratings: ", end="")
     for i, team in enumerate(dave_offense[0:10], start=1):
         i_string = f"{i}."
         rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
@@ -262,11 +267,11 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         rating_text = f"(Offensive Rating: {team['dave_offense']})"
         line = f"{rank_text} {team_text} {rating_text:<15}"
         file.write(f"{line}\n")
-        if i <= 10:
-            print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
+        # if i <= 10:
+            # print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
 
     file.write("\n\nDAVE DEFENSE:\n")
-    print(f"Defensive Power Ratings: ", end="")
+    # print(f"Defensive Power Ratings: ", end="")
     for i, team in enumerate(dave_defense[0:10], start=1):
         i_string = f"{i}."
         rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
@@ -275,11 +280,24 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         rating_text = f"(Defensive Rating: {team['dave_defense']})"
         line = f"{rank_text} {team_text} {rating_text:<15}"
         file.write(f"{line}\n")
-        if i <= 10:
-            print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
+        # if i <= 10:
+            # print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
+
+    file.write("\n\nDAVE SPECIAL TEAMS:\n")
+    # print(f"Special Teams Power Ratings: ", end="")
+    for i, team in enumerate(dave_specialTeams[0:10], start=1):
+        i_string = f"{i}."
+        rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
+        team_string = f"{team['abbreviation']} ({team['school']})"
+        team_text = f"{team_string:<25}"  # left-align school name in 20 spaces
+        rating_text = f"(Special Teams Rating: {team['dave_specialTeams']})"
+        line = f"{rank_text} {team_text} {rating_text:<15}"
+        file.write(f"{line}\n")
+        # if i <= 10:
+        #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
 
     file.write("\n\nDAVE POWER:\n")
-    print(f"Power Index: ", end="")
+    # print(f"Power Index: ", end="")
     for i, team in enumerate(dave_power[0:10], start=1):
         i_string = f"{i}."
         rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
@@ -288,11 +306,11 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         power_text = f"(Power Rating: {team['power_rating']})"
         line = f"{rank_text} {team_text} {power_text:<15}"
         file.write(f"{line}\n")
-        if i <= 10:
-            print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
+        # if i <= 10:
+        #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
 
     file.write("\n\nDAVE CREDIT RATINGS:\n")
-    print(f"Credit Ratings: ", end="")
+    # print(f"Credit Ratings: ", end="")
     for i, team in enumerate(dave_rank[0:25], start=1):
         i_string = f"{i}."
         rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
@@ -303,11 +321,11 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         credits_text = f"(Credits: {round(team['winCredits'], ndigits=2)})"
         line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10} {credits_text:<15}"
         file.write(f"{line}\n")
-        if i <= 25:
-            print(f"{i_string} {team['abbreviation']}", end=", " if i < 25 else "\n")
+        # if i <= 25:
+        #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 25 else "\n")
 
     file.write("\n\nFINAL RANKINGS:\n")
-    print(f"Rankings: ", end="")
+    # print(f"Rankings: ", end="")
     for i, team in enumerate(final_rankings, start=1):
         i_string = f"#{i}"
         rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
@@ -318,8 +336,8 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         info_text = f"(Power: #{team['dave_power']}, Credits: #{team['dave_rank']})"
         line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10} {info_text:<15}"
         file.write(f"{line}\n")
-        if i <= 25:
-            print(f"{i_string} {team['abbreviation']}", end=", " if i < 25 else "\n")
+        # if i <= 25:
+        #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 25 else "\n")
 
 
 # Individual team reports
@@ -335,14 +353,16 @@ with open("reports.txt", 'w', encoding="utf-8") as file:
         list_by_power = [_['school'] for _ in dave_power]
         list_by_off = [_['school'] for _ in dave_offense]
         list_by_def = [_['school'] for _ in dave_defense]
-        credits_text = f"    Credits: #{list_by_credits.index(team['school'])+1}"
-        power_text = f"    Power: #{list_by_power.index(team['school'])+1}"
-        off_text = f"    Offesnse: #{list_by_off.index(team['school'])+1}"
-        def_text = f"    Defense: #{list_by_def.index(team['school'])+1}"
-        line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10}\n{credits_text}\n{power_text}\n{off_text}\n{def_text}"
+        list_by_spt = [_['school'] for _ in dave_specialTeams]
+        credits_text = f"    #{list_by_credits.index(team['school'])+1} Credits: {round(team['winCredits'], ndigits=3)}"
+        power_text = f"    #{list_by_power.index(team['school'])+1} Power: {team['power_rating']}"
+        off_text = f"    #{list_by_off.index(team['school'])+1} Offense: {team['dave_offense']}"
+        def_text = f"    #{list_by_def.index(team['school'])+1} Defense: {team['dave_defense']}"
+        spt_text = f"    #{list_by_spt.index(team['school'])+1} Special Teams: {team['dave_specialTeams']}"
+        line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10}\n{credits_text}\n{power_text}\n{off_text}\n{def_text}\n{spt_text}"
         file.write(f"{line}")
         file.write("\n    Schedule:")
-        for game in team['games']:
+        for j, game in enumerate(team['games']):
             homeTeam, homePoints = (game['homeTeam'], game['homePoints'])
             awayTeam, awayPoints = (game['awayTeam'], game['awayPoints'])
             opponent = awayTeam if homeTeam == team['school'] else homeTeam
@@ -366,9 +386,14 @@ with open("reports.txt", 'w', encoding="utf-8") as file:
                 homeRank = ranked_teams.index(homeTeam) + 1
             except:
                 homeRank = None
+            try:
+                credits = team["games"][j]["dave_info"]["winCredits"]
+            except:
+                credits = None
             away_str = f"{f'#{awayRank}' if awayRank != None else ''} {awayTeam}" + awayPoints_str
             home_str = f"{f'#{homeRank}' if awayRank != None else ''} {homeTeam}" + homePoints_str
-            line = f"\n     {line_precursor:<5} {away_str:<25} {'@':<5} {home_str:<25}"
+            credit_str = f"{f'Credit: {round(credits, ndigits=3)}' if credits != None else ''}"
+            line = f"\n     {line_precursor:<5} {away_str:<25} {'@':<5} {home_str:<25}     {credit_str:>10}"
             file.write(f"{line}")
         file.write(f"\n\n\n")
 
@@ -387,25 +412,65 @@ with open("playoff_predictor.txt", "w", encoding="utf-8") as file:
     for conf, team in champs.items():
         if team not in teams:
             del teams[-(champs_added_counter+1)]
-            teams.append(champs[conf])
+            teams.append(f"(C){champs[conf]}")
             champs_added_counter += 1
     # print(f"champs_added_counter={champs_added_counter}")
     
     file.write("Byes:\n")
-    file.write(f"1. {teams[0]}")
-    file.write(f"\n2. {teams[1]}")
-    file.write(f"\n3. {teams[2]}")
-    file.write(f"\n4. {teams[3]}")
+    file.write(f"#1 {teams[0]}")
+    file.write(f"\n#2 {teams[1]}")
+    file.write(f"\n#3 {teams[2]}")
+    file.write(f"\n#4 {teams[3]}")
     file.write("\n")
     file.write("\nRound 1:")
-    file.write(f"\n5. {teams[4]:<10} v.   12. {teams[11]}")
-    file.write(f"\n6. {teams[5]:<10} v.   11. {teams[10]}")
-    file.write(f"\n7. {teams[6]:<10} v.   10. {teams[9]}")
-    file.write(f"\n8. {teams[7]:<10} v.   9. {teams[8]}")
+    file.write(f"\n#5 {teams[4]:<10} v.   #12 {teams[11]}")
+    file.write(f"\n#6 {teams[5]:<10} v.   #11 {teams[10]}")
+    file.write(f"\n#7 {teams[6]:<10} v.   #10 {teams[9]}")
+    file.write(f"\n#8 {teams[7]:<10} v.   #9 {teams[8]}")
 
     file.write("\n\nOutside Looking In:")
     outside_counter = 0
     for i, team in enumerate(final_rankings, start=1):
         if (i <= 25) and (team['school'] not in teams):
-            file.write(f"\n{team['school']}")
+            file.write(f"\n#{i} {team['school']}")
             outside_counter += 1
+
+
+games = []
+# Flatten all games into a single list
+for team in final_rankings:
+    games.extend(team['games'])
+unique_games = []
+seen = set()
+for g in games:
+    if g.get('dave_info', {'winCredits': -1}).get('winCredits', -1) >= 0:
+        # Define a unique key (adjust fields if needed)
+        key = (g.get('homeTeam'), g.get('awayTeam'), g.get('startDate', g.get('id')))
+        if key not in seen:
+            seen.add(key)
+            unique_games.append(g)
+    else:
+        continue
+games = unique_games
+# Define a safe key extractor for nested keys
+def creditKey(game):
+    return game.get('dave_info', {}).get('winCredits', 0)
+# Sort descending by winCredits (most impressive first)
+most_impressive_wins = sorted(games, key=creditKey, reverse=True)
+with open("game_impression.txt", 'w', encoding="utf-8") as file:
+    file.write(f"Total games: {len(most_impressive_wins)}")
+    for n, game in enumerate(most_impressive_wins):
+        home = game.get('homeTeam', 'Unknown')
+        homePoints = game.get('homePoints', 'Unknown')
+        away = game.get('awayTeam', 'Unknown')
+        awayPoints = game.get('awayPoints', 'Unknown')
+        credits = game.get('dave_info', {}).get('winCredits', 'N/A')
+        if isinstance(credits, float):
+            credits = round(credits, ndigits=3)
+        nth_string = f"{n+1:<4}   {home}({homePoints}) vs {away}({awayPoints})   (Credits: {credits})"
+        file.write(f"\n{nth_string}")
+        # if n == 0:
+        #     print(f"\nMost impressive win: {home} vs {away}   (Credits: {round(credits, ndigits=3)})")
+# print(f"Total games: {len(most_impressive_wins)}")
+
+print("Done.")
