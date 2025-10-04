@@ -131,22 +131,22 @@ for i, team in enumerate(dave_power, start=1):
 classification_weights = {
     "fbs": 1.0,   # baseline
     "fcs": 0.01,   # less value for win, more penalty for loss
-    "ii": 0.005,
-    "iii": 0.001,
+    "ii": 0.001,
+    "iii": 0.0001,
 }
 
 # Conference strength weights (relative difficulty within FBS)
 conference_weights = {
-    "SEC": 5.0,
-    "Big Ten": 5.0,
-    "Big 12": 2.0,
-    "ACC": 2.0,
-    "Pac-12": 1.2,   # adjust for "Power 5" perception
+    "SEC": 2.0,
+    "Big Ten": 2.0,
+    "Big 12": 1.5,
+    "ACC": 1.5,
+    "Pac-12": 1.0,   # adjust for "Power 5" perception
     "American Athletic": 1.0,
-    "Mountain West": 1.2,
+    "Mountain West": 1.0,
     "Sun Belt": 1.0,
     "Conference USA": 1.0,
-    "Mid-American": 1.2,
+    "Mid-American": 1.0,
 }
 
 other_weights = {
@@ -186,7 +186,7 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                 else:
                     power_scale =  1 / power_scale
                     power_scale /= power_rating_multiplier
-                win_credits = margin * power_scale / 7
+                win_credits = math.asinh(margin) * power_scale
                 total_margin += margin
                 total_credits += win_credits
             except TypeError:
@@ -243,7 +243,7 @@ for i, team in enumerate(dave_rank, start=1):
 final_rankings = sorted(
     dave_rank,
     key=lambda team: (
-        (0.6 * team["dave_power"]) + (0.4 * team["dave_rank"])
+        (0.4 * team["dave_power"]) + (0.6 * team["dave_rank"])
     ),
     reverse=False
 )

@@ -48,7 +48,7 @@ try:
     rankings = api_call("rankings", {"year": 2025})
     ratings = {
         "sp": api_call("ratings/sp", {"year": 2025}),
-        "srs": api_call("ratings/srs", {"year": 2025}),
+        # "srs": api_call("ratings/srs", {"year": 2025}),
         "elo": api_call("ratings/elo", {"year": 2025}),
         "fpi": api_call("ratings/fpi", {"year": 2025})
     }
