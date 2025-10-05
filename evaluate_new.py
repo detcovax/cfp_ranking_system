@@ -212,7 +212,7 @@ teams_by_record = sorted(
     )
 
 n = 1
-it_count = 10
+it_count = 30
 ratings = teams_by_record
 while n <= it_count:
     print_line = f"Rating Teams: {it_count - n}s"
