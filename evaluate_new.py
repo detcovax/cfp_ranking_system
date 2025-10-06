@@ -212,7 +212,7 @@ teams_by_record = sorted(
     )
 
 n = 1
-it_count = 30
+it_count = 3
 ratings = teams_by_record
 while n <= it_count:
     print_line = f"Rating Teams: {it_count - n}s"
@@ -245,13 +245,64 @@ dave_rank = sorted(
 for i, team in enumerate(dave_rank, start=1):
     team["dave_rank"] = i
 
-final_rankings = sorted(
-    dave_rank,
-    key=lambda team: (
-        (0.4 * team["dave_power"]) + (0.6 * team["dave_rank"])
-    ),
-    reverse=False
-)
+rankings_to_average = []
+n=2
+for w1 in [round(x * (10**(-n)), n) for x in range((10**n)+1)]:
+    w2 = round(1 - w1, n)
+    it_rank = sorted(
+        dave_rank,
+        key=lambda team: (
+            (w1 * team["dave_power"]) + (w2 * team["dave_rank"])
+        ),
+        reverse=False
+    )
+    rankings_to_average.append(it_rank)
+
+###############################################
+###############################################
+
+from collections import defaultdict
+import numpy as np
+
+def filter_and_average_rankings(rankings_to_average):
+    team_ranks = defaultdict(list)
+    for ranking in rankings_to_average:
+        for position, team in enumerate(ranking):
+            team_name = team["school"]
+            team_ranks[team_name].append(position + 1)  # 1-based rank
+
+    team_stats = {
+        team: {
+            "mean": np.mean(ranks),
+            "std": np.std(ranks)
+        }
+        for team, ranks in team_ranks.items()
+    }
+
+    # stable_rankings = []
+    # for ranking in rankings_to_average:
+    #     if any(abs(rank - team_stats[team["school"]]["mean"]) > 2*team_stats[team["school"]]["std"] for rank, team in enumerate(ranking)):
+    #         continue
+    #     else:
+    #         stable_rankings.append(ranking)
+    
+    return dict(sorted(team_stats.items(), key=lambda x: x[1]['mean']))
+
+filtered_rankings = filter_and_average_rankings(rankings_to_average)
+final_rankings = sorted(dave_rank, key=lambda team: filtered_rankings[team["school"]]["mean"])
+for i, team in enumerate(final_rankings[:10], start=1):
+    print(i, team['school'])
+
+###############################################
+###############################################
+
+# final_rankings = sorted(
+#     dave_rank,
+#     key=lambda team: (
+#         (0.4 * team["dave_power"]) + (0.6 * team["dave_rank"])
+#     ),
+#     reverse=False
+# )
 
 # Rankings to file
 with open("rankings.txt", 'w', encoding="utf-8") as file:
