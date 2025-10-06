@@ -57,6 +57,30 @@ try:
         teams[i]["rankings"] = [ranking for ranking in rankings if any(rank["school"] == team["school"] for poll in ranking["polls"] for rank in poll["ranks"])]
         teams[i]["ratings"] = {k: [_ for _ in v if _["team"]==team["school"]] for k, v in ratings.items()}
 
+    print("fetching stats...")
+    stats = api_call("stats/season", {"year": 2025})
+    stats_advanced = api_call("stats/season/advanced", {"year": 2025})
+    for stat in tqdm(stats, desc="organizing stats", total=len(stats)):
+        season = stat["season"]
+        team = stat["team"]
+        conference = stat["conference"]
+        statName = stat["statName"]
+        statValue = stat["statValue"]
+        statCategory = "defense" if "Opponent" in statName else "offense"
+        advanded_stat = next((s for s in stats_advanced if s["season"]==season and s["team"]==team and s["conference"]==conference), None)
+        if advanded_stat:
+            advanded_stat[statCategory][statName] = statValue
+        else:
+            stats_advanced.append({"season": season, "team": team, "conference": conference, statCategory: {statName: statValue}})
+    
+    for stat in tqdm(stats_advanced, desc="combining stats & data", total=len(stats_advanced)):
+        team = stat["team"]
+        conference = stat["conference"]
+        team = next((t for t in teams if t["school"]==team and t["conference"]==conference), None)
+        if team:
+            team["stats"] = stat
+        else:
+            team.append({"team": team, "conference": conference, stats: stat})
 
     print("writing to file...")
     data_file = 'new_data.json'
