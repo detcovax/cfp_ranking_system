@@ -46,16 +46,16 @@ try:
     # roster = api_call("roster", {"year": 2025})
     games = api_call("games", {"year": 2025})
     rankings = api_call("rankings", {"year": 2025})
-    ratings = {
-        "sp": api_call("ratings/sp", {"year": 2025}),
-        # "srs": api_call("ratings/srs", {"year": 2025}),
-        "elo": api_call("ratings/elo", {"year": 2025}),
-        "fpi": api_call("ratings/fpi", {"year": 2025})
-    }
+    # ratings = {
+    #     "sp": api_call("ratings/sp", {"year": 2025}),
+    #     # "srs": api_call("ratings/srs", {"year": 2025}),
+    #     "elo": api_call("ratings/elo", {"year": 2025}),
+    #     "fpi": api_call("ratings/fpi", {"year": 2025})
+    # }
     for i, team in tqdm(enumerate(teams), desc="organizing data", total=len(teams)):
         teams[i]["games"] = [game for game in games if (game["homeTeam"]==team["school"] or game["awayTeam"]==team["school"])]
         teams[i]["rankings"] = [ranking for ranking in rankings if any(rank["school"] == team["school"] for poll in ranking["polls"] for rank in poll["ranks"])]
-        teams[i]["ratings"] = {k: [_ for _ in v if _["team"]==team["school"]] for k, v in ratings.items()}
+        # teams[i]["ratings"] = {k: [_ for _ in v if _["team"]==team["school"]] for k, v in ratings.items()}
 
     print("fetching stats...")
     stats = api_call("stats/season", {"year": 2025})

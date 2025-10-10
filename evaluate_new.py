@@ -1,4 +1,6 @@
 import json, math, copy
+from collections import defaultdict
+import numpy as np
 CLEAR_LINE = "\x1b[2K" # Clear the current line
 CURSOR_UP = "\033[1A"  # Move cursor up one line
 
@@ -8,125 +10,87 @@ with open(data_file, 'r') as json_file:
     teams = json.load(json_file)
 
 teams = [team for team in teams if len(team["games"]) > 0]
+power_teams = [team for team in teams if "stats" in team.keys()]
 
-def get_sp(team):
+def get_off_scoring(team):
     try:
-        return team["ratings"]["sp"][0]["rating"]
+        return team["stats"]["offense"]["passingTDs"] + team["stats"]["offense"]["rushingTDs"]
     except (IndexError, KeyError, TypeError):
-        return 1  # default value
-# def get_srs(team):
-#     try:
-#         return team["ratings"]["srs"] ??
-#     except (IndexError, KeyError, TypeError):
-#         return 0  # default value
-def get_elo(team):
+        return 0  # default value
+
+def get_off_yards(team):
     try:
-        return team["ratings"]["elo"][0]["elo"]
+        return team["stats"]["offense"]["netPassingYards"] + team["stats"]["offense"]["rushingYards"]
     except (IndexError, KeyError, TypeError):
-        return 1000  # default value
-def get_normalized_elo(team):
+        return 0  # default value
+
+def get_off_drive_count(team):
     try:
-        return get_elo(team)/1000
-    except (IndexError, KeyError, TypeError):
-        return 1  # default value
-def get_fpi(team):
-    try:
-        return team["ratings"]["fpi"][0]["fpi"]
+        return team["stats"]["offense"]["drives"]
     except (IndexError, KeyError, TypeError):
         return 1  # default value
 
-def get_offensive_rating(team):
+def get_off_power(team):
     try:
-        sp = team["ratings"]["sp"][0]["offense"]["rating"]
-        fpi = team["ratings"]["fpi"][0]["efficiencies"]["offense"]
-        return (sp + fpi) / 2 / 7
-    except (IndexError, KeyError, TypeError):
-        return 0  # default value
-def get_defensive_rating(team):
-    try:
-        sp = team["ratings"]["sp"][0]["defense"]["rating"]
-        fpi = team["ratings"]["fpi"][0]["efficiencies"]["defense"]
-        return (-sp + fpi) / 7
-    except (IndexError, KeyError, TypeError):
-        return 0  # default value
-def get_specialTeams_rating(team):
-    try:
-        sp = team["ratings"]["sp"][0]["specialTeams"]["rating"]
-        fpi = team["ratings"]["fpi"][0]["efficiencies"]["specialTeams"]
-        return ((sp*7) + fpi) / 7 / 2
-    except (IndexError, KeyError, TypeError):
-        return 0  # default value
-def get_efficiency_rating(team):
-    try:
-        o = get_offensive_rating(team)
-        d = get_defensive_rating(team)
-        s = get_specialTeams_rating(team)
-        return (o + d + s)
-    except (IndexError, KeyError, TypeError):
-        return 1  # default value)
+        off_drives = get_off_drive_count(team)
+        off_scoringPerDrive = get_off_scoring(team) / off_drives
+        off_yardsPerDrive = get_off_yards(team) / off_drives
+        off_power = (off_scoringPerDrive*7) + (off_yardsPerDrive/100)
+        return 5*off_power
+    except:
+        return 0
 
-def get_power_rating(team):
+def get_def_scoring(team):
     try:
-        return (((get_fpi(team)+get_sp(team))*get_normalized_elo(team)) + get_efficiency_rating(team)) / 7
+        return team["stats"]["defense"]["passingTDsOpponent"] + team["stats"]["defense"]["rushingTDsOpponent"]
     except (IndexError, KeyError, TypeError):
         return 0  # default value
 
-# def get_offensive_scoring(team):
-#     games_played = 0
-#     points = 0
-#     try:
-#         for game in team["games"]:
-#             try:
-#                 if team["school"] == game["awayTeam"]:
-#                     points += game["awayPoints"]
-#                 else:
-#                     points += game["homePoints"]
-#                 games_played += 1
-#             except:
-#                 continue
-#         return points / games_played
-#     except (ZeroDivisionError):
-#         return -1  # default value
-#     except (IndexError, KeyError, TypeError):
-#         return 0  # default value
-# def get_defensive_scoring(team):
-#     games_played = 0
-#     points = 0
-#     try:
-#         for game in team["games"]:
-#             try:
-#                 if team["school"] == game["awayTeam"]:
-#                     points += game["homePoints"]
-#                 else:
-#                     points += game["awayPoints"]
-#                 games_played += 1
-#             except:
-#                 continue
-#         return points / games_played
-#     except (ZeroDivisionError):
-#         return -1  # default value
-#     except (IndexError, KeyError, TypeError):
-#         return 0  # default value
-# def get_net_scoring(team):
-#     return get_offensive_scoring(team) - get_defensive_scoring(team)
+def get_def_yards(team):
+    try:
+        return team["stats"]["defense"]["netPassingYardsOpponent"] + team["stats"]["defense"]["rushingYardsOpponent"]
+    except (IndexError, KeyError, TypeError):
+        return 0  # default value
 
-# scoring_power_weight = 0.0
+def get_def_drive_count(team):
+    try:
+        return team["stats"]["defense"]["drives"]
+    except (IndexError, KeyError, TypeError):
+        return 1  # default value
 
-dave_offense = sorted(teams, key=get_offensive_rating, reverse=True)
+def get_def_power(team):
+    try:
+        def_drives = get_def_drive_count(team)
+        def_scoringPerDrive = get_def_scoring(team) / def_drives
+        def_yardsPerDrive = get_def_yards(team) / def_drives
+        def_power = (def_scoringPerDrive*7) + (def_yardsPerDrive/100)
+        return 5*def_power
+    except:
+        return 0
+
+def get_power(team):
+    off_power = get_off_power(team)
+    def_power = get_def_power(team)
+    try:
+        return (off_power) - (def_power)
+    except:
+        return 0 
+
+dave_offense = sorted(power_teams, key=get_off_power, reverse=True)
 for i, team in enumerate(dave_offense, start=1):
-    team["dave_offense"] = round(get_offensive_rating(team), ndigits=2)
+    team["dave_offense"] = round(get_off_power(team), ndigits=2)
 
-dave_defense = sorted(teams, key=get_defensive_rating, reverse=True)
+dave_defense = sorted(power_teams, key=get_def_power, reverse=False)
 for i, team in enumerate(dave_defense, start=1):
-    team["dave_defense"] = round(get_defensive_rating(team), ndigits=2)
+    team["dave_defense"] = round(get_def_power(team), ndigits=2)
 
-dave_specialTeams = sorted(teams, key=get_specialTeams_rating, reverse=True)
-for i, team in enumerate(dave_specialTeams, start=1):
-    team["dave_specialTeams"] = round(get_specialTeams_rating(team), ndigits=2)
+# dave_specialTeams = sorted(teams, key=get_specialTeams_rating, reverse=True)
+# for i, team in enumerate(dave_specialTeams, start=1):
+#     team["dave_specialTeams"] = round(get_specialTeams_rating(team), ndigits=2)
 
-dave_power = sorted(teams, key=get_power_rating, reverse=True)
+dave_power = sorted(power_teams, key=get_power, reverse=True)
 for i, team in enumerate(dave_power, start=1):
-    team["power_rating"] = round(get_power_rating(team), ndigits=3)
+    team["power_rating"] = round(get_power(team), ndigits=3)
     team["dave_power"] = i
     # if i <= 10:
     #     print(f"#{i} {team['abbreviation']}", end="\n" if i < 10 else "\n")
@@ -141,8 +105,8 @@ classification_weights = {
 
 # Conference strength weights (relative difficulty within FBS)
 conference_weights = {
-    "SEC": 1.25,
-    "Big Ten": 1.25,
+    "SEC": 1.5,
+    "Big Ten": 1.5,
     "Big 12": 1.2,
     "ACC": 1.2,
     "Pac-12": 1.0,   # adjust for "Power 5" perception
@@ -154,7 +118,7 @@ conference_weights = {
 }
 
 other_weights = {
-    "Notre Dame": conference_weights["ACC"]
+    "Notre Dame": conference_weights["Big Ten"]
 }
 
 def rate_teams(team_list:list[dict]) -> list[dict]:
@@ -212,7 +176,7 @@ teams_by_record = sorted(
     )
 
 n = 1
-it_count = 3
+it_count = 30
 ratings = teams_by_record
 while n <= it_count:
     print_line = f"Rating Teams: {it_count - n}s"
@@ -258,18 +222,13 @@ for w1 in [round(x * (10**(-n)), n) for x in range((10**n)+1)]:
     )
     rankings_to_average.append(it_rank)
 
-###############################################
-###############################################
-
-from collections import defaultdict
-import numpy as np
 
 def filter_and_average_rankings(rankings_to_average):
     team_ranks = defaultdict(list)
     for ranking in rankings_to_average:
-        for position, team in enumerate(ranking):
+        for rank, team in enumerate(ranking, start=1):
             team_name = team["school"]
-            team_ranks[team_name].append(position + 1)  # 1-based rank
+            team_ranks[team_name].append(rank)
 
     team_stats = {
         team: {
@@ -279,22 +238,25 @@ def filter_and_average_rankings(rankings_to_average):
         for team, ranks in team_ranks.items()
     }
 
-    # stable_rankings = []
-    # for ranking in rankings_to_average:
-    #     if any(abs(rank - team_stats[team["school"]]["mean"]) > 2*team_stats[team["school"]]["std"] for rank, team in enumerate(ranking)):
-    #         continue
-    #     else:
-    #         stable_rankings.append(ranking)
+    stable_rankings = defaultdict(list)
+    for ranking in rankings_to_average:
+        for rank, team in enumerate(ranking, start=1):
+            if abs(rank - team_stats[team["school"]]["mean"]) > team_stats[team["school"]]["std"]:
+                continue
+            else:
+                stable_rankings[team["school"]].append(rank)
+    for team, stats in team_stats.items():
+        if team not in stable_rankings:
+            stable_rankings[team] = [stats["mean"]]
+
+    average_stable_rankings = {team: np.mean(ranks) for team, ranks in stable_rankings.items()}
     
-    return dict(sorted(team_stats.items(), key=lambda x: x[1]['mean']))
+    return dict(sorted(average_stable_rankings.items(), key=lambda x: x[1]))
 
 filtered_rankings = filter_and_average_rankings(rankings_to_average)
-final_rankings = sorted(dave_rank, key=lambda team: filtered_rankings[team["school"]]["mean"])
+final_rankings = sorted(dave_rank, key=lambda team: filtered_rankings[team["school"]])
 for i, team in enumerate(final_rankings[:10], start=1):
     print(i, team['school'])
-
-###############################################
-###############################################
 
 # final_rankings = sorted(
 #     dave_rank,
@@ -334,18 +296,18 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         # if i <= 10:
             # print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
 
-    file.write("\n\nDAVE SPECIAL TEAMS:\n")
-    # print(f"Special Teams Power Ratings: ", end="")
-    for i, team in enumerate(dave_specialTeams[0:10], start=1):
-        i_string = f"{i}."
-        rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
-        team_string = f"{team['abbreviation']} ({team['school']})"
-        team_text = f"{team_string:<25}"  # left-align school name in 20 spaces
-        rating_text = f"(Special Teams Rating: {team['dave_specialTeams']})"
-        line = f"{rank_text} {team_text} {rating_text:<15}"
-        file.write(f"{line}\n")
-        # if i <= 10:
-        #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
+    # file.write("\n\nDAVE SPECIAL TEAMS:\n")
+    # # print(f"Special Teams Power Ratings: ", end="")
+    # for i, team in enumerate(dave_specialTeams[0:10], start=1):
+    #     i_string = f"{i}."
+    #     rank_text = f"{i_string:<3}"  # left-align rank in 3 spaces
+    #     team_string = f"{team['abbreviation']} ({team['school']})"
+    #     team_text = f"{team_string:<25}"  # left-align school name in 20 spaces
+    #     rating_text = f"(Special Teams Rating: {team['dave_specialTeams']})"
+    #     line = f"{rank_text} {team_text} {rating_text:<15}"
+    #     file.write(f"{line}\n")
+    #     # if i <= 10:
+    #     #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 10 else "\n")
 
     file.write("\n\nDAVE POWER:\n")
     # print(f"Power Index: ", end="")
@@ -404,13 +366,13 @@ with open("reports.txt", 'w', encoding="utf-8") as file:
         list_by_power = [_['school'] for _ in dave_power]
         list_by_off = [_['school'] for _ in dave_offense]
         list_by_def = [_['school'] for _ in dave_defense]
-        list_by_spt = [_['school'] for _ in dave_specialTeams]
+        # list_by_spt = [_['school'] for _ in dave_specialTeams]
         credits_text = f"    #{list_by_credits.index(team['school'])+1} Credits: {round(team['winCredits'], ndigits=3)}"
         power_text = f"    #{list_by_power.index(team['school'])+1} Power: {team['power_rating']}"
         off_text = f"    #{list_by_off.index(team['school'])+1} Offense: {team['dave_offense']}"
         def_text = f"    #{list_by_def.index(team['school'])+1} Defense: {team['dave_defense']}"
-        spt_text = f"    #{list_by_spt.index(team['school'])+1} Special Teams: {team['dave_specialTeams']}"
-        line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10}\n{credits_text}\n{power_text}\n{off_text}\n{def_text}\n{spt_text}"
+        # spt_text = f"    #{list_by_spt.index(team['school'])+1} Special Teams: {team['dave_specialTeams']}"
+        line = f"{rank_text} {team_text} {record_text:<1} {margin_text:<10}\n{credits_text}\n{power_text}\n{off_text}\n{def_text}"
         file.write(f"{line}")
         file.write("\n    Schedule:")
         for j, game in enumerate(team['games']):
@@ -451,38 +413,38 @@ with open("reports.txt", 'w', encoding="utf-8") as file:
 with open("playoff_predictor.txt", "w", encoding="utf-8") as file:
     champs = dict()
     teams = []
+    for i, team in enumerate(final_rankings[:12], start=1):
+        teams.append(f"#{i} {team['school']}")
     for i, team in enumerate(final_rankings, start=1):
-        if i <= 12:
-            teams.append(team['school'])
         conf = team['conference']
         if conf not in champs.keys() and conf != 'FBS Independents':
-            champs[conf] = team['school']
+            champs[conf] = f"#{i} {team['school']}"
         if len(champs) >= 5:
             break
     champs_added_counter = 0
     for conf, team in champs.items():
         if team not in teams:
             del teams[-(champs_added_counter+1)]
-            teams.append(f"(C){champs[conf]}")
+            teams.append(champs[conf])
             champs_added_counter += 1
     # print(f"champs_added_counter={champs_added_counter}")
     
     file.write("Byes:\n")
-    file.write(f"#1 {teams[0]}")
-    file.write(f"\n#2 {teams[1]}")
-    file.write(f"\n#3 {teams[2]}")
-    file.write(f"\n#4 {teams[3]}")
+    file.write(f"{teams[0]}")
+    file.write(f"\n{teams[1]}")
+    file.write(f"\n{teams[2]}")
+    file.write(f"\n{teams[3]}")
     file.write("\n")
     file.write("\nRound 1:")
-    file.write(f"\n#5 {teams[4]:<10} v.   #12 {teams[11]}")
-    file.write(f"\n#6 {teams[5]:<10} v.   #11 {teams[10]}")
-    file.write(f"\n#7 {teams[6]:<10} v.   #10 {teams[9]}")
-    file.write(f"\n#8 {teams[7]:<10} v.   #9 {teams[8]}")
+    file.write(f"\n{teams[4]:<12} v.   {teams[11]}")
+    file.write(f"\n{teams[5]:<12} v.   {teams[10]}")
+    file.write(f"\n{teams[6]:<12} v.   {teams[9]}")
+    file.write(f"\n{teams[7]:<12} v.   {teams[8]}")
 
     file.write("\n\nOutside Looking In:")
     outside_counter = 0
     for i, team in enumerate(final_rankings, start=1):
-        if (i <= 25) and (team['school'] not in teams):
+        if (i <= 25) and (f"#{i} {team['school']}" not in teams):
             file.write(f"\n#{i} {team['school']}")
             outside_counter += 1
 
