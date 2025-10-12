@@ -2,25 +2,25 @@ Byes:
 #1 Indiana
 #2 Ohio State
 #3 Texas Tech
-#4 Missouri
+#4 Miami
 
 Round 1:
-#5 Miami     v.   #13 Memphis
-#6 Oregon    v.   #11 Vanderbilt
-#7 Oklahoma  v.   #10 Ole Miss
-#8 USC       v.   #9 Alabama
+#5 USC       v.   #12 Memphis
+#6 BYU       v.   #11 Alabama
+#7 Missouri  v.   #10 Ole Miss
+#8 Notre Dame v.   #9 Oregon
 
 Outside Looking In:
-#12 BYU
+#13 Utah
 #14 Washington
-#15 Nebraska
-#16 Notre Dame
-#17 Cincinnati
-#18 Florida State
-#19 Navy
-#20 Georgia
-#21 Utah
-#22 Texas A&M
-#23 Michigan
-#24 Tennessee
-#25 Georgia Tech
+#15 Vanderbilt
+#16 Georgia
+#17 Oklahoma
+#18 Nebraska
+#19 Cincinnati
+#20 Navy
+#21 Texas A&M
+#22 Tennessee
+#23 Georgia Tech
+#24 Texas
+#25 LSU
