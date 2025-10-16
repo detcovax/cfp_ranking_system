@@ -36,7 +36,9 @@ def get_off_power(team):
         off_scoringPerDrive = get_off_scoring(team) / off_drives
         off_yardsPerDrive = get_off_yards(team) / off_drives
         off_power = (off_scoringPerDrive*7) + (off_yardsPerDrive/100)
-        return 5*off_power
+        off_pts_per = team["stats"]["offense"]["pointsPerOpportunity"]
+        # return 5*off_power
+        return off_pts_per + (off_yardsPerDrive/100)
     except:
         return 0
 
@@ -64,7 +66,9 @@ def get_def_power(team):
         def_scoringPerDrive = get_def_scoring(team) / def_drives
         def_yardsPerDrive = get_def_yards(team) / def_drives
         def_power = (def_scoringPerDrive*7) + (def_yardsPerDrive/100)
-        return 5*def_power
+        def_pts_per = team["stats"]["defense"]["pointsPerOpportunity"]
+        # return 5*def_power
+        return def_pts_per + (def_yardsPerDrive/100)
     except:
         return 0
 
