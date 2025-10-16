@@ -475,9 +475,49 @@ def creditKey(game):
 # Sort descending by winCredits (most impressive first)
 most_impressive_wins = sorted(games, key=creditKey, reverse=True)
 list_by_rank = [_['school'] for _ in final_rankings]
-with open("game_impression.txt", 'w', encoding="utf-8") as file:
+with open("most_impressive_wins.txt", 'w', encoding="utf-8") as file:
     file.write(f"Total games: {len(most_impressive_wins)}")
     for n, game in enumerate(most_impressive_wins):
+        home = game.get('homeTeam', 'Unknown')
+        homeRank = list_by_rank.index(home)+1
+        homePoints = game.get('homePoints', 'Unknown')
+        away = game.get('awayTeam', 'Unknown')
+        awayRank = list_by_rank.index(away)+1
+        awayPoints = game.get('awayPoints', 'Unknown')
+        credits = game.get('dave_info', {}).get('winCredits', 'N/A')
+        if isinstance(credits, float):
+            credits = round(credits, ndigits=3)
+        nth_string = f"{n+1:<4}   #{homeRank} {home}({homePoints})  vs  #{awayRank} {away}({awayPoints})   (Credits: {credits})"
+        file.write(f"\n{nth_string}")
+        # if n == 0:
+        #     print(f"\nMost impressive win: {home} vs {away}   (Credits: {round(credits, ndigits=3)})")
+# print(f"Total games: {len(most_impressive_wins)}")
+
+games = []
+# Flatten all games into a single list
+for team in final_rankings:
+    games.extend(team['games'])
+unique_games = []
+seen = set()
+for g in games:
+    if g.get('dave_info', {'winCredits': 1}).get('winCredits', 1) <= 0:
+        # Define a unique key (adjust fields if needed)
+        key = (g.get('homeTeam'), g.get('awayTeam'), g.get('startDate', g.get('id')))
+        if key not in seen:
+            seen.add(key)
+            unique_games.append(g)
+    else:
+        continue
+games = unique_games
+# Define a safe key extractor for nested keys
+def creditKey(game):
+    return game.get('dave_info', {}).get('winCredits', 0)
+# Sort descending by winCredits (most impressive first)
+biggest_losses = sorted(games, key=creditKey, reverse=False)
+list_by_rank = [_['school'] for _ in final_rankings]
+with open("biggest_losses.txt", 'w', encoding="utf-8") as file:
+    file.write(f"Total games: {len(biggest_losses)}")
+    for n, game in enumerate(biggest_losses):
         home = game.get('homeTeam', 'Unknown')
         homeRank = list_by_rank.index(home)+1
         homePoints = game.get('homePoints', 'Unknown')
