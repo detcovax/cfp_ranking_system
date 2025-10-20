@@ -152,7 +152,7 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                     record[1] += 1
                     win = False
                 power_scale = classification_weights.get(opponent["classification"], 0.1) * conference_weights.get(opponent["conference"], 1.0) * other_weights.get(opponent_name, 1.0)
-                power_rating_multiplier = (10 ** ((len(return_list)+1 - opponent["power_rank"]) / len(return_list))) / 10
+                power_rating_multiplier = (1.055 ** (((len(return_list)+1 - opponent["power_rank"]) / len(return_list)) - 1))
                 if win:
                     power_scale *= power_rating_multiplier
                 else:
@@ -213,54 +213,60 @@ dave_rank = sorted(
 for i, team in enumerate(dave_rank, start=1):
     team["dave_rank"] = i
 
-rankings_to_average = []
-n=2
-for w1 in [round(x * (10**(-n)), n) for x in range((10**n)+1)]:
-    w2 = round(1 - w1, n)
-    it_rank = sorted(
-        dave_rank,
-        key=lambda team: (
-            (w1 * team["dave_power"]) + (w2 * team["dave_rank"])
-        ),
-        reverse=False
+final_rankings = sorted(
+    dave_rank,
+    key=lambda team: (
+        ((13-team["record"][0]-team["record"][1])*team["dave_power"]/12) + ((1+team["record"][0]+team["record"][1])*team["dave_rank"]/12)
+        )
     )
-    rankings_to_average.append(it_rank)
 
+# rankings_to_average = []
+# n=2
+# for w1 in [round(x * (10**(-n)), n) for x in range((10**n)+1)]:
+#     w2 = round(1 - w1, n)
+#     it_rank = sorted(
+#         dave_rank,
+#         key=lambda team: (
+#             (w1 * team["dave_power"]) + (w2 * team["dave_rank"])
+#         ),
+#         reverse=False
+#     )
+#     rankings_to_average.append(it_rank)
 
-def filter_and_average_rankings(rankings_to_average):
-    team_ranks = defaultdict(list)
-    for ranking in rankings_to_average:
-        for rank, team in enumerate(ranking, start=1):
-            team_name = team["school"]
-            team_ranks[team_name].append(rank)
+# def filter_and_average_rankings(rankings_to_average):
+#     team_ranks = defaultdict(list)
+#     for ranking in rankings_to_average:
+#         for rank, team in enumerate(ranking, start=1):
+#             team_name = team["school"]
+#             team_ranks[team_name].append(rank)
 
-    team_stats = {
-        team: {
-            "mean": np.mean(ranks),
-            "std": np.std(ranks)
-        }
-        for team, ranks in team_ranks.items()
-    }
+#     team_stats = {
+#         team: {
+#             "mean": np.mean(ranks),
+#             "std": np.std(ranks)
+#         }
+#         for team, ranks in team_ranks.items()
+#     }
 
-    stable_rankings = defaultdict(list)
-    for ranking in rankings_to_average:
-        for rank, team in enumerate(ranking, start=1):
-            if abs(rank - team_stats[team["school"]]["mean"]) > team_stats[team["school"]]["std"]:
-                continue
-            else:
-                stable_rankings[team["school"]].append(rank)
-    for team, stats in team_stats.items():
-        if team not in stable_rankings:
-            stable_rankings[team] = [stats["mean"]]
+#     stable_rankings = defaultdict(list)
+#     for ranking in rankings_to_average:
+#         for rank, team in enumerate(ranking, start=1):
+#             if abs(rank - team_stats[team["school"]]["mean"]) > team_stats[team["school"]]["std"]:
+#                 continue
+#             else:
+#                 stable_rankings[team["school"]].append(rank)
+#     for team, stats in team_stats.items():
+#         if team not in stable_rankings:
+#             stable_rankings[team] = [stats["mean"]]
 
-    average_stable_rankings = {team: np.mean(ranks) for team, ranks in stable_rankings.items()}
+#     average_stable_rankings = {team: np.mean(ranks) for team, ranks in stable_rankings.items()}
     
-    return dict(sorted(average_stable_rankings.items(), key=lambda x: x[1]))
+#     return dict(sorted(average_stable_rankings.items(), key=lambda x: x[1]))
 
-filtered_rankings = filter_and_average_rankings(rankings_to_average)
-final_rankings = sorted(dave_rank, key=lambda team: filtered_rankings[team["school"]])
-for i, team in enumerate(final_rankings[:10], start=1):
-    print(i, team['school'])
+# filtered_rankings = filter_and_average_rankings(rankings_to_average)
+# final_rankings = sorted(dave_rank, key=lambda team: filtered_rankings[team["school"]])
+# for i, team in enumerate(final_rankings[:10], start=1):
+#     print(i, team['school'])
 
 # final_rankings = sorted(
 #     dave_rank,
