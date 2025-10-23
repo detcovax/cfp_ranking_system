@@ -539,4 +539,45 @@ with open("biggest_losses.txt", 'w', encoding="utf-8") as file:
         #     print(f"\nMost impressive win: {home} vs {away}   (Credits: {round(credits, ndigits=3)})")
 # print(f"Total games: {len(most_impressive_wins)}")
 
+games = []
+list_by_rank = [_['school'] for _ in final_rankings]
+# Flatten all games into a single list
+for team in final_rankings:
+    games.extend(team['games'])
+upcoming_games = []
+seen = set()
+for g in games:
+    if not g.get('completed', False):
+        # Define a unique key (adjust fields if needed)
+        key = g.get('id')
+        if key not in seen:
+            seen.add(key)
+            upcoming_games.append(g)
+    else:
+        continue
+games = upcoming_games
+# Define a safe key extractor for nested keys
+def interestKey(game):
+    home = game.get('homeTeam', 'Unknown')
+    away = game.get('awayTeam', 'Unknown')
+    if home not in list_by_rank or away not in list_by_rank:
+        return float('inf')  # Push to end of sort
+    home_rank = list_by_rank.index(home) + 1
+    away_rank = list_by_rank.index(away) + 1
+    key = abs(home_rank-away_rank)*((home_rank+away_rank)**10)
+    return key
+most_interesting_games = sorted(games, key=interestKey, reverse=False)
+with open("upcoming_matchups.txt", 'w', encoding="utf-8") as file:
+    file.write(f"Upcoming Matchups  (home v away)\n")
+    for n, game in enumerate(most_interesting_games):
+        home = game.get('homeTeam', 'Unknown')
+        away = game.get('awayTeam', 'Unknown')
+        if home not in list_by_rank or away not in list_by_rank:
+            continue
+        homeRank = list_by_rank.index(home)+1
+        awayRank = list_by_rank.index(away)+1
+        week = game.get('week', '?')
+        nth_string = f"wk{week:<5}   #{homeRank} {home}  vs  #{awayRank} {away}"
+        file.write(f"\n{nth_string}")
+
 print("Done.")
