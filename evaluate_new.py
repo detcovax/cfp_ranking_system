@@ -564,20 +564,28 @@ def interestKey(game):
         return float('inf')  # Push to end of sort
     home_rank = list_by_rank.index(home) + 1
     away_rank = list_by_rank.index(away) + 1
-    key = abs(home_rank-away_rank)*((home_rank+away_rank)**10)
+    key = abs(home_rank-away_rank)*(home_rank+away_rank)
     return key
 most_interesting_games = sorted(games, key=interestKey, reverse=False)
 with open("upcoming_matchups.txt", 'w', encoding="utf-8") as file:
     file.write(f"Upcoming Matchups  (home v away)\n")
-    for n, game in enumerate(most_interesting_games):
-        home = game.get('homeTeam', 'Unknown')
-        away = game.get('awayTeam', 'Unknown')
-        if home not in list_by_rank or away not in list_by_rank:
-            continue
-        homeRank = list_by_rank.index(home)+1
-        awayRank = list_by_rank.index(away)+1
-        week = game.get('week', '?')
-        nth_string = f"wk{week:<5}   #{homeRank} {home}  vs  #{awayRank} {away}"
-        file.write(f"\n{nth_string}")
+    for week in range(1,14):
+        week_checker = False
+        for n, game in enumerate(most_interesting_games):
+            if game.get('week', 0) != week:
+                continue
+            home = game.get('homeTeam', 'Unknown')
+            away = game.get('awayTeam', 'Unknown')
+            if home not in list_by_rank or away not in list_by_rank:
+                continue
+            homeRank = list_by_rank.index(home)+1
+            awayRank = list_by_rank.index(away)+1
+            if (abs(homeRank-awayRank) > 40) or ((homeRank+awayRank) > 60):
+                continue
+            if not week_checker:
+                file.write(f"\nWeek {week}:")
+                week_checker = True
+            nth_string = f"   #{homeRank} {home}  vs  #{awayRank} {away}"
+            file.write(f"\n{nth_string}")
 
 print("Done.")

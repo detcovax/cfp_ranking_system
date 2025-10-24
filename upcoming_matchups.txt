@@ -1,344 +1,37 @@
 Upcoming Matchups  (home v away)
 
-wk13      #6 Oregon  vs  #3 USC
-wk9       #5 Oklahoma  vs  #9 Ole Miss
-wk13      #5 Oklahoma  vs  #12 Missouri
-wk10      #11 Utah  vs  #10 Cincinnati
-wk9       #8 Vanderbilt  vs  #12 Missouri
-wk14      #17 Georgia Tech  vs  #14 Georgia
-wk12      #22 Alabama  vs  #5 Oklahoma
-wk11      #7 Texas Tech  vs  #21 BYU
-wk10      #15 SMU  vs  #18 Miami
-wk13      #10 Cincinnati  vs  #21 BYU
-wk12      #3 USC  vs  #26 Iowa
-wk10      #23 Texas  vs  #8 Vanderbilt
-wk11      #26 Iowa  vs  #6 Oregon
-wk11      #4 Notre Dame  vs  #29 Navy
-wk14      #25 TCU  vs  #10 Cincinnati
-wk12      #14 Georgia  vs  #23 Texas
-wk14      #32 Michigan  vs  #1 Ohio State
-wk9       #13 Memphis  vs  #24 South Florida
-wk11      #13 Memphis  vs  #27 Tulane
-wk10      #35 Maryland  vs  #2 Indiana
-wk12      #21 BYU  vs  #25 TCU
-wk14      #13 Memphis  vs  #29 Navy
-wk14      #34 Washington  vs  #6 Oregon
-wk10      #19 North Texas  vs  #29 Navy
-wk10      #1 Ohio State  vs  #41 Penn State
-wk14      #5 Oklahoma  vs  #38 LSU
-wk11      #12 Missouri  vs  #33 Texas A&M
-wk11      #41 Penn State  vs  #2 Indiana
-wk12      #29 Navy  vs  #24 South Florida
-wk10      #43 Nebraska  vs  #3 USC
-wk14      #39 Mississippi State  vs  #9 Ole Miss
-wk11      #8 Vanderbilt  vs  #40 Auburn
-wk13      #15 SMU  vs  #36 Louisville
-wk14      #23 Texas  vs  #33 Texas A&M
-wk10      #44 Tennessee  vs  #5 Oklahoma
-wk12      #12 Missouri  vs  #39 Mississippi State
-wk11      #39 Mississippi State  vs  #14 Georgia
-wk14      #44 Tennessee  vs  #8 Vanderbilt
-wk13      #35 Maryland  vs  #32 Michigan
-wk11      #22 Alabama  vs  #38 LSU
-wk12      #51 Pittsburgh  vs  #4 Notre Dame
-wk9       #39 Mississippi State  vs  #23 Texas
-wk14      #40 Auburn  vs  #22 Alabama
-wk12      #7 Texas Tech  vs  #50 UCF
-wk9       #38 LSU  vs  #33 Texas A&M
-wk13      #41 Penn State  vs  #43 Nebraska
-wk14      #43 Nebraska  vs  #26 Iowa
-wk9       #47 Iowa State  vs  #21 BYU
-wk13      #17 Georgia Tech  vs  #51 Pittsburgh
-wk11      #52 Hawai'i  vs  #16 San Diego State
-wk14      #51 Pittsburgh  vs  #18 Miami
-wk14      #56 Kansas  vs  #11 Utah
-wk11      #25 TCU  vs  #47 Iowa State
-wk14      #53 New Mexico  vs  #16 San Diego State
-wk14      #21 BYU  vs  #50 UCF
-wk9       #11 Utah  vs  #57 Colorado
-wk12      #36 Louisville  vs  #45 Clemson
-wk12      #6 Oregon  vs  #62 Minnesota
-wk9       #34 Washington  vs  #46 Illinois
-wk12      #46 Illinois  vs  #35 Maryland
-wk12      #58 East Carolina  vs  #13 Memphis
-wk9       #37 Louisiana Tech  vs  #48 Western Kentucky
-wk10      #65 Kansas State  vs  #7 Texas Tech
-wk13      #38 LSU  vs  #48 Western Kentucky
-wk12      #10 Cincinnati  vs  #64 Arizona
-wk10      #60 NC State  vs  #17 Georgia Tech
-wk13      #49 UNLV  vs  #52 Hawai'i
-wk11      #3 USC  vs  #71 Northwestern
-wk13      #11 Utah  vs  #65 Kansas State
-wk12      #18 Miami  vs  #60 NC State
-wk12      #9 Ole Miss  vs  #67 Florida
-wk10      #49 UNLV  vs  #53 New Mexico
-wk9       #66 Wake Forest  vs  #15 SMU
-wk10      #67 Florida  vs  #14 Georgia
-wk13      #61 Houston  vs  #25 TCU
-wk14      #68 California  vs  #15 SMU
-wk14      #55 Buffalo  vs  #42 Ohio
-wk9       #26 Iowa  vs  #62 Minnesota
-wk13      #47 Iowa State  vs  #56 Kansas
-wk14      #19 North Texas  vs  #70 Temple
-wk11      #28 Virginia  vs  #66 Wake Forest
-wk9       #51 Pittsburgh  vs  #60 NC State
-wk10      #73 Texas State  vs  #20 James Madison
-wk10      #68 California  vs  #28 Virginia
-wk11      #50 UCF  vs  #61 Houston
-wk13      #70 Temple  vs  #27 Tulane
-wk11      #76 Marshall  vs  #20 James Madison
-wk14      #67 Florida  vs  #69 Florida State
-wk10      #57 Colorado  vs  #64 Arizona
-wk11      #36 Louisville  vs  #68 California
-wk12      #16 San Diego State  vs  #81 Boise State
-wk11      #64 Arizona  vs  #56 Kansas
-wk12      #71 Northwestern  vs  #32 Michigan
-wk14      #79 Coastal Carolina  vs  #20 James Madison
-wk10      #16 San Diego State  vs  #82 Wyoming
-wk9       #75 Miami (OH)  vs  #74 Western Michigan
-wk9       #10 Cincinnati  vs  #87 Baylor
-wk14      #65 Kansas State  vs  #57 Colorado
-wk14      #92 Stanford  vs  #4 Notre Dame
-wk10      #69 Florida State  vs  #66 Wake Forest
-wk9       #56 Kansas  vs  #65 Kansas State
-wk12      #87 Baylor  vs  #11 Utah
-wk13      #67 Florida  vs  #44 Tennessee
-wk13      #4 Notre Dame  vs  #93 Syracuse
-wk12      #75 Miami (OH)  vs  #31 Toledo
-wk11      #45 Clemson  vs  #69 Florida State
-wk9       #43 Nebraska  vs  #71 Northwestern
-wk9       #88 Fresno State  vs  #16 San Diego State
-wk12      #80 Duke  vs  #28 Virginia
-wk13      #60 NC State  vs  #69 Florida State
-wk14      #46 Illinois  vs  #71 Northwestern
-wk11      #30 UConn  vs  #80 Duke
-wk13      #8 Vanderbilt  vs  #96 Kentucky
-wk12      #74 Western Michigan  vs  #42 Ohio
-wk10      #70 Temple  vs  #58 East Carolina
-wk9       #82 Wyoming  vs  #83 Colorado State
-wk12      #1 Ohio State  vs  #103 UCLA
-wk12      #49 UNLV  vs  #72 Utah State
-wk13      #71 Northwestern  vs  #62 Minnesota
-wk11      #42 Ohio  vs  #75 Miami (OH)
-wk9       #2 Indiana  vs  #103 UCLA
-wk13      #26 Iowa  vs  #85 Michigan State
-wk9       #53 New Mexico  vs  #72 Utah State
-wk14      #3 USC  vs  #103 UCLA
-wk9       #18 Miami  vs  #92 Stanford
-wk9       #17 Georgia Tech  vs  #93 Syracuse
-wk11      #106 Purdue  vs  #1 Ohio State
-wk12      #54 Southern Miss  vs  #73 Texas State
-wk11      #18 Miami  vs  #93 Syracuse
-wk14      #98 Arkansas  vs  #12 Missouri
-wk14      #106 Purdue  vs  #2 Indiana
-wk10      #79 Coastal Carolina  vs  #76 Marshall
-wk9       #85 Michigan State  vs  #32 Michigan
-wk10      #47 Iowa State  vs  #77 Arizona State
-wk13      #55 Buffalo  vs  #75 Miami (OH)
-wk13      #1 Ohio State  vs  #109 Rutgers
-wk13      #81 Boise State  vs  #83 Colorado State
-wk14      #78 Jacksonville State  vs  #48 Western Kentucky
-wk13      #20 James Madison  vs  #95 Washington State
-wk14      #85 Michigan State  vs  #35 Maryland
-wk10      #9 Ole Miss  vs  #104 South Carolina
-wk10      #45 Clemson  vs  #80 Duke
-wk9       #91 North Carolina  vs  #28 Virginia
-wk12      #20 James Madison  vs  #97 App State
-wk13      #57 Colorado  vs  #77 Arizona State
-wk9       #77 Arizona State  vs  #61 Houston
-wk14      #77 Arizona State  vs  #64 Arizona
-wk11      #91 North Carolina  vs  #92 Stanford
-wk12      #85 Michigan State  vs  #41 Penn State
-wk13      #63 Florida International  vs  #78 Jacksonville State
-wk14      #110 West Virginia  vs  #7 Texas Tech
-wk13      #23 Texas  vs  #98 Arkansas
-wk16      #29 Navy  vs  #94 Army
-wk11      #89 Delaware  vs  #37 Louisiana Tech
-wk12      #2 Indiana  vs  #115 Wisconsin
-wk11      #83 Colorado State  vs  #49 UNLV
-wk14      #52 Hawai'i  vs  #82 Wyoming
-wk14      #80 Duke  vs  #66 Wake Forest
-wk14      #72 Utah State  vs  #81 Boise State
-wk10      #108 Rice  vs  #13 Memphis
-wk9       #95 Washington State  vs  #31 Toledo
-wk12      #53 New Mexico  vs  #83 Colorado State
-wk9       #6 Oregon  vs  #115 Wisconsin
-wk12      #78 Jacksonville State  vs  #84 Kennesaw State
-wk9       #104 South Carolina  vs  #22 Alabama
-wk12      #44 Tennessee  vs  #90 New Mexico State
-wk10      #87 Baylor  vs  #50 UCF
-wk10      #93 Syracuse  vs  #91 North Carolina
-wk14      #54 Southern Miss  vs  #86 Troy
-wk12      #95 Washington State  vs  #37 Louisiana Tech
-wk14      #99 Central Michigan  vs  #31 Toledo
-wk14      #36 Louisville  vs  #96 Kentucky
-wk12      #30 UConn  vs  #100 Air Force
-wk13      #108 Rice  vs  #19 North Texas
-wk9       #63 Florida International  vs  #84 Kennesaw State
-wk10      #48 Western Kentucky  vs  #90 New Mexico State
-wk10      #62 Minnesota  vs  #85 Michigan State
-wk12      #59 Old Dominion  vs  #86 Troy
-wk13      #31 Toledo  vs  #101 Ball State
-wk12      #88 Fresno State  vs  #82 Wyoming
-wk10      #40 Auburn  vs  #96 Kentucky
-wk12      #27 Tulane  vs  #105 Florida Atlantic
-wk12      #38 LSU  vs  #98 Arkansas
-wk14      #87 Baylor  vs  #61 Houston
-wk10      #81 Boise State  vs  #88 Fresno State
-wk14      #24 South Florida  vs  #108 Rice
-wk10      #98 Arkansas  vs  #39 Mississippi State
-wk13      #64 Arizona  vs  #87 Baylor
-wk9       #29 Navy  vs  #105 Florida Atlantic
-wk9       #98 Arkansas  vs  #40 Auburn
-wk10      #92 Stanford  vs  #51 Pittsburgh
-wk9       #96 Kentucky  vs  #44 Tennessee
-wk13      #105 Florida Atlantic  vs  #30 UConn
-wk12      #113 UAB  vs  #19 North Texas
-wk11      #90 New Mexico State  vs  #84 Kennesaw State
-wk13      #103 UCLA  vs  #34 Washington
-wk12      #33 Texas A&M  vs  #104 South Carolina
-wk9       #110 West Virginia  vs  #25 TCU
-wk13      #37 Louisiana Tech  vs  #102 Liberty
-wk13      #88 Fresno State  vs  #72 Utah State
-wk13      #66 Wake Forest  vs  #89 Delaware
-wk10      #32 Michigan  vs  #106 Purdue
-wk14      #60 NC State  vs  #91 North Carolina
-wk9       #108 Rice  vs  #30 UConn
-wk13      #16 San Diego State  vs  #119 San José State
-wk13      #113 UAB  vs  #24 South Florida
-wk12      #34 Washington  vs  #106 Purdue
-wk12      #66 Wake Forest  vs  #91 North Carolina
-wk13      #91 North Carolina  vs  #80 Duke
-wk13      #92 Stanford  vs  #68 California
-wk11      #103 UCLA  vs  #43 Nebraska
-wk11      #24 South Florida  vs  #116 UTSA
-wk10      #132 Boston College  vs  #4 Notre Dame
-wk11      #109 Rutgers  vs  #35 Maryland
-wk9       #7 Texas Tech  vs  #130 Oklahoma State
-wk10      #30 UConn  vs  #113 UAB
-wk14      #104 South Carolina  vs  #45 Clemson
-wk10      #116 UTSA  vs  #27 Tulane
-wk9       #59 Old Dominion  vs  #97 App State
-wk13      #123 Virginia Tech  vs  #18 Miami
-wk12      #99 Central Michigan  vs  #55 Buffalo
-wk13      #100 Air Force  vs  #53 New Mexico
-wk11      #94 Army  vs  #70 Temple
-wk11      #96 Kentucky  vs  #67 Florida
-wk14      #109 Rutgers  vs  #41 Penn State
-wk14      #112 Missouri State  vs  #37 Louisiana Tech
-wk11      #115 Wisconsin  vs  #34 Washington
-wk10      #100 Air Force  vs  #94 Army
-wk11      #31 Toledo  vs  #118 Northern Illinois
-wk10      #46 Illinois  vs  #109 Rutgers
-wk13      #97 App State  vs  #76 Marshall
-wk11      #132 Boston College  vs  #15 SMU
-wk12      #63 Florida International  vs  #102 Liberty
-wk14      #28 Virginia  vs  #123 Virginia Tech
-wk10      #74 Western Michigan  vs  #99 Central Michigan
-wk13      #14 Georgia  vs  #134 Charlotte
-wk12      #132 Boston College  vs  #17 Georgia Tech
-wk14      #105 Florida Atlantic  vs  #58 East Carolina
-wk9       #106 Purdue  vs  #109 Rutgers
-wk14      #83 Colorado State  vs  #100 Air Force
-wk14      #75 Miami (OH)  vs  #101 Ball State
-wk13      #107 Georgia Southern  vs  #59 Old Dominion
-wk13      #115 Wisconsin  vs  #46 Illinois
-wk9       #134 Charlotte  vs  #19 North Texas
-wk10      #102 Liberty  vs  #89 Delaware
-wk10      #111 Bowling Green  vs  #55 Buffalo
-wk14      #102 Liberty  vs  #84 Kennesaw State
-wk11      #110 West Virginia  vs  #57 Colorado
-wk10      #123 Virginia Tech  vs  #36 Louisville
-wk9       #120 Eastern Michigan  vs  #42 Ohio
-wk10      #61 Houston  vs  #110 West Virginia
-wk13      #104 South Carolina  vs  #79 Coastal Carolina
-wk11      #97 App State  vs  #107 Georgia Southern
-wk14      #27 Tulane  vs  #134 Charlotte
-wk14      #114 Louisiana  vs  #117 UL Monroe
-wk14      #76 Marshall  vs  #107 Georgia Southern
-wk10      #112 Missouri State  vs  #63 Florida International
-wk9       #54 Southern Miss  vs  #117 UL Monroe
-wk12      #107 Georgia Southern  vs  #79 Coastal Carolina
-wk11      #108 Rice  vs  #113 UAB
-wk10      #119 San José State  vs  #52 Hawai'i
-wk13      #116 UTSA  vs  #58 East Carolina
-wk14      #62 Minnesota  vs  #115 Wisconsin
-wk10      #117 UL Monroe  vs  #59 Old Dominion
-wk9       #36 Louisville  vs  #132 Boston College
-wk12      #77 Arizona State  vs  #110 West Virginia
-wk13      #121 South Alabama  vs  #54 Southern Miss
-wk11      #102 Liberty  vs  #112 Missouri State
-wk12      #48 Western Kentucky  vs  #127 Middle Tennessee
-wk11      #114 Louisiana  vs  #73 Texas State
-wk10      #37 Louisiana Tech  vs  #135 Sam Houston
-wk12      #117 UL Monroe  vs  #121 South Alabama
-wk13      #84 Kennesaw State  vs  #112 Missouri State
-wk11      #125 Arkansas State  vs  #54 Southern Miss
-wk9       #90 New Mexico State  vs  #112 Missouri State
-wk14      #130 Oklahoma State  vs  #47 Iowa State
-wk13      #73 Texas State  vs  #117 UL Monroe
-wk13      #50 UCF  vs  #130 Oklahoma State
-wk9       #86 Troy  vs  #114 Louisiana
-wk13      #118 Northern Illinois  vs  #74 Western Michigan
-wk13      #42 Ohio  vs  #136 Massachusetts
-wk14      #133 Nevada  vs  #49 UNLV
-wk14      #120 Eastern Michigan  vs  #74 Western Michigan
-wk12      #126 Tulsa  vs  #122 Oregon State
-wk9       #123 Virginia Tech  vs  #68 California
-wk10      #121 South Alabama  vs  #114 Louisiana
-wk14      #73 Texas State  vs  #121 South Alabama
-wk10      #56 Kansas  vs  #130 Oklahoma State
-wk14      #116 UTSA  vs  #94 Army
-wk12      #69 Florida State  vs  #123 Virginia Tech
-wk9       #55 Buffalo  vs  #131 Akron
-wk14      #59 Old Dominion  vs  #129 Georgia State
-wk11      #120 Eastern Michigan  vs  #111 Bowling Green
-wk11      #127 Middle Tennessee  vs  #63 Florida International
-wk12      #131 Akron  vs  #128 Kent State
-wk9       #118 Northern Illinois  vs  #101 Ball State
-wk14      #119 San José State  vs  #88 Fresno State
-wk9       #126 Tulsa  vs  #70 Temple
-wk11      #119 San José State  vs  #100 Air Force
-wk12      #130 Oklahoma State  vs  #65 Kansas State
-wk11      #58 East Carolina  vs  #134 Charlotte
-wk11      #124 UTEP  vs  #78 Jacksonville State
-wk12      #101 Ball State  vs  #120 Eastern Michigan
-wk10      #84 Kennesaw State  vs  #124 UTEP
-wk10      #122 Oregon State  vs  #95 Washington State
-wk14      #95 Washington State  vs  #122 Oregon State
-wk10      #127 Middle Tennessee  vs  #78 Jacksonville State
-wk12      #112 Missouri State  vs  #124 UTEP
-wk14      #135 Sam Houston  vs  #63 Florida International
-wk13      #125 Arkansas State  vs  #114 Louisiana
-wk14      #89 Delaware  vs  #124 UTEP
-wk10      #86 Troy  vs  #125 Arkansas State
-wk13      #124 UTEP  vs  #90 New Mexico State
-wk12      #129 Georgia State  vs  #76 Marshall
-wk11      #79 Coastal Carolina  vs  #129 Georgia State
-wk9       #129 Georgia State  vs  #121 South Alabama
-wk14      #126 Tulsa  vs  #113 UAB
-wk11      #72 Utah State  vs  #133 Nevada
-wk14      #118 Northern Illinois  vs  #128 Kent State
-wk9       #125 Arkansas State  vs  #107 Georgia Southern
-wk14      #97 App State  vs  #125 Arkansas State
-wk9       #89 Delaware  vs  #127 Middle Tennessee
-wk13      #94 Army  vs  #126 Tulsa
-wk14      #90 New Mexico State  vs  #127 Middle Tennessee
-wk13      #86 Troy  vs  #129 Georgia State
-wk11      #105 Florida Atlantic  vs  #126 Tulsa
-wk11      #131 Akron  vs  #136 Massachusetts
-wk9       #128 Kent State  vs  #111 Bowling Green
-wk9       #133 Nevada  vs  #81 Boise State
-wk13      #128 Kent State  vs  #99 Central Michigan
-wk11      #101 Ball State  vs  #128 Kent State
-wk13      #82 Wyoming  vs  #133 Nevada
-wk13      #127 Middle Tennessee  vs  #135 Sam Houston
-wk14      #93 Syracuse  vs  #132 Boston College
-wk13      #111 Bowling Green  vs  #131 Akron
-wk12      #133 Nevada  vs  #119 San José State
-wk12      #135 Sam Houston  vs  #89 Delaware
-wk11      #122 Oregon State  vs  #135 Sam Houston
-wk12      #134 Charlotte  vs  #116 UTSA
-wk9       #99 Central Michigan  vs  #136 Massachusetts
-wk12      #136 Massachusetts  vs  #118 Northern Illinois
-wk14      #136 Massachusetts  vs  #111 Bowling Green
+Week 9:
+   #5 Oklahoma  vs  #9 Ole Miss
+   #8 Vanderbilt  vs  #12 Missouri
+   #13 Memphis  vs  #24 South Florida
+Week 10:
+   #11 Utah  vs  #10 Cincinnati
+   #15 SMU  vs  #18 Miami
+   #23 Texas  vs  #8 Vanderbilt
+   #19 North Texas  vs  #29 Navy
+   #35 Maryland  vs  #2 Indiana
+   #1 Ohio State  vs  #41 Penn State
+   #43 Nebraska  vs  #3 USC
+   #44 Tennessee  vs  #5 Oklahoma
+Week 11:
+   #7 Texas Tech  vs  #21 BYU
+   #13 Memphis  vs  #27 Tulane
+   #26 Iowa  vs  #6 Oregon
+   #4 Notre Dame  vs  #29 Navy
+   #12 Missouri  vs  #33 Texas A&M
+   #22 Alabama  vs  #38 LSU
+   #39 Mississippi State  vs  #14 Georgia
+   #8 Vanderbilt  vs  #40 Auburn
+   #41 Penn State  vs  #2 Indiana
+Week 12:
+   #21 BYU  vs  #25 TCU
+   #29 Navy  vs  #24 South Florida
+   #14 Georgia  vs  #23 Texas
+   #22 Alabama  vs  #5 Oklahoma
+   #3 USC  vs  #26 Iowa
+   #12 Missouri  vs  #39 Mississippi State
+Week 13:
+   #6 Oregon  vs  #3 USC
+   #5 Oklahoma  vs  #12 Missouri
+   #10 Cincinnati  vs  #21 BYU
+   #15 SMU  vs  #36 Louisville
