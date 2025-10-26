@@ -206,7 +206,7 @@ teams_to_rank = [team for team in ratings if team['record'][0]+team['record'][1]
 dave_rank = sorted(
         teams_to_rank,
         key=lambda team: (
-                team["winCredits"]
+                team["winCredits"] / (team["record"][0]+team["record"][1])
             ),
         reverse=True
     )
@@ -216,7 +216,8 @@ for i, team in enumerate(dave_rank, start=1):
 final_rankings = sorted(
     dave_rank,
     key=lambda team: (
-        ((13-team["record"][0]-team["record"][1])*team["dave_power"]/12) + ((1+team["record"][0]+team["record"][1])*team["dave_rank"]/12)
+        team["dave_rank"]
+        # ((13-team["record"][0]-team["record"][1])*team["dave_power"]/12) + ((1+team["record"][0]+team["record"][1])*team["dave_rank"]/12)
         )
     )
 
@@ -569,7 +570,7 @@ def interestKey(game):
 most_interesting_games = sorted(games, key=interestKey, reverse=False)
 with open("upcoming_matchups.txt", 'w', encoding="utf-8") as file:
     file.write(f"Upcoming Matchups  (home v away)\n")
-    for week in range(1,14):
+    for week in range(1,16):
         week_checker = False
         for n, game in enumerate(most_interesting_games):
             if game.get('week', 0) != week:

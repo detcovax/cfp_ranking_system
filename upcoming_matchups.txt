@@ -1,37 +1,41 @@
 Upcoming Matchups  (home v away)
 
-Week 9:
-   #5 Oklahoma  vs  #9 Ole Miss
-   #8 Vanderbilt  vs  #12 Missouri
-   #13 Memphis  vs  #24 South Florida
 Week 10:
-   #11 Utah  vs  #10 Cincinnati
-   #15 SMU  vs  #18 Miami
-   #23 Texas  vs  #8 Vanderbilt
-   #19 North Texas  vs  #29 Navy
-   #35 Maryland  vs  #2 Indiana
-   #1 Ohio State  vs  #41 Penn State
-   #43 Nebraska  vs  #3 USC
-   #44 Tennessee  vs  #5 Oklahoma
+   #16 Utah  vs  #18 Cincinnati
+   #17 Texas  vs  #10 Vanderbilt
+   #25 Tennessee  vs  #20 Oklahoma
+   #27 North Texas  vs  #22 Navy
+   #34 Nebraska  vs  #8 USC
+   #39 SMU  vs  #14 Miami
 Week 11:
-   #7 Texas Tech  vs  #21 BYU
-   #13 Memphis  vs  #27 Tulane
-   #26 Iowa  vs  #6 Oregon
-   #4 Notre Dame  vs  #29 Navy
-   #12 Missouri  vs  #33 Texas A&M
-   #22 Alabama  vs  #38 LSU
-   #39 Mississippi State  vs  #14 Georgia
-   #8 Vanderbilt  vs  #40 Auburn
-   #41 Penn State  vs  #2 Indiana
+   #7 Texas Tech  vs  #11 BYU
+   #19 Iowa  vs  #4 Oregon
+   #6 Notre Dame  vs  #22 Navy
+   #23 Missouri  vs  #3 Texas A&M
+   #31 Memphis  vs  #21 Tulane
+   #5 Alabama  vs  #43 LSU
+   #10 Vanderbilt  vs  #45 Auburn
 Week 12:
-   #21 BYU  vs  #25 TCU
-   #29 Navy  vs  #24 South Florida
-   #14 Georgia  vs  #23 Texas
-   #22 Alabama  vs  #5 Oklahoma
-   #3 USC  vs  #26 Iowa
-   #12 Missouri  vs  #39 Mississippi State
+   #12 Georgia  vs  #17 Texas
+   #8 USC  vs  #19 Iowa
+   #5 Alabama  vs  #20 Oklahoma
+   #22 Navy  vs  #36 South Florida
+   #33 Pittsburgh  vs  #6 Notre Dame
+   #11 BYU  vs  #35 TCU
 Week 13:
-   #6 Oregon  vs  #3 USC
-   #5 Oklahoma  vs  #12 Missouri
-   #10 Cincinnati  vs  #21 BYU
-   #15 SMU  vs  #36 Louisville
+   #4 Oregon  vs  #8 USC
+   #20 Oklahoma  vs  #23 Missouri
+   #18 Cincinnati  vs  #11 BYU
+   #13 Georgia Tech  vs  #33 Pittsburgh
+   #44 Maryland  vs  #15 Michigan
+Week 14:
+   #13 Georgia Tech  vs  #12 Georgia
+   #15 Michigan  vs  #1 Ohio State
+   #17 Texas  vs  #3 Texas A&M
+   #31 Memphis  vs  #22 Navy
+   #25 Tennessee  vs  #10 Vanderbilt
+   #26 Washington  vs  #4 Oregon
+   #34 Nebraska  vs  #19 Iowa
+   #33 Pittsburgh  vs  #14 Miami
+   #35 TCU  vs  #18 Cincinnati
+   #45 Auburn  vs  #5 Alabama
