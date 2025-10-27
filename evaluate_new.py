@@ -459,6 +459,52 @@ with open("playoff_predictor.txt", "w", encoding="utf-8") as file:
             file.write(f"\n#{i} {team['school']}")
             outside_counter += 1
 
+with open("24team_playoff_model.txt", "w", encoding="utf-8") as file:
+    champs = dict()
+    teams = []
+    for i, team in enumerate(final_rankings[:24], start=1):
+        teams.append(f"#{i} {team['school']}")
+    for i, team in enumerate(final_rankings, start=1):
+        conf = team['conference']
+        if conf not in champs.keys() and conf != 'FBS Independents' and team["record"][0]>team["record"][1]:
+            champs[conf] = f"#{i} {team['school']}"
+        if len(champs) >= 8:
+            break
+    champs_added_counter = 0
+    for conf, team in champs.items():
+        if team not in teams:
+            del teams[-(champs_added_counter+1)]
+            teams.append(champs[conf])
+            champs_added_counter += 1
+    # print(f"champs_added_counter={champs_added_counter}")
+    
+    file.write("Byes:\n")
+    file.write(f"{teams[0]}")
+    file.write(f"\n{teams[1]}")
+    file.write(f"\n{teams[2]}")
+    file.write(f"\n{teams[3]}")
+    file.write(f"\n{teams[4]}")
+    file.write(f"\n{teams[5]}")
+    file.write(f"\n{teams[6]}")
+    file.write(f"\n{teams[7]}")
+    file.write("\n")
+    file.write("\nRound 1 (Play-ins):")
+    file.write(f"\n{teams[8]:<12} v.   {teams[23]}")
+    file.write(f"\n{teams[9]:<12} v.   {teams[22]}")
+    file.write(f"\n{teams[10]:<12} v.   {teams[21]}")
+    file.write(f"\n{teams[11]:<12} v.   {teams[20]}")
+    file.write(f"\n{teams[12]:<12} v.   {teams[19]}")
+    file.write(f"\n{teams[13]:<12} v.   {teams[18]}")
+    file.write(f"\n{teams[14]:<12} v.   {teams[17]}")
+    file.write(f"\n{teams[15]:<12} v.   {teams[16]}")
+
+    file.write("\n\nOutside Looking In:")
+    outside_counter = 0
+    for i, team in enumerate(final_rankings, start=1):
+        if (i <= 32) and (f"#{i} {team['school']}" not in teams):
+            file.write(f"\n#{i} {team['school']}")
+            outside_counter += 1
+
 
 games = []
 # Flatten all games into a single list
