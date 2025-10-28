@@ -635,4 +635,29 @@ with open("upcoming_matchups.txt", 'w', encoding="utf-8") as file:
             nth_string = f"   #{homeRank} {home}  vs  #{awayRank} {away}"
             file.write(f"\n{nth_string}")
 
+with open("tiers.txt", 'w', encoding="utf-8") as file:
+    file.write("Tiers")
+    tiers = []
+    for i, team in enumerate(final_rankings, start=1):
+        school = team['school']
+        wins = team['record'][0]
+        losses = team['record'][1]
+        winCredits = team['winCredits']
+        credits_per_game = winCredits / (wins+losses)
+        if len(tiers) == 0:
+            tiers.append([{"school": school, "credits_per_game": credits_per_game}])
+        else:
+            mid_cred = (tiers[-1][0]["credits_per_game"] + tiers[-1][-1]["credits_per_game"])/2
+            if abs(credits_per_game-mid_cred) < 0.1*abs(mid_cred):
+                tiers[-1].append({"school": school, "credits_per_game": credits_per_game})
+            else:
+                tiers.append([{"school": school, "credits_per_game": credits_per_game}])
+    for tier in tiers:
+        file.write(f"\n\nTier {tiers.index(tier)+1}")
+        for team in tier:
+            team_str = f"{team['school']}"
+            credit_str = f"({round(team['credits_per_game'], ndigits=3)} cred/gm)"
+            line = f"\n   {team_str:<15} {credit_str:<10}"
+            file.write(line)
+
 print("Done.")
