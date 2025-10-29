@@ -644,20 +644,22 @@ with open("tiers.txt", 'w', encoding="utf-8") as file:
         losses = team['record'][1]
         winCredits = team['winCredits']
         credits_per_game = winCredits / (wins+losses)
+        school_dict = {"school": school, "rank": i, "credits_per_game": credits_per_game}
         if len(tiers) == 0:
-            tiers.append([{"school": school, "credits_per_game": credits_per_game}])
+            tiers.append([school_dict])
         else:
             mid_cred = (tiers[-1][0]["credits_per_game"] + tiers[-1][-1]["credits_per_game"])/2
             if abs(credits_per_game-mid_cred) < 0.1*abs(mid_cred):
-                tiers[-1].append({"school": school, "credits_per_game": credits_per_game})
+                tiers[-1].append(school_dict)
             else:
-                tiers.append([{"school": school, "credits_per_game": credits_per_game}])
+                tiers.append([school_dict])
     for tier in tiers:
         file.write(f"\n\nTier {tiers.index(tier)+1}")
         for team in tier:
+            rank_str = f"#{team['rank']}"
             team_str = f"{team['school']}"
             credit_str = f"({round(team['credits_per_game'], ndigits=3)} cred/gm)"
-            line = f"\n   {team_str:<15} {credit_str:<10}"
+            line = f"\n   {rank_str+' '+team_str:<15} {credit_str:<10}"
             file.write(line)
 
 print("Done.")
