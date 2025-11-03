@@ -153,6 +153,8 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                     win = False
                 power_scale = classification_weights.get(opponent["classification"], 0.1) * conference_weights.get(opponent["conference"], 1.0) * other_weights.get(opponent_name, 1.0)
                 power_rating_multiplier = (1.055 ** (((len(return_list)+1 - opponent["power_rank"]) / len(return_list)) - 1))
+                opp_credits = opponent.get("winCredits", 0)
+                power_scale += opp_credits/100
                 if win:
                     power_scale *= power_rating_multiplier
                 else:
@@ -278,8 +280,8 @@ final_rankings = sorted(
 # )
 
 # Rankings to file
-with open("rankings.txt", 'w', encoding="utf-8") as file:
-    file.write("2025 DAVE Rankings\n")
+with open("power.txt", 'w', encoding="utf-8") as file:
+    file.write("2025 DAVE Power Ratings\n")
 
     file.write("\n\nDAVE OFFENSE:\n")
     # print(f"Offensive Power Ratings: ", end="")
@@ -348,7 +350,8 @@ with open("rankings.txt", 'w', encoding="utf-8") as file:
         # if i <= 25:
         #     print(f"{i_string} {team['abbreviation']}", end=", " if i < 25 else "\n")
 
-    file.write("\n\nFINAL RANKINGS:\n")
+with open("power.txt", 'w', encoding="utf-8") as file:
+    file.write("2025 DAVE RANKINGS\n\n")
     # print(f"Rankings: ", end="")
     for i, team in enumerate(final_rankings, start=1):
         i_string = f"#{i}"
