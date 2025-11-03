@@ -1,41 +1,33 @@
 Upcoming Matchups  (home v away)
 
-Week 10:
-   #16 Utah  vs  #18 Cincinnati
-   #17 Texas  vs  #10 Vanderbilt
-   #25 Tennessee  vs  #20 Oklahoma
-   #27 North Texas  vs  #22 Navy
-   #34 Nebraska  vs  #8 USC
-   #39 SMU  vs  #14 Miami
 Week 11:
-   #7 Texas Tech  vs  #11 BYU
-   #19 Iowa  vs  #4 Oregon
-   #6 Notre Dame  vs  #22 Navy
-   #23 Missouri  vs  #3 Texas A&M
-   #31 Memphis  vs  #21 Tulane
-   #5 Alabama  vs  #43 LSU
-   #10 Vanderbilt  vs  #45 Auburn
+   #7 Texas Tech  vs  #10 BYU
+   #17 Iowa  vs  #4 Oregon
+   #24 Missouri  vs  #3 Texas A&M
+   #22 Memphis  vs  #37 Tulane
+   #6 Notre Dame  vs  #38 Navy
+   #5 Alabama  vs  #42 LSU
 Week 12:
-   #12 Georgia  vs  #17 Texas
-   #8 USC  vs  #19 Iowa
-   #5 Alabama  vs  #20 Oklahoma
-   #22 Navy  vs  #36 South Florida
-   #33 Pittsburgh  vs  #6 Notre Dame
-   #11 BYU  vs  #35 TCU
+   #11 Georgia  vs  #14 Texas
+   #9 USC  vs  #17 Iowa
+   #5 Alabama  vs  #16 Oklahoma
+   #25 Pittsburgh  vs  #6 Notre Dame
+   #10 BYU  vs  #30 TCU
+   #4 Oregon  vs  #44 Minnesota
 Week 13:
-   #4 Oregon  vs  #8 USC
-   #20 Oklahoma  vs  #23 Missouri
-   #18 Cincinnati  vs  #11 BYU
-   #13 Georgia Tech  vs  #33 Pittsburgh
-   #44 Maryland  vs  #15 Michigan
+   #4 Oregon  vs  #9 USC
+   #23 Georgia Tech  vs  #25 Pittsburgh
+   #16 Oklahoma  vs  #24 Missouri
+   #29 Cincinnati  vs  #10 BYU
+   #36 SMU  vs  #18 Louisville
 Week 14:
-   #13 Georgia Tech  vs  #12 Georgia
-   #15 Michigan  vs  #1 Ohio State
-   #17 Texas  vs  #3 Texas A&M
-   #31 Memphis  vs  #22 Navy
-   #25 Tennessee  vs  #10 Vanderbilt
-   #26 Washington  vs  #4 Oregon
-   #34 Nebraska  vs  #19 Iowa
-   #33 Pittsburgh  vs  #14 Miami
-   #35 TCU  vs  #18 Cincinnati
-   #45 Auburn  vs  #5 Alabama
+   #25 Pittsburgh  vs  #26 Miami
+   #30 TCU  vs  #29 Cincinnati
+   #13 Michigan  vs  #2 Ohio State
+   #14 Texas  vs  #3 Texas A&M
+   #23 Georgia Tech  vs  #11 Georgia
+   #31 Tennessee  vs  #15 Vanderbilt
+   #28 Washington  vs  #4 Oregon
+   #22 Memphis  vs  #38 Navy
+   #39 Nebraska  vs  #17 Iowa
+   #16 Oklahoma  vs  #42 LSU
