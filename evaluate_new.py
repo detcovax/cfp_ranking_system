@@ -508,6 +508,59 @@ with open("24team_playoff_model.txt", "w", encoding="utf-8") as file:
             file.write(f"\n#{i} {team['school']}")
             outside_counter += 1
 
+with open("24auto_playoff_model.txt", "w", encoding="utf-8") as file:
+    leaders = {"Big Ten": [], "SEC": [], "Big 12": [], "ACC": [], "Pac-12": [], "American Athletic": [], "Mountain West": [], "Sun Belt": [], "Mid-American": [], "Conference USA": []}
+    max_bids = {"Big Ten": 3, "SEC": 3, "Big 12": 2, "ACC": 2, "Pac-12": 1, "American Athletic": 1, "Mountain West": 1, "Sun Belt": 1, "Mid-American": 1, "Conference USA": 1}
+    teams = []
+    for i, team in enumerate(final_rankings, start=1):
+        conf = team['conference']
+        team_str = f"#{i} {team['school']} ({conf})"
+        if (conf in leaders.keys()) and (len(leaders[conf]) < max_bids[conf]):
+            leaders[conf].append(team_str)
+            teams.append(team_str)
+        if all(len(leaders[conf]) >= max_bids[conf] for conf in leaders.keys()):
+            break
+    for i, team in enumerate(final_rankings, start=1):
+        conf = team['conference']
+        team_str = f"#{i} {team['school']} ({conf})"
+        if team_str not in teams:
+            teams.append(team_str)
+        if len(teams) == 32:
+            break
+
+    # for conf, team_list in leaders.items():
+    #     print(f"\n{conf}: {', '.join(team_list)}")
+
+    print(teams)
+    
+    file.write("Byes:\n")
+    file.write(f"{teams[0]}")
+    file.write(f"\n{teams[1]}")
+    file.write(f"\n{teams[2]}")
+    file.write(f"\n{teams[3]}")
+    file.write(f"\n{teams[4]}")
+    file.write(f"\n{teams[5]}")
+    file.write(f"\n{teams[6]}")
+    file.write(f"\n{teams[7]}")
+    file.write("\n")
+    file.write("\nRound 1 (Play-ins):")
+    file.write(f"\n{teams[8]:<12} v.   {teams[23]}")
+    file.write(f"\n{teams[9]:<12} v.   {teams[22]}")
+    file.write(f"\n{teams[10]:<12} v.   {teams[21]}")
+    file.write(f"\n{teams[11]:<12} v.   {teams[20]}")
+    file.write(f"\n{teams[12]:<12} v.   {teams[19]}")
+    file.write(f"\n{teams[13]:<12} v.   {teams[18]}")
+    file.write(f"\n{teams[14]:<12} v.   {teams[17]}")
+    file.write(f"\n{teams[15]:<12} v.   {teams[16]}")
+
+    file.write("\n\nOutside Looking In:")
+    outside_counter = 0
+    for i, team in enumerate(final_rankings, start=1):
+        team_str = f"#{i} {team['school']} ({team['conference']})"
+        if (i <= 32) and (team_str not in teams):
+            file.write(f"\n{team_str}")
+            outside_counter += 1
+
 
 games = []
 # Flatten all games into a single list
