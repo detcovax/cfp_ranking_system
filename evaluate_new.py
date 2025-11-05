@@ -525,7 +525,7 @@ with open("24auto_playoff_model.txt", "w", encoding="utf-8") as file:
         team_str = f"#{i} {team['school']} ({conf})"
         if team_str not in teams:
             teams.append(team_str)
-        if len(teams) == 32:
+        if len(teams) == 24:
             break
 
     # for conf, team_list in leaders.items():
