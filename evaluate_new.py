@@ -527,11 +527,6 @@ with open("24auto_playoff_model.txt", "w", encoding="utf-8") as file:
             teams.append(team_str)
         if len(teams) == 24:
             break
-
-    # for conf, team_list in leaders.items():
-    #     print(f"\n{conf}: {', '.join(team_list)}")
-
-    print(teams)
     
     file.write("Byes:\n")
     file.write(f"{teams[0]}")
