@@ -13,10 +13,10 @@ Round 1 (Play-ins):
 #18 James Madison (Sun Belt) v.   #15 Texas (SEC)
 #19 North Texas (American Athletic) v.   #14 Oklahoma (SEC)
 #20 Georgia Tech (ACC) v.   #13 Vanderbilt (SEC)
-#36 Kennesaw State (Conference USA) v.   #12 Michigan (Big Ten)
+#35 Kennesaw State (Conference USA) v.   #12 Michigan (Big Ten)
 #39 San Diego State (Mountain West) v.   #10 Ole Miss (SEC)
-#51 Ohio (Mid-American) v.   #9 Oregon (Big Ten)
-#80 Washington State (Pac-12) v.   #5 Notre Dame (FBS Independents)
+#48 Toledo (Mid-American) v.   #9 Oregon (Big Ten)
+#79 Washington State (Pac-12) v.   #5 Notre Dame (FBS Independents)
 
 Outside Looking In:
 #21 Iowa (Big Ten)
@@ -27,7 +27,7 @@ Outside Looking In:
 #26 Cincinnati (Big 12)
 #27 SMU (ACC)
 #28 Illinois (Big Ten)
-#29 Nebraska (Big Ten)
-#30 Tennessee (SEC)
+#29 Tennessee (SEC)
+#30 Nebraska (Big Ten)
 #31 Virginia (ACC)
 #32 Tulane (American Athletic)

@@ -10,7 +10,7 @@ Byes:
 
 Round 1 (Play-ins):
 #9 Oregon    v.   #39 San Diego State
-#10 Ole Miss v.   #36 Kennesaw State
+#10 Ole Miss v.   #35 Kennesaw State
 #11 Utah     v.   #22 Pittsburgh
 #12 Michigan v.   #21 Iowa
 #13 Vanderbilt v.   #20 Georgia Tech
@@ -25,7 +25,7 @@ Outside Looking In:
 #26 Cincinnati
 #27 SMU
 #28 Illinois
-#29 Nebraska
-#30 Tennessee
+#29 Tennessee
+#30 Nebraska
 #31 Virginia
 #32 Tulane

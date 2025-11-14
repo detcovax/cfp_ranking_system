@@ -18,7 +18,7 @@ Week 14:
    #15 Texas  vs  #3 Texas A&M
    #22 Pittsburgh  vs  #16 Miami
    #20 Georgia Tech  vs  #8 Georgia
-   #29 Nebraska  vs  #21 Iowa
+   #30 Nebraska  vs  #21 Iowa
    #25 Washington  vs  #9 Oregon
-   #30 Tennessee  vs  #13 Vanderbilt
-   #14 Oklahoma  vs  #44 LSU
+   #29 Tennessee  vs  #13 Vanderbilt
+   #14 Oklahoma  vs  #45 LSU
