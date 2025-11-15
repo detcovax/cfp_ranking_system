@@ -1,9 +1,11 @@
+#%%
 import json, math, copy
 from collections import defaultdict
-import numpy as np
+import numpy as np, pandas as pd
 CLEAR_LINE = "\x1b[2K" # Clear the current line
 CURSOR_UP = "\033[1A"  # Move cursor up one line
 
+#%%
 data_file = 'new_data.json'
 
 with open(data_file, 'r') as json_file:
@@ -12,6 +14,7 @@ with open(data_file, 'r') as json_file:
 teams = [team for team in teams if len(team["games"]) > 0]
 power_teams = [team for team in teams if "stats" in team.keys()]
 
+#%%
 def get_off_scoring(team):
     try:
         return team["stats"]["offense"]["passingTDs"] + team["stats"]["offense"]["rushingTDs"]
@@ -99,6 +102,7 @@ for i, team in enumerate(dave_power, start=1):
     # if i <= 10:
     #     print(f"#{i} {team['abbreviation']}", end="\n" if i < 10 else "\n")
 
+#%%
 # Base multiplier by classification (FBS vs others)
 classification_weights = {
     "fbs": 1.0,   # baseline
@@ -171,6 +175,7 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
         team["winCredits"] = total_credits
     return return_list
 
+#%%
 teams_by_record = sorted(
         rate_teams(dave_power),
         key=lambda team: (
@@ -279,6 +284,7 @@ final_rankings = sorted(
 #     reverse=False
 # )
 
+#%%
 # Rankings to file
 with open("power.txt", 'w', encoding="utf-8") as file:
     file.write("2025 DAVE Power Ratings\n")
@@ -713,4 +719,33 @@ with open("tiers.txt", 'w', encoding="utf-8") as file:
             line = f"\n   {rank_str+' '+team_str:<15} {credit_str:<10}"
             file.write(line)
 
-print("Done.")
+# print("Done.")
+
+#%%
+all_teams_df = pd.DataFrame({
+    "conf": [team["conference"] for team in final_rankings]
+    ,"school": [team["school"] for team in final_rankings]
+    ,"rank": [i for i, team in enumerate(final_rankings, start=1)]
+    ,"record": [team['record'] for team in final_rankings]
+    ,"margin": [team['margin'] for team in final_rankings]
+    ,"totalCredits": [team["winCredits"] for team in final_rankings]
+    ,"avgCredPerGame": [team["winCredits"]/sum(_ for _ in team['record']) for team in final_rankings]
+    })
+
+conferences_df = pd.DataFrame({
+    "conf": [conf for conf in all_teams_df["conf"].unique()]
+    ,"totalCredits_conf": [all_teams_df[all_teams_df["conf"] == conf]["totalCredits"].sum() for conf in all_teams_df["conf"].unique()]
+    ,"avgCredPerGame_conf": [all_teams_df[all_teams_df["conf"] == conf]["avgCredPerGame"].mean() for conf in all_teams_df["conf"].unique()]
+    ,"avgRank_conf": [all_teams_df[all_teams_df["conf"] == conf]["rank"].mean() for conf in all_teams_df["conf"].unique()]
+    ,"avgMargin_conf": [all_teams_df[all_teams_df["conf"] == conf]["margin"].mean() for conf in all_teams_df["conf"].unique()]
+    ,"avgRecord_conf": [
+        [
+            np.mean([r[0] for r in all_teams_df[all_teams_df["conf"] == conf]["record"]])
+            ,np.mean([r[1] for r in all_teams_df[all_teams_df["conf"] == conf]["record"]])
+        ]
+        for conf in all_teams_df["conf"].unique()]
+    })
+conferences_df.sort_values(by="avgRank_conf", inplace=True)
+
+conferences_df.to_excel("conferences.xlsx", index=False)
+# %%
