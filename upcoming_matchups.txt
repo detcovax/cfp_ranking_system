@@ -1,24 +1,17 @@
 Upcoming Matchups  (home v away)
 
-Week 12:
-   #8 Georgia  vs  #15 Texas
-   #4 Alabama  vs  #14 Oklahoma
-   #7 USC  vs  #21 Iowa
-   #22 Pittsburgh  vs  #5 Notre Dame
-   #17 BYU  vs  #37 TCU
-   #9 Oregon  vs  #41 Minnesota
 Week 13:
-   #9 Oregon  vs  #7 USC
-   #20 Georgia Tech  vs  #22 Pittsburgh
-   #27 SMU  vs  #23 Louisville
-   #26 Cincinnati  vs  #17 BYU
-   #14 Oklahoma  vs  #33 Missouri
+   #7 Oregon  vs  #8 USC
+   #26 SMU  vs  #30 Louisville
+   #15 Oklahoma  vs  #23 Missouri
+   #22 Georgia Tech  vs  #32 Pittsburgh
+   #36 Cincinnati  vs  #14 BYU
 Week 14:
+   #29 Nebraska  vs  #28 Iowa
    #12 Michigan  vs  #1 Ohio State
-   #15 Texas  vs  #3 Texas A&M
-   #22 Pittsburgh  vs  #16 Miami
-   #20 Georgia Tech  vs  #8 Georgia
-   #30 Nebraska  vs  #21 Iowa
-   #25 Washington  vs  #9 Oregon
-   #29 Tennessee  vs  #13 Vanderbilt
-   #14 Oklahoma  vs  #45 LSU
+   #18 Washington  vs  #7 Oregon
+   #25 Tennessee  vs  #16 Vanderbilt
+   #21 Texas  vs  #3 Texas A&M
+   #22 Georgia Tech  vs  #5 Georgia
+   #32 Pittsburgh  vs  #13 Miami
+   #15 Oklahoma  vs  #42 LSU
