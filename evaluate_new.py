@@ -113,11 +113,11 @@ classification_weights = {
 
 # Conference strength weights (relative difficulty within FBS)
 conference_weights = {
-    "SEC": 1.5,
-    "Big Ten": 1.5,
-    "Big 12": 1.2,
-    "ACC": 1.2,
-    "Pac-12": 1.0,   # adjust for "Power 5" perception
+    "SEC": 1.0,
+    "Big Ten": 1.0,
+    "Big 12": 1.0,
+    "ACC": 1.0,
+    "Pac-12": 1.0,
     "American Athletic": 1.0,
     "Mountain West": 1.0,
     "Sun Belt": 1.0,
@@ -126,7 +126,8 @@ conference_weights = {
 }
 
 other_weights = {
-    "Notre Dame": conference_weights["Big Ten"]
+    "Notre Dame": conference_weights["Big Ten"],
+    "UConn": conference_weights["American Athletic"]
 }
 
 def rate_teams(team_list:list[dict]) -> list[dict]:
@@ -740,12 +741,12 @@ conferences_df = pd.DataFrame({
     ,"avgMargin_conf": [all_teams_df[all_teams_df["conf"] == conf]["margin"].mean() for conf in all_teams_df["conf"].unique()]
     ,"avgRecord_conf": [
         [
-            np.mean([r[0] for r in all_teams_df[all_teams_df["conf"] == conf]["record"]])
-            ,np.mean([r[1] for r in all_teams_df[all_teams_df["conf"] == conf]["record"]])
+            round(np.mean([r[0] for r in all_teams_df[all_teams_df["conf"] == conf]["record"]]), ndigits=2)
+            ,round(np.mean([r[1] for r in all_teams_df[all_teams_df["conf"] == conf]["record"]]), ndigits=2)
         ]
         for conf in all_teams_df["conf"].unique()]
     })
 conferences_df.sort_values(by="avgRank_conf", inplace=True)
 
-conferences_df.to_excel("conferences.xlsx", index=False)
+conferences_df.to_csv("conferences.csv", index=False)
 # %%
