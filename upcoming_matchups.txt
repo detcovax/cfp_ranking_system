@@ -1,15 +1,9 @@
 Upcoming Matchups  (home v away)
 
-Week 13:
-   #10 Oregon  vs  #8 USC
-   #25 SMU  vs  #24 Louisville
-   #18 Oklahoma  vs  #29 Missouri
-   #19 Georgia Tech  vs  #36 Pittsburgh
-   #39 Cincinnati  vs  #12 BYU
 Week 14:
-   #16 Michigan  vs  #1 Ohio State
-   #19 Georgia Tech  vs  #6 Georgia
-   #26 Washington  vs  #10 Oregon
-   #31 Tennessee  vs  #17 Vanderbilt
-   #27 Texas  vs  #4 Texas A&M
-   #36 Pittsburgh  vs  #15 Miami
+   #14 Michigan  vs  #1 Ohio State
+   #24 Washington  vs  #7 Oregon
+   #28 Tennessee  vs  #16 Vanderbilt
+   #25 Texas  vs  #5 Texas A&M
+   #29 Pittsburgh  vs  #13 Miami
+   #31 Georgia Tech  vs  #6 Georgia
