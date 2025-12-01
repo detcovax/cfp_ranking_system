@@ -113,10 +113,10 @@ classification_weights = {
 
 # Conference strength weights (relative difficulty within FBS)
 conference_weights = {
-    "SEC": 1.0,
-    "Big Ten": 1.0,
-    "Big 12": 1.0,
-    "ACC": 1.0,
+    "SEC": 1.2,
+    "Big Ten": 1.2,
+    "Big 12": 1.2,
+    "ACC": 1.2,
     "Pac-12": 1.0,
     "American Athletic": 1.0,
     "Mountain West": 1.0,
@@ -166,9 +166,16 @@ def rate_teams(team_list:list[dict]) -> list[dict]:
                     power_scale =  1 / power_scale
                     power_scale /= power_rating_multiplier
                 win_credits = math.asinh(margin) * power_scale
+                team["games"][j]["dave_info"] = {"winCredits": win_credits, "power_scale": power_scale, "power_rating_multiplier": power_rating_multiplier}
+                notes = game.get("notes", '')
+                if notes == None:
+                    notes = ''
+                if "champion" in notes.lower():
+                    team["champion"] = True
+                    win_credits *= 2 if win else 0.5
+                    total_credits += win_credits
                 total_margin += margin
                 total_credits += win_credits
-                team["games"][j]["dave_info"] = {"winCredits": win_credits, "power_scale": power_scale, "power_rating_multiplier": power_rating_multiplier}
             except TypeError:
                 pass
         team["record"] = record
@@ -381,6 +388,7 @@ with open("reports.txt", 'w', encoding="utf-8") as file:
         rank_text = f"{i_string:<3}"
         team_string = f"{team['school']} ({team['abbreviation']})"
         team_text = f"{team_string:<15}"
+        team_text += f"\n{team['conference']} Champion" if team.get("champion", False) else ''
         record_text = f"({team['record'][0]}-{team['record'][1]})"
         margin_text = f"({team['margin']:+d})"
         list_by_credits = [_['school'] for _ in dave_rank]
