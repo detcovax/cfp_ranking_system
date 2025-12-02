@@ -9,9 +9,9 @@ Byes:
 #8 Miami
 
 Round 1 (Play-ins):
-#9 Utah      v.   #38 Toledo
-#10 Ole Miss v.   #29 UNLV
-#11 James Madison v.   #22 SMU
+#9 Utah      v.   #39 Kennesaw State
+#10 Ole Miss v.   #38 Toledo
+#11 James Madison v.   #29 UNLV
 #12 Vanderbilt v.   #21 Texas
 #13 Texas A&M v.   #20 Arizona
 #14 Alabama  v.   #19 Michigan
@@ -19,6 +19,7 @@ Round 1 (Play-ins):
 #16 North Texas v.   #17 Oklahoma
 
 Outside Looking In:
+#22 SMU
 #23 South Florida
 #24 Tulane
 #25 Louisville
