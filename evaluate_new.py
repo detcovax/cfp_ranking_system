@@ -740,6 +740,9 @@ all_teams_df = pd.DataFrame({
     ,"totalCredits": [team["winCredits"] for team in final_rankings]
     ,"avgCredPerGame": [team["winCredits"]/sum(_ for _ in team['record']) for team in final_rankings]
     })
+# independents = all_teams_df[all_teams_df["conf"]=='FBS Independents']["school"].unique()
+# all_teams_df = all_teams_df[(all_teams_df["conf"]!='FBS Independents') | (all_teams_df["school"].isin(independents))]
+all_teams_df["conf"] = all_teams_df.apply(lambda s: s["conf"] if s["conf"] != 'FBS Independents' else s["school"], axis=1)
 
 conferences_df = pd.DataFrame({
     "conf": [conf for conf in all_teams_df["conf"].unique()]
