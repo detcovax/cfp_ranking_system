@@ -5,22 +5,22 @@ Byes:
 #4 Notre Dame
 
 Round 1:
-#5 Oregon    v.   #12 Vanderbilt
-#6 BYU       v.   #11 James Madison
-#7 Georgia   v.   #10 Ole Miss
-#8 Miami     v.   #9 Utah
+#5 James Madison v.   #12 Ole Miss
+#6 Oregon    v.   #11 Utah
+#7 BYU       v.   #10 Tulane
+#8 Georgia   v.   #9 Miami
 
 Outside Looking In:
-#13 Texas A&M
-#14 Alabama
+#13 Vanderbilt
+#14 Texas A&M
 #15 USC
-#16 North Texas
+#16 Alabama
 #17 Oklahoma
 #18 Virginia
-#19 Michigan
-#20 Arizona
-#21 Texas
-#22 SMU
-#23 South Florida
-#24 Tulane
-#25 Louisville
+#19 North Texas
+#20 Michigan
+#21 Arizona
+#22 Boise State
+#23 Texas
+#24 SMU
+#25 South Florida

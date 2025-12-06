@@ -3,29 +3,28 @@ Byes:
 #2 Indiana
 #3 Texas Tech
 #4 Notre Dame
-#5 Oregon
-#6 BYU
-#7 Georgia
-#8 Miami
+#5 James Madison
+#6 Oregon
+#7 BYU
+#8 Georgia
 
 Round 1 (Play-ins):
-#9 Utah      v.   #39 Kennesaw State
-#10 Ole Miss v.   #38 Toledo
-#11 James Madison v.   #29 UNLV
-#12 Vanderbilt v.   #21 Texas
-#13 Texas A&M v.   #20 Arizona
-#14 Alabama  v.   #19 Michigan
+#9 Miami     v.   #39 Toledo
+#10 Tulane   v.   #26 Kennesaw State
+#11 Utah     v.   #22 Boise State
+#12 Ole Miss v.   #21 Arizona
+#13 Vanderbilt v.   #20 Michigan
+#14 Texas A&M v.   #19 North Texas
 #15 USC      v.   #18 Virginia
-#16 North Texas v.   #17 Oklahoma
+#16 Alabama  v.   #17 Oklahoma
 
 Outside Looking In:
-#22 SMU
-#23 South Florida
-#24 Tulane
-#25 Louisville
-#26 Iowa
-#27 Washington
-#28 Pittsburgh
-#30 TCU
-#31 Houston
-#32 Missouri
+#23 Texas
+#24 SMU
+#25 South Florida
+#27 Louisville
+#28 Iowa
+#29 Washington
+#30 Pittsburgh
+#31 TCU
+#32 Houston
