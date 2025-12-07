@@ -1,8 +1,8 @@
 Byes:
 #1 Texas Tech
-#2 Georgia
-#3 Ohio State
-#4 Indiana
+#2 Indiana
+#3 Georgia
+#4 Ohio State
 #5 Notre Dame
 #6 James Madison
 #7 Oregon
