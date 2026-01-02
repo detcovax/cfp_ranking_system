@@ -1,225 +1,211 @@
 Tiers
 
 Tier 1
-   #1 Texas Tech   (5.331 cred/gm)
+   #1 Texas Tech   (4.856 cred/gm)
+   #2 Indiana      (4.801 cred/gm)
 
 Tier 2
-   #2 Indiana      (4.634 cred/gm)
-   #3 Georgia      (4.37 cred/gm)
+   #3 Georgia      (4.008 cred/gm)
+   #4 Oregon       (3.618 cred/gm)
+   #5 Notre Dame   (3.579 cred/gm)
+   #6 Ohio State   (3.452 cred/gm)
 
 Tier 3
-   #4 Ohio State   (3.794 cred/gm)
-   #5 Notre Dame   (3.574 cred/gm)
-   #6 James Madison (3.399 cred/gm)
+   #7 Miami        (3.123 cred/gm)
+   #8 Ole Miss     (3.01 cred/gm)
+   #9 Utah         (2.999 cred/gm)
+   #10 James Madison (2.985 cred/gm)
 
 Tier 4
-   #7 Oregon       (3.149 cred/gm)
-   #8 Miami        (2.893 cred/gm)
-   #9 Tulane       (2.879 cred/gm)
-   #10 Utah        (2.865 cred/gm)
-   #11 Ole Miss    (2.713 cred/gm)
+   #11 BYU         (2.651 cred/gm)
+   #12 Tulane      (2.591 cred/gm)
 
 Tier 5
-   #12 BYU         (2.613 cred/gm)
-   #13 Vanderbilt  (2.511 cred/gm)
-   #14 Texas A&M   (2.502 cred/gm)
-   #15 USC         (2.41 cred/gm)
+   #13 Texas A&M   (2.183 cred/gm)
+   #14 Vanderbilt  (2.16 cred/gm)
+   #15 USC         (2.15 cred/gm)
+   #16 Texas       (2.101 cred/gm)
+   #17 North Texas (2.036 cred/gm)
+   #18 Arizona     (2.001 cred/gm)
+   #19 Duke        (1.976 cred/gm)
+   #20 Alabama     (1.93 cred/gm)
+   #21 Oklahoma    (1.91 cred/gm)
+   #22 Virginia    (1.89 cred/gm)
+   #23 SMU         (1.843 cred/gm)
 
 Tier 6
-   #16 Oklahoma    (2.237 cred/gm)
-   #17 Alabama     (2.088 cred/gm)
-   #18 North Texas (2.041 cred/gm)
-   #19 Virginia    (2.022 cred/gm)
-   #20 Michigan    (1.989 cred/gm)
-   #21 Arizona     (1.986 cred/gm)
-   #22 Boise State (1.909 cred/gm)
-   #23 Texas       (1.9 cred/gm)
+   #24 Washington  (1.777 cred/gm)
+   #25 Iowa        (1.71 cred/gm)
+   #26 Michigan    (1.657 cred/gm)
+   #27 Louisville  (1.657 cred/gm)
 
 Tier 7
-   #24 SMU         (1.828 cred/gm)
-   #25 South Florida (1.814 cred/gm)
-   #26 Kennesaw State (1.713 cred/gm)
+   #28 Boise State (1.512 cred/gm)
+   #29 TCU         (1.504 cred/gm)
+   #30 Illinois    (1.475 cred/gm)
+   #31 Old Dominion (1.474 cred/gm)
+   #32 South Florida (1.464 cred/gm)
+   #33 Western Michigan (1.458 cred/gm)
+   #34 Houston     (1.411 cred/gm)
+   #35 Kennesaw State (1.35 cred/gm)
 
 Tier 8
-   #27 Louisville  (1.58 cred/gm)
-   #28 Iowa        (1.512 cred/gm)
-   #29 Washington  (1.488 cred/gm)
-   #30 Pittsburgh  (1.41 cred/gm)
-   #31 TCU         (1.395 cred/gm)
-   #32 Houston     (1.346 cred/gm)
-   #33 Illinois    (1.33 cred/gm)
-   #34 Missouri    (1.318 cred/gm)
+   #36 Pittsburgh  (1.149 cred/gm)
+   #37 Iowa State  (1.125 cred/gm)
+   #38 East Carolina (1.11 cred/gm)
+   #39 Georgia Tech (1.102 cred/gm)
+   #40 San Diego State (1.099 cred/gm)
+   #41 Tennessee   (1.096 cred/gm)
+   #42 NC State    (1.087 cred/gm)
+   #43 Navy        (1.082 cred/gm)
+   #44 Missouri    (1.069 cred/gm)
+   #45 Penn State  (1.051 cred/gm)
 
 Tier 9
-   #35 Old Dominion (1.284 cred/gm)
-   #36 Tennessee   (1.275 cred/gm)
-   #37 San Diego State (1.274 cred/gm)
-   #38 Georgia Tech (1.255 cred/gm)
-   #39 Western Michigan (1.216 cred/gm)
-   #40 Toledo      (1.204 cred/gm)
+   #46 Toledo      (0.983 cred/gm)
 
 Tier 10
-   #41 UNLV        (1.117 cred/gm)
-   #42 Navy        (1.115 cred/gm)
-   #43 Iowa State  (1.103 cred/gm)
-   #44 UConn       (1.052 cred/gm)
-   #45 New Mexico  (1.013 cred/gm)
-   #46 Arizona State (0.966 cred/gm)
+   #47 UNLV        (0.846 cred/gm)
+   #48 Wake Forest (0.831 cred/gm)
+   #49 Arizona State (0.812 cred/gm)
+   #50 Hawai'i     (0.808 cred/gm)
+   #51 New Mexico  (0.795 cred/gm)
+   #52 Ohio        (0.792 cred/gm)
+   #53 Kansas State (0.769 cred/gm)
+   #54 Cincinnati  (0.727 cred/gm)
 
 Tier 11
-   #47 East Carolina (0.907 cred/gm)
-   #48 Clemson     (0.851 cred/gm)
-   #49 Duke        (0.819 cred/gm)
-   #50 Penn State  (0.812 cred/gm)
-   #51 NC State    (0.796 cred/gm)
-   #52 Wake Forest (0.78 cred/gm)
+   #55 UConn       (0.69 cred/gm)
 
 Tier 12
-   #53 Kansas State (0.75 cred/gm)
-   #54 Memphis     (0.714 cred/gm)
-   #55 Cincinnati  (0.711 cred/gm)
-   #56 Hawai'i     (0.689 cred/gm)
+   #56 Washington State (0.606 cred/gm)
+   #57 Clemson     (0.601 cred/gm)
+   #58 Western Kentucky (0.546 cred/gm)
+   #59 Louisiana Tech (0.53 cred/gm)
 
 Tier 13
-   #57 Ohio        (0.616 cred/gm)
-   #58 LSU         (0.566 cred/gm)
+   #60 Fresno State (0.498 cred/gm)
+   #61 Minnesota   (0.491 cred/gm)
+   #62 Army        (0.459 cred/gm)
 
 Tier 14
-   #59 Nebraska    (0.461 cred/gm)
+   #63 LSU         (0.428 cred/gm)
+   #64 Memphis     (0.419 cred/gm)
 
 Tier 15
-   #60 Washington State (0.382 cred/gm)
-   #61 Louisiana Tech (0.38 cred/gm)
-   #62 Western Kentucky (0.37 cred/gm)
-   #63 Minnesota   (0.347 cred/gm)
+   #65 UTSA        (0.272 cred/gm)
+   #66 Nebraska    (0.267 cred/gm)
 
 Tier 16
-   #64 Fresno State (0.278 cred/gm)
+   #67 Texas State (0.232 cred/gm)
+   #68 Northwestern (0.215 cred/gm)
 
 Tier 17
-   #65 Army        (0.216 cred/gm)
+   #69 Jacksonville State (0.192 cred/gm)
+   #70 Florida State (0.187 cred/gm)
 
 Tier 18
-   #66 Florida State (0.168 cred/gm)
-   #67 Texas State (0.153 cred/gm)
+   #71 Auburn      (-0.031 cred/gm)
 
 Tier 19
-   #68 Troy        (0.077 cred/gm)
+   #72 Kansas      (-0.071 cred/gm)
 
 Tier 20
-   #69 Jacksonville State (0.066 cred/gm)
+   #73 California  (-0.092 cred/gm)
+   #74 Troy        (-0.092 cred/gm)
 
 Tier 21
-   #70 Miami (OH)  (0.021 cred/gm)
+   #75 Miami (OH)  (-0.199 cred/gm)
 
 Tier 22
-   #71 California  (0.016 cred/gm)
+   #76 Central Michigan (-0.266 cred/gm)
+   #77 Kentucky    (-0.271 cred/gm)
+   #78 Southern Miss (-0.274 cred/gm)
 
 Tier 23
-   #72 Central Michigan (0.001 cred/gm)
+   #79 Utah State  (-0.299 cred/gm)
 
 Tier 24
-   #73 Auburn      (-0.025 cred/gm)
+   #80 UCF         (-0.341 cred/gm)
+   #81 Mississippi State (-0.343 cred/gm)
 
 Tier 25
-   #74 UTSA        (-0.041 cred/gm)
+   #82 Rutgers     (-0.377 cred/gm)
+   #83 Florida International (-0.402 cred/gm)
+   #84 Baylor      (-0.416 cred/gm)
+   #85 Georgia Southern (-0.423 cred/gm)
+   #86 Marshall    (-0.439 cred/gm)
+   #87 Missouri State (-0.442 cred/gm)
 
 Tier 26
-   #75 Southern Miss (-0.046 cred/gm)
+   #88 South Carolina (-0.473 cred/gm)
 
 Tier 27
-   #76 Utah State  (-0.064 cred/gm)
+   #89 Wisconsin   (-0.524 cred/gm)
+   #90 Delaware    (-0.559 cred/gm)
 
 Tier 28
-   #77 Florida International (-0.08 cred/gm)
-   #78 Kansas      (-0.085 cred/gm)
+   #91 Arkansas State (-0.611 cred/gm)
+   #92 Florida     (-0.646 cred/gm)
 
 Tier 29
-   #79 Northwestern (-0.096 cred/gm)
+   #93 Stanford    (-0.715 cred/gm)
+   #94 Maryland    (-0.751 cred/gm)
+   #95 Temple      (-0.785 cred/gm)
+   #96 Louisiana   (-0.787 cred/gm)
+   #97 West Virginia (-0.793 cred/gm)
+   #98 Coastal Carolina (-0.806 cred/gm)
+   #99 Michigan State (-0.807 cred/gm)
 
 Tier 30
-   #80 Missouri State (-0.238 cred/gm)
+   #100 North Carolina (-0.956 cred/gm)
+   #101 Colorado   (-1.01 cred/gm)
+   #102 Eastern Michigan (-1.029 cred/gm)
 
 Tier 31
-   #81 Kentucky    (-0.278 cred/gm)
+   #103 Buffalo    (-1.096 cred/gm)
+   #104 App State  (-1.119 cred/gm)
+   #105 Arkansas   (-1.124 cred/gm)
+   #106 UCLA       (-1.144 cred/gm)
+   #107 Air Force  (-1.174 cred/gm)
+   #108 Kent State (-1.214 cred/gm)
+   #109 Liberty    (-1.228 cred/gm)
 
 Tier 32
-   #82 Mississippi State (-0.341 cred/gm)
-   #83 UCF         (-0.354 cred/gm)
+   #110 South Alabama (-1.29 cred/gm)
 
 Tier 33
-   #84 Rutgers     (-0.416 cred/gm)
-   #85 Marshall    (-0.429 cred/gm)
-   #86 Baylor      (-0.429 cred/gm)
-   #87 South Carolina (-0.461 cred/gm)
+   #111 Akron      (-1.446 cred/gm)
+   #112 Wyoming    (-1.45 cred/gm)
+   #113 Rice       (-1.452 cred/gm)
+   #114 Bowling Green (-1.466 cred/gm)
+   #115 Florida Atlantic (-1.483 cred/gm)
+   #116 Middle Tennessee (-1.505 cred/gm)
+   #117 Virginia Tech (-1.523 cred/gm)
+   #118 New Mexico State (-1.532 cred/gm)
+   #119 Syracuse   (-1.624 cred/gm)
+   #120 Tulsa      (-1.666 cred/gm)
+   #121 Nevada     (-1.702 cred/gm)
+   #122 Purdue     (-1.714 cred/gm)
+   #123 Boston College (-1.721 cred/gm)
 
 Tier 34
-   #88 Wisconsin   (-0.562 cred/gm)
-   #89 Louisiana   (-0.583 cred/gm)
+   #124 UAB        (-1.801 cred/gm)
+   #125 San José State (-1.837 cred/gm)
+   #126 Northern Illinois (-1.896 cred/gm)
+   #127 Ball State (-1.942 cred/gm)
 
 Tier 35
-   #90 Coastal Carolina (-0.659 cred/gm)
-   #91 Florida     (-0.67 cred/gm)
-   #92 Georgia Southern (-0.716 cred/gm)
-   #93 Stanford    (-0.732 cred/gm)
+   #128 Colorado State (-2.268 cred/gm)
+   #129 Oregon State (-2.278 cred/gm)
+   #130 UL Monroe  (-2.295 cred/gm)
+   #131 UTEP       (-2.472 cred/gm)
+   #132 Oklahoma State (-2.472 cred/gm)
 
 Tier 36
-   #94 Maryland    (-0.765 cred/gm)
-   #95 Delaware    (-0.79 cred/gm)
-   #96 Temple      (-0.805 cred/gm)
-   #97 West Virginia (-0.813 cred/gm)
-   #98 Arkansas State (-0.83 cred/gm)
-   #99 Michigan State (-0.833 cred/gm)
-   #100 App State  (-0.859 cred/gm)
+   #133 Sam Houston (-2.929 cred/gm)
+   #134 Georgia State (-3.07 cred/gm)
+   #135 Charlotte  (-3.296 cred/gm)
 
 Tier 37
-   #101 North Carolina (-0.99 cred/gm)
-   #102 Eastern Michigan (-1.023 cred/gm)
-   #103 Colorado   (-1.033 cred/gm)
-   #104 Buffalo    (-1.072 cred/gm)
-
-Tier 38
-   #105 Arkansas   (-1.138 cred/gm)
-   #106 Air Force  (-1.152 cred/gm)
-   #107 UCLA       (-1.166 cred/gm)
-   #108 Kent State (-1.192 cred/gm)
-   #109 Liberty    (-1.226 cred/gm)
-   #110 South Alabama (-1.264 cred/gm)
-
-Tier 39
-   #111 Akron      (-1.416 cred/gm)
-   #112 Rice       (-1.418 cred/gm)
-   #113 Florida Atlantic (-1.454 cred/gm)
-   #114 Bowling Green (-1.46 cred/gm)
-   #115 Wyoming    (-1.463 cred/gm)
-   #116 Middle Tennessee (-1.494 cred/gm)
-   #117 New Mexico State (-1.528 cred/gm)
-   #118 Virginia Tech (-1.548 cred/gm)
-
-Tier 40
-   #119 Syracuse   (-1.65 cred/gm)
-   #120 Tulsa      (-1.665 cred/gm)
-   #121 Nevada     (-1.69 cred/gm)
-   #122 Boston College (-1.704 cred/gm)
-   #123 Purdue     (-1.746 cred/gm)
-   #124 UAB        (-1.78 cred/gm)
-   #125 San José State (-1.841 cred/gm)
-   #126 Northern Illinois (-1.9 cred/gm)
-   #127 Ball State (-1.938 cred/gm)
-
-Tier 41
-   #128 Colorado State (-2.283 cred/gm)
-   #129 UL Monroe  (-2.291 cred/gm)
-   #130 Oregon State (-2.306 cred/gm)
-   #131 UTEP       (-2.472 cred/gm)
-   #132 Oklahoma State (-2.497 cred/gm)
-
-Tier 42
-   #133 Sam Houston (-2.94 cred/gm)
-   #134 Georgia State (-3.052 cred/gm)
-
-Tier 43
-   #135 Charlotte  (-3.3 cred/gm)
-
-Tier 44
-   #136 Massachusetts (-3.925 cred/gm)
+   #136 Massachusetts (-3.917 cred/gm)
