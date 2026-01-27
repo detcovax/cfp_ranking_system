@@ -5,11 +5,11 @@ Byes:
 #4 Notre Dame
 #5 Ohio State
 #6 Oregon
-#7 Miami
-#8 James Madison
+#7 James Madison
+#8 Utah
 
 Round 1 (Play-ins):
-#9 Utah      v.   #56 Washington State
+#9 Miami     v.   #56 Washington State
 #10 Ole Miss v.   #35 Kennesaw State
 #11 BYU      v.   #33 Western Michigan
 #12 Tulane   v.   #28 Boise State
@@ -22,8 +22,8 @@ Outside Looking In:
 #21 Oklahoma
 #22 Virginia
 #23 Washington
-#24 Arizona
-#25 Iowa
+#24 Iowa
+#25 Arizona
 #26 Louisville
 #27 Michigan
 #29 TCU
