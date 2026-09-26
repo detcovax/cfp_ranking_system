@@ -1,8 +1,8 @@
 """
 config.py -- central configuration for the CFP ranking app.
 
-The API token defaults to the one previously baked into the project, but you can
-override it (recommended) with an environment variable:
+The API key is read from the CFBD_API_KEY environment variable, or from a
+one-line cfbd_key.txt next to this file (keep that file out of source control):
 
     export CFBD_API_KEY=your_key        # macOS / Linux
     set CFBD_API_KEY=your_key           # Windows (cmd)
@@ -18,8 +18,10 @@ YEAR = int(os.environ.get("CFP_YEAR", "2026"))
 # Seasons of player history pulled to build player-value projections.
 HISTORY_YEARS = [YEAR - 3, YEAR - 2, YEAR - 1]
 
-# Recruiting classes pulled to value incoming freshmen.
-RECRUIT_YEARS = [YEAR - 2, YEAR - 1, YEAR]
+# Recruiting classes pulled for the player prior. Five classes covers every
+# scholarship player through a 5th-year senior (and follows transfers, since
+# recruits are matched by athlete id).
+RECRUIT_YEARS = [YEAR - 4, YEAR - 3, YEAR - 2, YEAR - 1, YEAR]
 
 # Regular-season weeks pulled for current-season per-game data (availability).
 CURRENT_WEEKS = list(range(1, 16))
@@ -30,6 +32,11 @@ CFBD_API_KEY = os.environ.get(
     "CFBD_API_KEY",
     "MOFfmt9jd9x5LakTyGcrT3tK1Wfxxdb/zmKB23nz2MI7AZdsNKGNcu5b2VjERc2L",
 )
+if not CFBD_API_KEY:
+    _key_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cfbd_key.txt")
+    if os.path.exists(_key_file):
+        with open(_key_file, "r", encoding="utf-8") as _f:
+            CFBD_API_KEY = _f.read().strip()
 
 # --- Files / server ---------------------------------------------------------
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")

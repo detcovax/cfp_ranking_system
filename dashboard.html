@@ -158,6 +158,15 @@
   .score .t{text-align:center;min-width:120px}
   .score .pts{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
   .score .vs{color:var(--muted)}
+  .confrow{cursor:pointer}
+  .confrow.open td{background:var(--panel2)}
+  .tier{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:20px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
+  .tier.p4{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+  .sortable{cursor:pointer;user-select:none}
+  .sortable.on{color:var(--text)}
+  .matrix{border-collapse:collapse;font-size:12px}
+  .matrix th,.matrix td{padding:5px 7px;border:1px solid var(--line);text-align:center;white-space:nowrap}
+  .matrix th.rowh{text-align:left}
   .cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
   .mcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;transition:border-color .15s}
   .mcard:hover{border-color:var(--accent)}
@@ -186,6 +195,16 @@
   .progress{display:none;align-items:center;gap:12px;margin:8px 0 14px;background:var(--panel);
     border:1px solid var(--line);border-radius:10px;padding:10px 14px}
   .progress.show{display:flex}
+  .jobbtns{display:flex;gap:6px;align-items:center}
+  .jobbtns .btn{position:relative}
+  .dotbadge{display:none;position:absolute;top:-4px;right:-4px;width:10px;height:10px;border-radius:50%;
+    background:var(--warn);border:2px solid var(--bg)}
+  .dotbadge.on{display:block}
+  .pendingbar{display:none;align-items:center;gap:10px;margin:0 0 12px;padding:8px 12px;border-radius:10px;
+    background:color-mix(in srgb,var(--warn) 12%,var(--panel));border:1px solid color-mix(in srgb,var(--warn) 40%,transparent);font-size:13px}
+  .pendingbar.show{display:flex}
+  pre.report{white-space:pre;overflow:auto;max-height:60vh;background:var(--panel2);border:1px solid var(--line);
+    border-radius:8px;padding:10px 12px;font-size:12px;line-height:1.35}
   .pbar{flex:1;height:8px;background:var(--panel2);border-radius:6px;overflow:hidden}
   .pbar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s ease}
   .spin{width:16px;height:16px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
@@ -204,17 +223,23 @@
     <div class="spacer"></div>
     <div class="meta-pill" id="metaPill"></div>
     <button class="btn ghost sm" id="themeBtn" title="Toggle light / dark theme" aria-label="Toggle light or dark theme">Dark mode</button>
-    <button class="btn" id="updateBtn">Update data</button>
+    <div class="jobbtns">
+      <button class="btn ghost" id="fetchBtn" title="Pull the latest data from CollegeFootballData and save it. Doesn't change the rankings until you Execute.">Fetch</button>
+      <button class="btn" id="executeBtn" title="Compute all ratings from the saved data and calibration.">Execute<span class="dotbadge" id="execBadge"></span></button>
+      <button class="btn ghost" id="calibrateBtn" title="Fit model parameters from the saved data (takes a few minutes). Doesn't change the rankings until you Execute.">Calibrate</button>
+    </div>
   </header>
 
   <nav class="tabs" id="topnav">
     <button data-tab="rankings" class="active">Rankings</button>
     <button data-tab="players">Players</button>
     <button data-tab="upcoming">Upcoming</button>
+    <button data-tab="conferences">Conferences</button>
     <button data-tab="bracket">CFP Bracket</button>
     <button data-tab="matchup">Matchup Predictor</button>
   </nav>
 
+  <div class="pendingbar" id="pendingBar"></div>
   <div class="progress" id="progress">
     <div class="spin" id="spin"></div>
     <div class="pbar"><i id="pbarFill"></i></div>
@@ -251,9 +276,9 @@ const apiPost = (u,body)=> api(u,{method:"POST",headers:{"Content-Type":"applica
 
 const RVIEW = {power:"Power", current:"Current", predictive:"Predictive"};
 const VIEW_HINT = {
-  power:"How good the roster is in theory — bottom-up player value. Best in the preseason.",
-  current:"Power blended with results so far. Equals Power in the preseason; shifts toward results as games are played.",
-  predictive:"Projected end-of-season: known results (through the selected week) plus a forecast of every remaining game.",
+  power:"Roster strength in points vs. an average FBS team (neutral field): player ratings × snap share × position weight, plus a program term from last season.",
+  current:"Opponent-adjusted results with Power as the prior. Equals Power in the preseason; each game shifts it, weighted K/(K+games). A 7-point gap = 7-point spread on a neutral field.",
+  predictive:"Projected final committee ranking: résumé (wins and losses vs. a playoff-bubble team with the same schedule, margin ignored) plus projected conference title games, with head-to-head and common-opponent tiebreaks between comparable teams. The CFP field and seeds come from this.",
 };
 const UNIT_LABEL = {overall:"Overall", offense:"Offense", defense:"Defense", special:"Special teams"};
 
@@ -295,18 +320,37 @@ function setTab(tab){
   renderTab();
 }
 function renderTab(){
-  const c=$("#content"); c.innerHTML="";
-  if(!state.rankings.length && state.tab!=="rankings"){ c.append(emptyState()); return; }
-  if(state.tab==="rankings") return renderRankings(c);
-  if(state.tab==="players") return renderPlayers(c);
-  if(state.tab==="upcoming") return renderUpcoming(c);
-  if(state.tab==="bracket") return renderBracket(c);
-  if(state.tab==="matchup") return renderMatchup(c);
+  const c=$("#content");
+  // Re-rendering replaces every element, so remember which text box had focus
+  // (by its data-key) and the cursor position, and restore them afterwards.
+  const a=document.activeElement;
+  const keep=(a && c.contains(a) && a.dataset && a.dataset.key)
+    ? {key:a.dataset.key, start:a.selectionStart, end:a.selectionEnd} : null;
+  c.innerHTML="";
+  let r;
+  if(!state.rankings.length && state.tab!=="rankings"){ c.append(emptyState()); }
+  else if(state.tab==="rankings") r=renderRankings(c);
+  else if(state.tab==="players") r=renderPlayers(c);
+  else if(state.tab==="upcoming") r=renderUpcoming(c);
+  else if(state.tab==="bracket") r=renderBracket(c);
+  else if(state.tab==="matchup") r=renderMatchup(c);
+  else if(state.tab==="conferences") r=renderConferences(c);
+  const restore=()=>{
+    if(!keep) return;
+    const inp=c.querySelector(`[data-key="${keep.key}"]`);
+    if(!inp) return;
+    inp.focus();
+    try{ if(keep.start!=null) inp.setSelectionRange(keep.start, keep.end); }catch(e){}
+  };
+  if(r && typeof r.then==="function") r.then(restore); else restore();
+  return r;
 }
 function emptyState(){
   return el("div",{class:"empty"}, el("h2",{},"No data yet"),
-    el("p",{},"Pull the latest teams, stats, and player history to build the rankings."),
-    el("button",{class:"btn",style:"margin-top:8px",onclick:doRefresh},"Update data"));
+    el("p",{},"Step 1: Fetch pulls teams, games, stats, and player history from CollegeFootballData. Step 2: Execute computes the ratings. (Calibrate is optional; run it once you have data.)"),
+    el("div",{style:"display:flex;gap:8px;justify-content:center;margin-top:8px"},
+      el("button",{class:"btn ghost",onclick:()=>startJob("fetch")},"Fetch"),
+      el("button",{class:"btn",onclick:()=>startJob("execute")},"Execute")));
 }
 
 /* ---------------- Rankings view ---------------- */
@@ -327,7 +371,7 @@ function renderRankings(c){
   [["avail","Available"],["full","Full strength"]].forEach(([k,lab])=>
     availSeg.append(el("button",{class:state.avail===k?"active":"",onclick:()=>{if(state.avail!==k){state.avail=k;state.teamsList=null;changeWorld();}}},lab)));
   const search=el("input",{class:"search",placeholder:"Filter team or conference...",value:state.query,
-    oninput:e=>{state.query=e.target.value;renderTab();}});
+    "data-key":"rankings-search", oninput:e=>{state.query=e.target.value;renderTab();}});
   bar.append(unitSeg, viewSeg, availSeg, search);
   c.append(bar);
 
@@ -365,7 +409,9 @@ function renderRankings(c){
   let rows=state.rankings.slice().sort((a,b)=> (getRank(a)||999)-(getRank(b)||999));
   const q=state.query.trim().toLowerCase();
   if(q) rows=rows.filter(t=>(t.school||"").toLowerCase().includes(q)||(t.conference||"").toLowerCase().includes(q)||(t.abbreviation||"").toLowerCase().includes(q));
-  const max=Math.max(...state.rankings.map(t=>getRating(t)||0),1);
+  const _rs=state.rankings.map(t=>getRating(t)).filter(v=>v!=null);
+  const rmin=Math.min(...(_rs.length?_rs:[0])), rmax=Math.max(...(_rs.length?_rs:[1]));
+  const fmtPts=(n,d=1)=> (n==null)?"—":((n>0?"+":"")+Number(n).toFixed(d));
 
   const tb=el("tbody",{});
   for(const t of rows){
@@ -380,11 +426,11 @@ function renderRankings(c){
       el("td",{class:"num muted"},`${t.record?.[0]??0}-${t.record?.[1]??0}`),
       el("td",{class:"num muted", title: t.expected_wins!=null?`${t.expected_wins} expected wins`:""},
         t.proj_record?`${t.proj_record[0]}-${t.proj_record[1]}`:"—"),
-      el("td",{class:"num"}, el("div",{}, el("div",{class:"rating"},fmt(rating)),
-        el("div",{class:"bar"}, el("i",{style:`width:${Math.max(0,Math.min(100,(rating/max)*100))}%`})))),
-      el("td",{class:"num"+(state.unit==="offense"?"":" muted")},fmt(getRating(t,state.view,"offense"),0)),
-      el("td",{class:"num"+(state.unit==="defense"?"":" muted")},fmt(getRating(t,state.view,"defense"),0)),
-      el("td",{class:"num"+(state.unit==="special"?"":" muted")},fmt(getRating(t,state.view,"special"),0)),
+      el("td",{class:"num"}, el("div",{}, el("div",{class:"rating"},fmtPts(rating)),
+        el("div",{class:"bar"}, el("i",{style:`width:${Math.max(2,Math.min(100,((rating-rmin)/((rmax-rmin)||1))*100))}%`})))),
+      el("td",{class:"num"+(state.unit==="offense"?"":" muted")},fmtPts(getRating(t,state.view,"offense"),0)),
+      el("td",{class:"num"+(state.unit==="defense"?"":" muted")},fmtPts(getRating(t,state.view,"defense"),0)),
+      el("td",{class:"num"+(state.unit==="special"?"":" muted")},fmtPts(getRating(t,state.view,"special"),0)),
     ];
     if(showOdds){
       cells.push(el("td",{class:"num", title:od?`avg ${od.avg_wins} wins`:""}, od?pct1(od.playoff_pct):"—"));
@@ -527,20 +573,48 @@ function unitsPanel(t){
     el("tbody",{}, mkRow("Offense","offense"), mkRow("Defense","defense"), mkRow("Special","special"))));
   return wrap;
 }
+function roleCell(p){
+  const cls = p.role==="Starter"?"pill recruit":p.role==="Out"?"pill out":"pill";
+  return el("span",{class:cls,title:p.status_source==="auto"?`Auto: missed ${p.missed_games||2}+ straight games`:""},
+    (p.role||"—")+(p.status_source==="auto"?" (auto)":""));
+}
 function playersPanel(t){
+  const players=t.players||[];
+  if(!players.length) return el("div",{class:"muted"},"No player data.");
+  const wrap=el("div",{});
+  wrap.append(el("div",{class:"muted",style:"margin-bottom:8px;font-size:12px"},
+    "Depth chart from actual usage (this season's snaps once games are played, last season's before that). "+
+    "Snaps = projected share of snaps. Value = points above a replacement-level player at those snaps. "+
+    "If out = points the team loses without him (backups' is near zero); for injured players it's what the absence is costing now."));
+  const ORDER=["QB","RB","WR","TE","OL","DL","LB","DB","K","P"];
+  const SLOTS={QB:2,RB:3,WR:5,TE:2,OL:7,DL:7,LB:4,DB:7,K:1,P:1};
+  const showAll=!!state.depthShowAll;
   const tb=el("tbody",{});
-  for(const p of (t.players||[]).slice(0,60)){
-    const st=p.status&&p.status!=="active"?el("span",{class:"pill "+p.status},p.status):(p.basis==="recruit"?el("span",{class:"pill recruit"},"FR"):null);
-    tb.append(el("tr",{class:"clk",onclick:()=>openPlayer(p.id)},
-      el("td",{},p.name||"—"),el("td",{class:"muted"},p.position||"—"),
-      el("td",{class:"num muted"},p.class||"—"),el("td",{class:"num"},fmt(p.value,1)),
-      el("td",{class:"num muted"},p.ppa_recent==null?"—":fmt(p.ppa_recent,1)),el("td",{},st)));
+  for(const g of ORDER){
+    const gl=players.filter(p=>p.group===g).sort((a,b)=>(a.depth_rank||99)-(b.depth_rank||99));
+    if(!gl.length) continue;
+    const shown=showAll?gl:gl.filter(p=>(p.depth_rank||99)<=SLOTS[g]+1 || p.status!=="active");
+    tb.append(el("tr",{}, el("td",{colspan:"9",style:"font-weight:700;padding-top:10px;color:var(--muted)"},g)));
+    for(const p of shown){
+      const out=p.status!=="active";
+      tb.append(el("tr",{class:"clk",onclick:()=>openPlayer(p.id),style:out?"opacity:.85":""},
+        el("td",{class:"num rk"},out?"—":String(p.depth_rank||"—")),
+        el("td",{},p.name||"—"),
+        el("td",{class:"num muted"},p.class||"—"),
+        el("td",{},roleCell(p)),
+        el("td",{class:"num"},out?(p.healthy_share?`(${pct(p.healthy_share)})`:"—"):(p.snap_share?pct(p.snap_share):"—")),
+        el("td",{class:"num muted"},fmt(p.grade,0)),
+        el("td",{class:"num"},fmt(p.value,1)),
+        el("td",{class:"num"+(p.impact>=1?"":" muted")},p.impact?fmt(p.impact,1):"—"),
+        el("td",{class:"num muted"},p.ppa_recent==null?"—":fmt(p.ppa_recent,2))));
+    }
   }
-  const tbl=el("table",{class:"ptable"}, el("thead",{}, el("tr",{},
-    el("th",{},"Player"),el("th",{},"Pos"),el("th",{class:"num"},"Cls"),el("th",{class:"num"},"Value"),
-    el("th",{class:"num"},"Last PPA"),el("th",{},""))), tb);
-  const wrap=el("div",{}, el("div",{class:"muted",style:"margin-bottom:6px;font-size:12px"},"Click a player for their full profile."), tbl);
-  if(!(t.players||[]).length) return el("div",{class:"muted"},"No player data.");
+  wrap.append(el("table",{class:"ptable"}, el("thead",{}, el("tr",{},
+    el("th",{class:"num"},"Dp"),el("th",{},"Player"),el("th",{class:"num"},"Cls"),el("th",{},"Role"),
+    el("th",{class:"num"},"Snaps"),el("th",{class:"num"},"Grade"),el("th",{class:"num"},"Value"),
+    el("th",{class:"num"},"If out"),el("th",{class:"num"},"PPA/play"))), tb));
+  wrap.append(el("button",{class:"btn ghost sm",style:"margin-top:8px",onclick:()=>{state.depthShowAll=!showAll; refreshOpenTeam();}},
+    showAll?"Show depth chart only":"Show full roster"));
   return wrap;
 }
 function schedulePanel(t){
@@ -551,7 +625,7 @@ function schedulePanel(t){
       el("span",{class:"wk"}, g.week!=null?"Wk "+g.week:""),
       el("span",{class:"res "+(g.result||"")}, g.result||""),
       el("span",{},`${g.home_away} ${g.opponent||"TBD"}`+(g.neutral?" (N)":"")),
-      el("span",{class:"sc"}, g.completed?`${g.team_points}-${g.opp_points}`+(g.credit!=null?`  ·  ${g.credit>0?"+":""}${fmt(g.credit,2)} cr`:""):"scheduled ›")));
+      el("span",{class:"sc"}, g.completed?`${g.team_points}-${g.opp_points}`+(g.credit!=null?`  ·  game score ${g.credit>0?"+":""}${fmt(g.credit,1)}`:""):"scheduled ›")));
   }
   return wrap;
 }
@@ -615,7 +689,7 @@ async function renderPlayers(c){
   if(!state.playerRankings) state.playerRankings = await api("/api/players");
   const all = state.playerRankings || [];
   if(!all.length){ c.append(el("div",{class:"empty"}, el("h2",{},"No players"),
-    el("p",{},"Update data to build player rankings."))); return; }
+    el("p",{},"Fetch and Execute to build player rankings."))); return; }
   const orderG=["QB","RB","WR","TE","OL","DL","LB","DB","K","P","UNK"];
   const groups=[...new Set(all.map(p=>p.group))].filter(Boolean).sort((a,b)=>orderG.indexOf(a)-orderG.indexOf(b));
   const confs=[...new Set(all.map(p=>p.conference).filter(Boolean))].sort();
@@ -627,7 +701,7 @@ async function renderPlayers(c){
     mkSel(f.conf, v=>f.conf=v, [["","All conferences"],...confs.map(x=>[x,x])]),
     mkSel(f.side, v=>f.side=v, [["","Offense & defense"],["offense","Offense"],["defense","Defense"],["special","Special teams"]]),
     mkSel(f.status, v=>f.status=v, [["","Any status"],["active","Active"],["limited","Limited"],["out","Out"]]),
-    el("input",{class:"search",placeholder:"Search player or team...",value:f.q,oninput:e=>{f.q=e.target.value;renderTab();}})));
+    el("input",{class:"search",placeholder:"Search player or team...",value:f.q,"data-key":"players-search",oninput:e=>{f.q=e.target.value;renderTab();}})));
   const ql=f.q.trim().toLowerCase();
   let rows=all.filter(p=>
     (!f.pos||p.group===f.pos) && (!f.conf||p.conference===f.conf) &&
@@ -645,15 +719,18 @@ async function renderPlayers(c){
       el("td",{class:"conf"}, p.team),
       el("td",{class:"conf"}, p.conference||"—"),
       el("td",{class:"num muted"}, p.class||"—"),
+      el("td",{}, roleCell(p)),
       el("td",{class:"num"}, el("div",{}, el("div",{class:"rating"},fmt(p.value,1)),
         el("div",{class:"bar"}, el("i",{style:`width:${Math.max(0,Math.min(100,(p.value/max)*100))}%`})))),
-      el("td",{class:"num muted"}, p.ppa_recent==null?"—":fmt(p.ppa_recent,1)),
+      el("td",{class:"num"}, p.impact?fmt(p.impact,1):"—"),
+      el("td",{class:"num muted"}, fmt(p.grade,0)),
+      el("td",{class:"num muted"}, p.ppa_recent==null?"—":fmt(p.ppa_recent,2)),
       el("td",{}, st)));
   });
   c.append(el("table",{}, el("thead",{}, el("tr",{},
     el("th",{class:"num"},"#"),el("th",{},"Player"),el("th",{},"Pos"),el("th",{},"Team"),
-    el("th",{},"Conf"),el("th",{class:"num"},"Cls"),el("th",{class:"num"},"Value"),
-    el("th",{class:"num"},"Last PPA"),el("th",{},""))), tb));
+    el("th",{},"Conf"),el("th",{class:"num"},"Cls"),el("th",{},"Role"),el("th",{class:"num"},"Value"),
+    el("th",{class:"num"},"If out"),el("th",{class:"num"},"Grade"),el("th",{class:"num"},"PPA/play"),el("th",{},""))), tb));
   if(rows.length>300) c.append(el("div",{class:"muted",style:"margin-top:8px"},"Showing top 300 — narrow with filters."));
 }
 
@@ -674,7 +751,12 @@ function renderPlayer(p){
     el("button",{class:"close",style:"margin-left:auto",onclick:closeModal},"✕")));
   const body=el("div",{class:"mbody"});
   body.append(el("div",{class:"stat-row"},
-    statBox("Proj value",p.value,null),
+    statBox("Role",(p.role||"—")+(p.status_source==="auto"?" (auto)":""),null),
+    statBox(p.status!=="active"?"Snaps if healthy":"Snaps",p.healthy_share!=null?pct(p.healthy_share):"—",null),
+    statBox("Value (pts)",p.value,null),
+    statBox(p.status!=="active"?"Absence costs":"If out",p.impact!=null?fmt(p.impact,1)+" pts":"—",null),
+    statBox("As full-time starter",p.value_full,null),
+    statBox("Grade",p.grade,null),
     statBox("Last PPA",p.ppa_recent==null?"—":p.ppa_recent,null),
     p.current?.ppa_per_game!=null?statBox("PPA/gm (cur)",p.current.ppa_per_game,null):null,
     p.recruiting?statBox("Recruit",`${p.recruiting.stars}★`,null):null));
@@ -703,17 +785,18 @@ function renderPlayer(p){
                   s.def_score!=null?`Def ${s.def_score}`:null].filter(Boolean).join(" · ")||"—";
       const transferred = s.school && p.team && s.school!==p.team;
       const sos = s.sos;
-      const sosTxt = (sos==null||sos===1) ? "—" : sos.toFixed(2)+"×";
-      const sosStyle = (sos!=null&&sos>1) ? "color:var(--accent2)" : (sos!=null&&sos<1) ? "color:var(--muted)" : "";
+      const sosTxt = (sos==null) ? "—" : (sos>0?"+":"")+sos.toFixed(1);
+      const sosStyle = (sos!=null&&sos>0) ? "color:var(--accent2)" : (sos!=null&&sos<0) ? "color:var(--muted)" : "";
       tb.append(el("tr",{},el("td",{},String(s.year)),
         el("td",transferred?{title:"Different school than current team"}:{},s.school||"—"),
-        el("td",{class:"num",style:sosStyle,title:"Strength of schedule multiplier applied to this season's production"},sosTxt),
-        el("td",{class:"num"},s.ppa_total==null?"—":fmt(s.ppa_total,1)),
+        el("td",{class:"num",style:sosStyle,title:"Average opponent rating that season (points). Production is adjusted up/down for it."},sosTxt),
+        el("td",{class:"num",title:s.plays?`${s.plays} plays`:""},s.ppa_avg==null?"—":fmt(s.ppa_avg,3)),
+        el("td",{class:"num",title:"Season z-score vs. same-position players (opponent-adjusted) and its weight in the blend"},s.z==null?"—":`${s.z>0?"+":""}${fmt(s.z,2)}${s.weight?` ·w${Math.round(s.weight)}`:""}`),
         el("td",{class:"num"},s.usage==null?"—":pct(s.usage)),
         el("td",{class:"muted"},line)));
     }
     body.append(el("table",{class:"ptable"}, el("thead",{}, el("tr",{},
-      el("th",{},"Yr"),el("th",{},"School"),el("th",{class:"num"},"SoS"),el("th",{class:"num"},"PPA"),el("th",{class:"num"},"Usage"),el("th",{},"Production"))), tb));
+      el("th",{},"Yr"),el("th",{},"School"),el("th",{class:"num"},"Opp"),el("th",{class:"num"},"PPA/play"),el("th",{class:"num"},"z · weight"),el("th",{class:"num"},"Usage"),el("th",{},"Production"))), tb));
   } else body.append(el("div",{class:"muted"},"No season history on record (likely a newcomer)."));
 
   if(p.current && p.current.games){
@@ -795,14 +878,14 @@ function renderGame(g){
         mkrow(g.away.school,g.box.away_line,g.box.away_points), mkrow(g.home.school,g.box.home_line,g.box.home_points))));
     }
     if(g.credit){
-      body.append(el("div",{style:"font-weight:700;margin:6px 0"},"How credits were awarded"));
+      body.append(el("div",{style:"font-weight:700;margin:6px 0"},"Game scores (the rating this one game implies)"));
       for(const [side,ref] of [["home",g.home],["away",g.away]]){
         const cd=g.credit?.[side]; if(!cd) continue;
         body.append(el("div",{style:"margin-bottom:8px"},
           el("div",{}, el("b",{},ref.school), ` ${cd.win?"beat":"lost to"} ${cd.opponent} (#${cd.opp_rank}) by ${Math.abs(cd.margin)} → `,
-            el("b",{style:`color:${cd.credit>=0?"var(--accent2)":"var(--danger)"}`}, `${cd.credit>=0?"+":""}${fmt(cd.credit,2)} credits`)),
+            el("b",{style:`color:${cd.credit>=0?"var(--accent2)":"var(--danger)"}`}, `game score ${cd.credit>=0?"+":""}${fmt(cd.credit,1)}`)),
           el("div",{class:"muted",style:"font-size:12px"},
-            `opponent quality ×${fmt(cd.quality_mult,2)} · class ×${fmt(cd.class_w,2)} · conf ×${fmt(cd.conf_w,2)} · résumé bonus +${fmt(cd.opp_bonus,2)} → scale ${fmt(cd.scale,2)}`)));
+            `damped margin ${cd.damped_margin>0?"+":""}${fmt(cd.damped_margin,1)} · site ${cd.hfa_adj>0?"+":""}${fmt(cd.hfa_adj,1)} · opponent rating ${cd.opp_rating>0?"+":""}${fmt(cd.opp_rating,1)}`)));
       }
     }
   } else if(g.prediction){
@@ -873,14 +956,162 @@ async function renderUpcoming(c){
 }
 function impactColor(s){ return s>=78?"#d64550":s>=60?"#c07a12":s>=40?"#2f6feb":"#697384"; }
 
+
+/* ---------------- Conferences view ---------------- */
+const CONF_COLS = [
+  ["rank","#",c=>c.rank,false],
+  ["conference","Conference",c=>c.conference,false],
+  ["teams","Tms",c=>c.teams,true],
+  ["avg","Avg",c=>c.avg,true],
+  ["top","Best",c=>c.top,true],
+  ["top_half","Top half",c=>c.top_half,true],
+  ["bottom","Worst",c=>c.bottom,true],
+  ["spread","Spread",c=>c.spread,true],
+  ["avg_team_win_pct","Avg team wins",c=>-c.avg_team_win_pct,true],
+  ["nonconf","Non-conf",c=>{const n=c.nonconf; return (n.w+n.l)?n.w/(n.w+n.l):-1;},true],
+  ["vs_p4","vs P4",c=>{const v=c.nonconf.vs_p4; return (v[0]+v[1])?v[0]/(v[0]+v[1]):-1;},true],
+  ["top25","Top 25",c=>c.top25,true],
+  ["cfp_bids","CFP bids",c=>c.cfp_bids,true],
+];
+async function renderConferences(c){
+  const data=await api("/api/conferences?key="+encodeURIComponent(state.worldKey||""));
+  const confs=data.conferences||[];
+  if(!confs.length){ c.append(el("div",{class:"empty"},el("h2",{},"No conference data"))); return; }
+  const summ=activeScenarioSummary();
+  c.append(el("div",{class:"muted",style:"margin:0 2px 12px"},
+    "Conference strength from Current team ratings (points vs. an average FBS team, neutral field). "+
+    "“Avg team wins” = the win % an average FBS team would post against every member — lower means a tougher league top to bottom. "+
+    "Independents are listed on their own so each can be compared with a whole conference. "+
+    (summ?`Reflecting what-if: ${summ.label}.`:"")));
+
+  const tools=el("div",{class:"toolbar",style:"margin-bottom:10px"});
+  if(state.mc && state.mcKey===state.worldKey){
+    tools.append(el("span",{class:"muted",style:"font-size:12.5px"},"Expected CFP bids from playoff odds shown in parentheses."));
+  } else {
+    tools.append(el("button",{class:"btn ghost sm",onclick:async()=>{await loadMC(); renderTab();}},
+      state.mcLoading?"Running playoff odds…":"Add expected CFP bids (run playoff odds)"));
+  }
+  c.append(tools);
+
+  const key=state.confSort||"rank", asc=!!state.confSortAsc;
+  const col=CONF_COLS.find(x=>x[0]===key)||CONF_COLS[0];
+  const rows=confs.slice().sort((a,b)=>{ const va=col[2](a), vb=col[2](b);
+    const d = typeof va==="string" ? va.localeCompare(vb) : va-vb;
+    return (col[3] ? -d : d) * (asc?-1:1); });
+  const expBids=cf=> (state.mc && state.mcKey===state.worldKey)
+    ? cf.members.reduce((t,m)=>t+(state.mc[m.school]?.playoff_pct||0),0) : null;
+  const avgs=confs.map(x=>x.avg), amin=Math.min(...avgs), amax=Math.max(...avgs);
+  const sgn=(n,d=1)=> n==null?"—":((n>0?"+":"")+Number(n).toFixed(d));
+  const wl=(w,l)=> (w+l)?`${w}-${l}`:"—";
+
+  const head=el("tr",{}, ...CONF_COLS.map(([k,lab])=> el("th",{
+      class:"sortable"+(k===key?" on":"")+(k==="conference"?"":" num"),
+      onclick:()=>{ if(state.confSort===k) state.confSortAsc=!state.confSortAsc; else {state.confSort=k; state.confSortAsc=false;} renderTab(); }},
+      lab+(k===key?(asc?" ▴":" ▾"):""))));
+  const tb=el("tbody",{});
+  for(const cf of rows){
+    const open=state.confOpen===cf.conference;
+    const nc=cf.nonconf, eb=expBids(cf);
+    const tierCls=cf.tier==="Power 4"?"tier p4":"tier";
+    tb.append(el("tr",{class:"confrow"+(open?" open":""),onclick:()=>{state.confOpen=open?null:cf.conference; renderTab();}},
+      el("td",{class:"num rk"},String(cf.rank)),
+      el("td",{}, el("div",{class:"team"},
+        cf.independent?el("span",{class:"dot",style:`background:${cf.members[0]?.color||"#8a93a0"}`}):null,
+        el("span",{class:"tname"},cf.conference), el("span",{class:tierCls},cf.tier))),
+      el("td",{class:"num muted"},cf.independent?"—":String(cf.teams)),
+      el("td",{class:"num"}, el("div",{}, el("div",{class:"rating"},sgn(cf.avg)),
+        el("div",{class:"bar"}, el("i",{style:`width:${Math.max(2,((cf.avg-amin)/((amax-amin)||1))*100)}%`})))),
+      el("td",{class:"num"},cf.independent?"—":sgn(cf.top)),
+      el("td",{class:"num"},cf.independent?"—":sgn(cf.top_half)),
+      el("td",{class:"num muted"},cf.independent?"—":sgn(cf.bottom)),
+      el("td",{class:"num muted"},cf.independent?"—":fmt(cf.spread)),
+      el("td",{class:"num"},pct(cf.avg_team_win_pct)),
+      el("td",{class:"num",title:nc.avg_margin!=null?`avg margin ${sgn(nc.avg_margin)} vs FBS; vs FCS ${wl(...nc.vs_fcs)}`:""},
+        wl(nc.w,nc.l)+(nc.avg_margin!=null?` (${sgn(nc.avg_margin,0)})`:"")),
+      el("td",{class:"num muted"},cf.tier==="Power 4"?"—":wl(...nc.vs_p4)),
+      el("td",{class:"num"},String(cf.top25)),
+      el("td",{class:"num"},String(cf.cfp_bids)+(eb!=null?` (${eb.toFixed(1)})`:""))));
+    if(open) tb.append(el("tr",{}, el("td",{colspan:String(CONF_COLS.length),style:"padding:10px 12px 16px"}, confDetail(cf))));
+  }
+  c.append(el("div",{style:"overflow-x:auto"}, el("table",{}, el("thead",{},head), tb)));
+  c.append(el("div",{class:"muted",style:"font-size:12px;margin-top:6px"},"Click a conference for its teams, title-game projection, and unit averages. Click a header to sort."));
+  c.append(confMatrix(data.matrix, confs));
+}
+function confDetail(cf){
+  const wrap=el("div",{});
+  const sgn=(n,d=1)=> n==null?"—":((n>0?"+":"")+Number(n).toFixed(d));
+  const tg=cf.title_game;
+  wrap.append(el("div",{class:"stat-row",style:"margin-top:0"},
+    statBox("Offense",sgn(cf.units.offense),null),
+    statBox("Defense",sgn(cf.units.defense),null),
+    statBox("Special",sgn(cf.units.special),null),
+    statBox("vs Power",sgn(cf.delta_vs_power),null),
+    statBox("Sched str.",sgn(cf.schedule_strength),null),
+    statBox("Top-25 team wins",pct(cf.top25_team_win_pct),null),
+    cf.returning_pct?statBox("Returning PPA",pct(cf.returning_pct),null):null));
+  wrap.append(el("div",{class:"muted",style:"font-size:12px;margin:6px 0 10px"},
+    "“vs Power” = how much results so far have moved the league's average from its preseason roster rating."));
+  if(tg){
+    const [a,b]=tg.teams;
+    wrap.append(el("div",{style:"margin:4px 0 10px"}, el("b",{},"Title game: "),
+      b ? (tg.decided ? `${tg.champion} won (${a} vs ${b})`
+                      : `${a} vs ${b} — ${a} ${pct(tg.p_first)}, ${b} ${pct(1-tg.p_first)} → projected champion ${tg.champion}`)
+        : `${a} (projected champion)`));
+  }
+  if(cf.cfp_teams.length) wrap.append(el("div",{style:"margin-bottom:10px"}, el("b",{},"Projected CFP: "),
+    cf.cfp_teams.map(t=>`#${t.seed} ${t.school} (${t.bid})`).join(", ")));
+  const tb=el("tbody",{});
+  cf.members.forEach((m,i)=> tb.append(el("tr",{class:"clk",onclick:(e)=>{e.stopPropagation(); openTeam(m.school);}},
+    el("td",{class:"num rk"},String(i+1)),
+    el("td",{}, el("div",{class:"team"}, el("span",{class:"dot",style:`background:${m.color||"#8a93a0"}`}),
+      m.logo?el("img",{class:"logo",src:m.logo,loading:"lazy",onerror:function(){this.style.display='none'}}):null,
+      el("span",{class:"tname"},m.school))),
+    el("td",{class:"num muted"},"#"+m.rank),
+    el("td",{class:"num"},`${m.record[0]}-${m.record[1]}`),
+    el("td",{class:"num muted"},`${m.conf_record[0]}-${m.conf_record[1]}`),
+    el("td",{class:"num muted"},m.proj_record?`${m.proj_record[0]}-${m.proj_record[1]}`:"—"),
+    el("td",{class:"num"},sgn(m.current)),
+    el("td",{class:"num muted"},sgn(m.power)),
+    el("td",{class:"num"},m.cfp_seed?("#"+m.cfp_seed):"—"))));
+  wrap.append(el("table",{class:"ptable"}, el("thead",{}, el("tr",{},
+    el("th",{class:"num"},""),el("th",{},"Team"),el("th",{class:"num"},"Nat'l"),el("th",{class:"num"},"Record"),
+    el("th",{class:"num"},"Conf"),el("th",{class:"num"},"Proj"),el("th",{class:"num"},"Current"),
+    el("th",{class:"num"},"Power"),el("th",{class:"num"},"CFP seed"))), tb));
+  return wrap;
+}
+function confMatrix(m, confs){
+  const wrap=el("div",{style:"margin-top:22px"});
+  wrap.append(el("div",{style:"font-weight:700;margin-bottom:4px"},"Head-to-head between conferences"));
+  wrap.append(el("div",{class:"muted",style:"font-size:12px;margin-bottom:8px"},"Row's record against the column in completed games (independents listed individually). Green = winning record."));
+  const order=(m&&m.order)||[]; const rec=(m&&m.records)||{};
+  if(!order.length) return wrap;
+  const short=n=>({"American Athletic":"AAC","Conference USA":"CUSA","Mid-American":"MAC","Mountain West":"MWC","Sun Belt":"SBC","FBS Independents":"Ind"}[n]||n);
+  const tbl=el("table",{class:"matrix"});
+  tbl.append(el("tr",{}, el("th",{},""), ...order.map(o=>el("th",{title:o},short(o)))));
+  for(const a of order){
+    const tr=el("tr",{}, el("th",{class:"rowh",title:a},short(a)));
+    for(const b of order){
+      if(a===b){ tr.append(el("td",{style:"background:var(--panel2)"},"")); continue; }
+      const r=rec[a]?.[b];
+      if(!r){ tr.append(el("td",{class:"muted"},"·")); continue; }
+      const p=r[0]/(r[0]+r[1]);
+      const bg=p>0.5?`color-mix(in srgb,var(--accent2) ${Math.round(18+40*(p-0.5)*2)}%,transparent)`
+             :p<0.5?`color-mix(in srgb,var(--danger) ${Math.round(18+40*(0.5-p)*2)}%,transparent)`:"transparent";
+      tr.append(el("td",{style:`background:${bg}`,title:`${a} vs ${b}: ${r[0]}-${r[1]}`},`${r[0]}-${r[1]}`));
+    }
+    tbl.append(tr);
+  }
+  wrap.append(el("div",{style:"overflow-x:auto"},tbl));
+  return wrap;
+}
 /* ---------------- Bracket view ---------------- */
 async function renderBracket(c){
   const b=state.bracket;
   if(!b){ c.append(el("div",{class:"empty"}, el("h2",{},"Bracket unavailable"),
-    el("p",{},"Need at least 12 ranked FBS teams. Update data to build the field."))); return; }
+    el("p",{},"Need at least 12 ranked FBS teams. Fetch and Execute to build the field."))); return; }
   const summ=activeScenarioSummary();
   c.append(el("div",{class:"muted",style:"margin-bottom:12px"},
-    "Projected 12-team College Football Playoff from the Predictive ranking — top 4 conference champions get first-round byes. "+
+    "Projected 12-team CFP under 2026-27 rules: the Predictive (committee) ranking picks the field — SEC, Big Ten, Big 12 and ACC champions, the highest-ranked Group of 6 team, Notre Dame if top 12, and seven at-large — then seeds it straight by rank. The top 4 ranked teams get byes, champions or not; automatic qualifiers ranked outside the top 12 drop to the bottom seeds. "+
     (summ?`Reflecting what-if: ${summ.label}.`:"Predicted winners highlighted.")));
   const roundsWrap=el("div",{class:"bracket"});
   const matchCard=(mm)=>{
@@ -901,6 +1132,44 @@ async function renderBracket(c){
   c.append(el("div",{class:"champ"}, `🏆 Projected champion: ${b.champion}`));
   const byes=b.seeds.filter(s=>s.bye).map(s=>`#${s.seed} ${s.school}`).join(", ");
   c.append(el("div",{class:"muted",style:"margin-top:10px;font-size:12.5px"}, "First-round byes: "+byes));
+
+  // Field: how each team got in.
+  const ft=el("tbody",{});
+  for(const sd of b.seeds){
+    ft.append(el("tr",{},
+      el("td",{class:"num rk"},"#"+sd.seed),
+      el("td",{},el("span",{class:"tname"},sd.school)),
+      el("td",{class:"num muted"},sd.rank?("#"+sd.rank):"—"),
+      el("td",{class:"num muted"},sd.record?`${sd.record[0]}-${sd.record[1]}`:"—"),
+      el("td",{class:sd.auto_bid?"":"muted"},sd.bid||(sd.auto_bid?"Automatic":"At-large")),
+      el("td",{class:"muted"},sd.bye?"Bye":(sd.seed<=8?"Hosts R1":"Road R1"))));
+  }
+  c.append(el("div",{style:"font-weight:700;margin:16px 0 6px"},"The field"));
+  c.append(el("table",{class:"ptable"}, el("thead",{},el("tr",{},
+    el("th",{class:"num"},"Seed"),el("th",{},"Team"),el("th",{class:"num"},"Cmte rank"),
+    el("th",{class:"num"},"Record"),el("th",{},"Bid"),el("th",{},"Round 1"))), ft));
+
+  const out=(b.first_four_out||[]).map(x=>`#${x.rank} ${x.school}`).join(", ");
+  const disp=(b.displaced||[]).map(x=>`#${x.rank} ${x.school}`).join(", ");
+  if(out) c.append(el("div",{class:"muted",style:"margin-top:10px;font-size:12.5px"},"First four out: "+out));
+  if(disp) c.append(el("div",{class:"muted",style:"margin-top:4px;font-size:12.5px"},
+    "Ranked in the top 12 but bumped by a lower-ranked automatic qualifier: "+disp));
+
+  const ccg=b.conference_title_games||[];
+  if(ccg.length){
+    const tb=el("tbody",{});
+    for(const g of ccg){
+      const [a,bb]=g.teams; const pa=g.p_first;
+      tb.append(el("tr",{},
+        el("td",{},g.conference),
+        el("td",{},bb?`${a} vs ${bb}`:a),
+        el("td",{class:"num"}, g.decided?"Final":(bb?`${pct(pa)} / ${pct(1-pa)}`:"—")),
+        el("td",{},el("b",{},g.champion))));
+    }
+    c.append(el("div",{style:"font-weight:700;margin:16px 0 6px"},"Conference championship games (projected)"));
+    c.append(el("table",{class:"ptable"}, el("thead",{},el("tr",{},
+      el("th",{},"Conference"),el("th",{},"Matchup"),el("th",{class:"num"},"Win prob"),el("th",{},"Champion"))), tb));
+  }
 }
 function openGameByTeams(mm){
   const p=mm.prediction;
@@ -968,28 +1237,88 @@ function renderPrediction(out,r){
   out.append(card);
 }
 
-/* ---------------- refresh flow ---------------- */
-async function doRefresh(){
-  const btn=$("#updateBtn"); btn.disabled=true; $("#progress").classList.add("show"); setProgress("Starting...",0);
-  await fetch("/api/refresh",{method:"POST"});
-  if(state.polling) clearInterval(state.polling);
-  state.polling=setInterval(pollStatus,1200);
-}
+/* ---------------- Fetch / Execute / Calibrate ---------------- */
+const JOB_BTNS=["fetchBtn","executeBtn","calibrateBtn"];
+function setJobButtons(disabled){ JOB_BTNS.forEach(id=>{ $("#"+id).disabled=disabled; }); }
 function setProgress(stage,frac){ $("#pstage").textContent=stage||""; $("#pbarFill").style.width=Math.round((frac||0)*100)+"%"; }
+function renderPending(p){
+  const bar=$("#pendingBar"); bar.innerHTML="";
+  const items=[];
+  if(p?.data) items.push("new data has been fetched");
+  if(p?.calibration) items.push(p.has_calibration?"a new calibration is saved":"the calibration file was removed");
+  $("#execBadge").classList.toggle("on", items.length>0);
+  if(!items.length){ bar.classList.remove("show"); return; }
+  bar.append(el("span",{},"Since the last Execute, "+items.join(" and ")+". Rankings on screen don't include it yet."),
+    el("button",{class:"btn sm",style:"margin-left:auto",onclick:()=>startJob("execute")},"Execute now"));
+  if(p?.calibration && p.has_calibration)
+    bar.append(el("button",{class:"btn ghost sm",onclick:showCalibration},"View calibration report"));
+  bar.classList.add("show");
+}
+async function startJob(job){
+  setJobButtons(true); $("#progress").classList.add("show"); setProgress("Starting...",0);
+  $("#spin").style.display="block";
+  const r=await fetch("/api/"+job,{method:"POST"});
+  if(r.status===409){ const j=await r.json(); setProgress(j.message||"Busy",0); }
+  state.job=job;
+  if(state.polling) clearInterval(state.polling);
+  state.polling=setInterval(pollStatus,1000);
+}
 async function pollStatus(){
   const s=await api("/api/status");
   setProgress(s.progress?.stage,s.progress?.frac); $("#spin").style.display=s.state==="running"?"block":"none";
-  if(s.state==="done"){ clearInterval(state.polling); state.polling=null; $("#pstage").textContent=s.message||"Done";
-    setTimeout(()=>$("#progress").classList.remove("show"),1200); $("#updateBtn").disabled=false;
-    state.teamsList=null; state.playerRankings=null; state.mc=null;
-    await loadMeta(); await loadWorld(); renderTab();
-  } else if(s.state==="error"){ clearInterval(state.polling); state.polling=null;
-    $("#pstage").innerHTML=`<span class="err">${s.message||"Error"}</span>`; $("#spin").style.display="none"; $("#updateBtn").disabled=false; }
+  if(s.state==="running") return;
+  clearInterval(state.polling); state.polling=null; setJobButtons(false);
+  renderPending(s.pending);
+  if(s.state==="done"){
+    $("#pstage").textContent=s.message||"Done";
+    setTimeout(()=>$("#progress").classList.remove("show"),4000);
+    if(s.job==="execute"){
+      state.teamsList=null; state.playerRankings=null; state.mc=null;
+      await loadMeta(); await loadWorld(); renderTab();
+    } else if(s.job==="calibrate"){
+      showCalibration();
+    }
+  } else if(s.state==="error"){
+    $("#pstage").innerHTML=""; $("#pstage").append(el("span",{class:"err"},s.message||"Error"));
+  }
+}
+async function showCalibration(){
+  const r=await api("/api/calibration");
+  const m=$("#modal"); m.innerHTML=""; openModal();
+  m.append(el("div",{class:"mhead"}, el("div",{}, el("h3",{},"Calibration report"),
+      el("div",{class:"muted",style:"font-size:12.5px"},
+        r.pending?.calibration?"Saved but not applied yet — click Execute to use it.":
+        (r.in_use?.message||""))),
+    el("button",{class:"close",style:"margin-left:auto",onclick:closeModal},"✕")));
+  const body=el("div",{class:"mbody"});
+  const c=r.calibration;
+  if(c){
+    const p=c.params||{}, gw=c.group_weight||{};
+    body.append(el("div",{class:"stat-row",style:"margin-top:0"},
+      statBox("Prior games (K)",p.PRIOR_GAMES,null),
+      statBox("Margin SD",p.MARGIN_SD,null),
+      statBox("Blowout damping",p.MARGIN_DAMP>1e5?"none":p.MARGIN_DAMP,null),
+      statBox("Roster coef",p.ROSTER_COEF!=null?Number(p.ROSTER_COEF).toFixed(3):null,null),
+      statBox("Last-season coef",p.PRIOR_COEF!=null?Number(p.PRIOR_COEF).toFixed(3):null,null),
+      statBox("Position weights",Object.keys(gw).length?"fitted":"defaults kept",null)));
+    if(!c.version||c.version<2) body.append(el("p",{class:"err",style:"margin-top:10px"},
+      "This file is from an older calibrate.py and will be ignored. Click Calibrate to regenerate it."));
+  }
+  body.append(el("div",{style:"font-weight:700;margin:14px 0 6px"},"Full output"));
+  body.append(el("pre",{class:"report"}, r.report||"No report yet. Click Calibrate to run one."));
+  body.append(el("div",{style:"display:flex;gap:8px;margin-top:12px"},
+    r.pending?.calibration&&r.pending?.has_calibration?el("button",{class:"btn",onclick:()=>{closeModal(); startJob("execute");}},"Execute with this calibration"):null,
+    el("button",{class:"btn ghost",onclick:closeModal},"Close")));
+  m.append(body);
 }
 
 /* ---------------- wire up ---------------- */
 $("#topnav").addEventListener("click",e=>{ const b=e.target.closest("button[data-tab]"); if(b) setTab(b.dataset.tab); });
-$("#updateBtn").addEventListener("click",doRefresh);
+$("#fetchBtn").addEventListener("click",()=>startJob("fetch"));
+$("#executeBtn").addEventListener("click",()=>startJob("execute"));
+$("#calibrateBtn").addEventListener("click",()=>{
+  if(confirm("Calibrate fits model parameters from the saved data. It takes a few minutes, and the rankings won't change until you click Execute. Continue?")) startJob("calibrate");
+});
 
 function syncThemeBtn(){ const dark=document.documentElement.getAttribute("data-theme")==="dark";
   $("#themeBtn").textContent = dark ? "Light mode" : "Dark mode"; }
@@ -1008,7 +1337,8 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ if($("#modal").cl
   const m=await loadMeta();
   if(m.has_data) await loadWorld();
   renderTab();
-  if(m.status && m.status.state==="running"){ $("#progress").classList.add("show"); $("#updateBtn").disabled=true; state.polling=setInterval(pollStatus,1200); }
+  renderPending(m.pending);
+  if(m.status && m.status.state==="running"){ $("#progress").classList.add("show"); setJobButtons(true); state.polling=setInterval(pollStatus,1000); }
 })();
 </script>
 </body>

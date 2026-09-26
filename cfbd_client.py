@@ -19,7 +19,14 @@ class CFBDError(Exception):
     pass
 
 
-def _call(endpoint, params=None, _tries=5):
+RETRY_STATUS = {429, 500, 502, 503, 504}   # rate limit + transient server errors
+BACKOFF_SECONDS = [3, 8, 15, 30, 45, 60]    # waits between attempts (~2.7 min total)
+
+
+def _call(endpoint, params=None, _tries=len(BACKOFF_SECONDS) + 1):
+    if not config.CFBD_API_KEY:
+        raise CFBDError("No CFBD API key. Set the CFBD_API_KEY environment variable "
+                        "or put the key in cfbd_key.txt next to config.py.")
     url = f"{config.CFBD_BASE_URL}/{endpoint}"
     headers = {
         "accept": "application/json",
@@ -27,22 +34,33 @@ def _call(endpoint, params=None, _tries=5):
     }
     last_err = None
     for attempt in range(1, _tries + 1):
-        resp = None
         try:
             resp = requests.get(url, headers=headers, params=params, timeout=60)
+        except requests.RequestException as e:   # network hiccup / timeout
+            last_err = f"{type(e).__name__}: {e}"
+            resp = None
+        if resp is not None:
             if resp.status_code == 200:
                 return resp.json()
             if resp.status_code == 401:
                 raise CFBDError("Unauthorized (401): check your CFBD_API_KEY.")
-            if resp.status_code == 429:
-                time.sleep(min(15, 3 * attempt))
-                last_err = CFBDError("Rate limited (429)")
-                continue
-            raise CFBDError(f"HTTP {resp.status_code} for /{endpoint}")
-        except requests.RequestException as e:
-            last_err = e
-            time.sleep(2 * attempt)
-    raise CFBDError(f"Failed /{endpoint} after {_tries} tries: {last_err}")
+            if resp.status_code == 403:
+                raise CFBDError("Forbidden (403): your key may be over its monthly "
+                                "call limit or lack access to /" + endpoint + ".")
+            if resp.status_code not in RETRY_STATUS:
+                raise CFBDError(f"HTTP {resp.status_code} for /{endpoint}")
+            last_err = f"HTTP {resp.status_code}"
+        if attempt == _tries:
+            break
+        wait = BACKOFF_SECONDS[attempt - 1]
+        retry_after = resp.headers.get("Retry-After") if resp is not None else None
+        if retry_after and retry_after.isdigit():
+            wait = min(max(wait, int(retry_after)), 120)
+        time.sleep(wait)
+    hint = (" CollegeFootballData's server is temporarily unavailable; your cached "
+            "data is unchanged. Try Update data again in a few minutes."
+            if last_err and last_err.startswith("HTTP 5") else "")
+    raise CFBDError(f"/{endpoint} failed after {_tries} tries ({last_err}).{hint}")
 
 
 def _noop(*_a, **_k):
@@ -55,6 +73,9 @@ def _noop(*_a, **_k):
 def _fetch_teams_and_games(year, progress):
     progress("Fetching teams...", 0.05)
     teams = _call("teams")
+
+    progress("Fetching FBS team list...", 0.08)
+    fbs_list = _safe_list("teams/fbs", {"year": year})
 
     progress("Fetching games...", 0.12)
     games = _call("games", {"year": year})
@@ -106,7 +127,7 @@ def _fetch_teams_and_games(year, progress):
         if t is not None:
             t["stats"] = a
 
-    return teams
+    return teams, [t.get("school") for t in fbs_list if t.get("school")]
 
 
 # ---------------------------------------------------------------------------
@@ -133,7 +154,7 @@ def _fetch_players(year, progress):
         players["usage"][str(y)] = _safe_list("player/usage", {"year": y})
 
     stat_categories = ["passing", "rushing", "receiving", "defensive",
-                       "interceptions", "fumbles"]
+                       "interceptions", "fumbles", "kicking", "punting"]
     for i, y in enumerate(prod_years):
         progress(f"Fetching player season stats {y}...", 0.60 + 0.03 * i)
         merged = []
@@ -192,7 +213,7 @@ def fetch_all(progress=None, year=None):
     progress = progress or _noop
     year = year or config.YEAR
 
-    teams = _fetch_teams_and_games(year, progress)
+    teams, fbs_teams = _fetch_teams_and_games(year, progress)
     players = _fetch_players(year, progress)
     history_games = _fetch_history_games(progress)
 
@@ -212,6 +233,7 @@ def fetch_all(progress=None, year=None):
             "counts": counts,
         },
         "teams": teams,
+        "fbs_teams": fbs_teams,
         "players": players,
         "history_games": history_games,
     }

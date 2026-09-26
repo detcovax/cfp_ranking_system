@@ -14,7 +14,10 @@ custom "what-if" results, which can be saved as named scenarios.
 """
 
 import os
+import sys
 import json
+import subprocess
+import datetime
 import uuid
 import hashlib
 import threading
@@ -41,8 +44,10 @@ WORLDS = OrderedDict()   # signature -> world dict (LRU-ish cache)
 MC_CACHE = OrderedDict()  # signature+n -> monte-carlo result
 WORLD_CACHE_MAX = 32
 
-STATUS = {"state": "idle", "message": "", "progress": {"stage": "", "frac": 0.0},
+STATUS = {"state": "idle", "job": None, "message": "", "progress": {"stage": "", "frac": 0.0},
           "last_updated": None}
+EXECUTED = {"raw_mtime": None, "cal_mtime": None, "at": None}   # inputs of the last Execute
+CAL_REPORT_FILE = os.path.join(config.DATA_DIR, "calibration_report.txt")
 
 
 # --- helpers ----------------------------------------------------------------
@@ -147,10 +152,7 @@ def _save_scenarios(items):
 def _build_profiles(fbs_set):
     players = RAW.get("players", {})
     pv, pv_extras = PREP["pv_modes"]["avail"]
-    profiles = ranking.build_player_profiles(
-        pv_extras["by_id"], pv_extras["hist"], pv_extras["recruits"],
-        ranking.build_stat_lines(players), ranking.build_usage(players),
-        ranking.build_current_form(players), fbs_set, PREP["sos_mult"])
+    profiles = ranking.build_player_profiles(pv_extras, players, fbs_set, PREP["sched_pts"])
     conf_by_team = {t["school"]: t.get("conference") for t in RAW.get("teams", [])}
     for prof in profiles.values():
         prof["conference"] = conf_by_team.get(prof["team"])
@@ -160,15 +162,35 @@ def _build_profiles(fbs_set):
             "overall_rank": i, "id": p["id"], "name": p["name"], "team": p["team"],
             "conference": p["conference"], "position": p["position"],
             "group": p["group"], "side": p["side"], "class": p["class"],
-            "value": p["value"], "status": p["status"],
+            "value": p["value"], "grade": p["grade"], "status": p["status"],
+            "role": p.get("role"), "impact": p.get("impact"), "value_full": p.get("value_full"),
             "ppa_recent": p["ppa_recent"], "pos_rank": p["pos_rank"],
         })
     return profiles, player_rankings
 
 
+def _mtime(path):
+    try:
+        return os.path.getmtime(path)
+    except OSError:
+        return None
+
+
+def pending():
+    """What has changed on disk since the last Execute."""
+    raw_m, cal_m = _mtime(config.RAW_FILE), _mtime(engine.CALIBRATION_FILE)
+    return {"data": raw_m is not None and raw_m != EXECUTED["raw_mtime"],
+            "calibration": cal_m != EXECUTED["cal_mtime"],
+            "has_fetched_data": raw_m is not None,
+            "has_calibration": cal_m is not None,
+            "executed_at": EXECUTED["at"]}
+
+
 def recompute(save=True):
     """Rebuild everything from RAW: prep, base worlds, profiles, meta."""
     global PREP, PROFILES, PLAYER_RANKINGS, META, WORLDS, MC_CACHE
+    EXECUTED.update(raw_mtime=_mtime(config.RAW_FILE), cal_mtime=_mtime(engine.CALIBRATION_FILE),
+                    at=datetime.datetime.now().isoformat(timespec="seconds"))
     PREP = engine.prepare(RAW)
     WORLDS = OrderedDict()
     MC_CACHE = OrderedDict()
@@ -189,6 +211,10 @@ def recompute(save=True):
         "weeks": weeks,
         "latest_played_week": latest,
         "has_injuries": has_inj,
+        "hfa": round(PREP["hfa"], 2),
+        "params": PREP["params"],
+        "calibration": PREP.get("calibration"),
+        "scale": "points vs. average FBS team, neutral field",
     }
     if save:
         payload = {"meta": META, "players": PROFILES, "player_rankings": PLAYER_RANKINGS,
@@ -207,27 +233,90 @@ def _load_cached():
             print("Recompute from cache failed:", e)
 
 
-def _refresh_worker():
-    global RAW
-    try:
-        def progress(stage, frac):
-            STATUS["progress"] = {"stage": stage, "frac": round(frac, 3)}
+def _progress(stage, frac):
+    STATUS["progress"] = {"stage": stage, "frac": round(frac, 3)}
 
-        STATUS.update(state="running", message="Fetching data from CFBD...",
+
+def _job_fetch():
+    """Fetch: pull from CFBD and save raw.json. Rankings on screen don't change."""
+    raw = cfbd_client.fetch_all(progress=_progress)
+    _save_json(config.RAW_FILE, raw)
+    year = str(raw.get("meta", {}).get("year", config.YEAR))
+    n_fbs = len(raw.get("fbs_teams") or []) or sum(1 for t in raw.get("teams", [])
+                                                   if t.get("classification") == "fbs")
+    n_roster = len((raw.get("players", {}).get("rosters") or {}).get(year, []))
+    n_games = sum(1 for t in raw.get("teams", []) for g in t.get("games", [])
+                  if g.get("homePoints") is not None) // 2
+    return (f"Fetched {n_fbs} FBS teams, {n_roster:,} roster players, {n_games:,} completed games. "
+            "Click Execute to compute ratings from it.")
+
+
+def _job_execute():
+    """Execute: compute ratings from the saved data + calibration."""
+    global RAW
+    _progress("Loading saved data...", 0.05)
+    raw = _read_json(config.RAW_FILE, None)
+    if raw is None:
+        raise RuntimeError("No saved data yet. Click Fetch first.")
+    _progress("Computing player ratings, results, and rankings...", 0.3)
+    with _lock:
+        RAW = raw
+        recompute(save=True)
+    cal = PREP.get("calibration", {}).get("message", "")
+    return f"Ratings computed for {META['team_count']} teams ({META['mode']}; {cal})."
+
+
+def _job_calibrate():
+    """Calibrate: fit parameters from the saved data (separate process, so it
+    always starts from the built-in defaults). Rankings don't change until Execute."""
+    if _mtime(config.RAW_FILE) is None:
+        raise RuntimeError("No saved data yet. Click Fetch first.")
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "calibrate.py")
+    env = dict(os.environ, DAVE_PROGRESS="1", PYTHONUNBUFFERED="1")
+    proc = subprocess.Popen([sys.executable, script, config.RAW_FILE], stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT, text=True, env=env,
+                            cwd=os.path.dirname(script))
+    lines = []
+    for line in proc.stdout:
+        line = line.rstrip("\n")
+        if line.startswith("@@PROGRESS "):
+            _, frac, stage = line.split(" ", 2)
+            _progress(stage, float(frac))
+        else:
+            lines.append(line)
+    proc.wait()
+    report = "\n".join(lines)
+    os.makedirs(config.DATA_DIR, exist_ok=True)
+    with open(CAL_REPORT_FILE, "w", encoding="utf-8") as f:
+        f.write(report)
+    if proc.returncode != 0:
+        tail = "\n".join(lines[-6:])
+        raise RuntimeError(f"calibrate.py failed:\n{tail}")
+    return "Calibration saved. Review the report, then click Execute to apply it."
+
+
+JOBS = {"fetch": _job_fetch, "execute": _job_execute, "calibrate": _job_calibrate}
+JOB_LABEL = {"fetch": "Fetching from CFBD", "execute": "Executing ratings", "calibrate": "Calibrating"}
+
+
+def _run_job(name):
+    try:
+        STATUS.update(state="running", job=name, message=JOB_LABEL[name] + "...",
                       progress={"stage": "Starting...", "frac": 0.0})
-        raw = cfbd_client.fetch_all(progress=progress)
-        _save_json(config.RAW_FILE, raw)
-        progress("Computing rankings...", 0.96)
-        with _lock:
-            RAW = raw
-            recompute(save=True)
-        STATUS.update(state="done",
-                      message=f"Updated {META['team_count']} teams ({META['mode']}).",
-                      progress={"stage": "Done", "frac": 1.0},
+        msg = JOBS[name]()
+        STATUS.update(state="done", message=msg, progress={"stage": "Done", "frac": 1.0},
                       last_updated=META.get("generated"))
     except Exception as e:
         STATUS.update(state="error", message=f"{type(e).__name__}: {e}",
                       progress={"stage": "Error", "frac": 0.0})
+
+
+def _start_job(name):
+    if STATUS["state"] == "running":
+        return jsonify({"started": False, "status": STATUS,
+                        "message": f"{JOB_LABEL.get(STATUS.get('job'), 'A job')} is already running."}), 409
+    threading.Thread(target=_run_job, args=(name,), daemon=True).start()
+    return jsonify({"started": True, "status": STATUS})
 
 
 # --- routes -----------------------------------------------------------------
@@ -249,6 +338,8 @@ def api_meta():
         "has_injuries": META.get("has_injuries", False),
         "mc_sims": config.MC_SIMS,
         "status": STATUS,
+        "pending": pending(),
+        "calibration": (PREP or {}).get("calibration"),
     })
 
 
@@ -316,6 +407,14 @@ def api_upcoming():
         return jsonify({"weeks": {}, "mode": None})
     return jsonify({"weeks": world["upcoming"], "mode": META.get("mode"),
                     "cutoff_week": world["cutoff_week"]})
+
+
+@app.route("/api/conferences")
+def api_conferences():
+    world = _lookup_world_by_key()
+    if world is None:
+        return jsonify({"conferences": [], "matrix": {"order": [], "records": {}}})
+    return jsonify(world.get("conferences") or {"conferences": []})
 
 
 @app.route("/api/bracket")
@@ -467,19 +566,36 @@ def api_scenario_delete(sid):
 
 
 # --- refresh flow -----------------------------------------------------------
-@app.route("/api/refresh", methods=["POST"])
-def api_refresh():
-    if STATUS["state"] == "running":
-        return jsonify({"started": False, "message": "A refresh is already running.",
-                        "status": STATUS}), 409
-    t = threading.Thread(target=_refresh_worker, daemon=True)
-    t.start()
-    return jsonify({"started": True, "status": STATUS})
+@app.route("/api/fetch", methods=["POST"])
+def api_fetch():
+    return _start_job("fetch")
+
+
+@app.route("/api/execute", methods=["POST"])
+def api_execute():
+    return _start_job("execute")
+
+
+@app.route("/api/calibrate", methods=["POST"])
+def api_calibrate():
+    return _start_job("calibrate")
+
+
+@app.route("/api/calibration")
+def api_calibration():
+    cal = _read_json(engine.CALIBRATION_FILE, None)
+    try:
+        with open(CAL_REPORT_FILE, "r", encoding="utf-8") as f:
+            report = f.read()
+    except OSError:
+        report = None
+    return jsonify({"calibration": cal, "report": report,
+                    "in_use": (PREP or {}).get("calibration"), "pending": pending()})
 
 
 @app.route("/api/status")
 def api_status():
-    return jsonify(STATUS)
+    return jsonify(dict(STATUS, pending=pending()))
 
 
 def _open_browser():
