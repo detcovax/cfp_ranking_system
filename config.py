@@ -42,10 +42,8 @@ if not CFBD_API_KEY:
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 RAW_FILE = os.path.join(DATA_DIR, "raw.json")            # last fetched raw data
 COMPUTED_FILE = os.path.join(DATA_DIR, "computed.json")  # rankings + team detail
-INJURIES_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             "injuries.json")
-SCENARIOS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                              "scenarios.json")           # named what-if worlds
+INJURIES_FILE = os.path.join(DATA_DIR, "injuries.json")
+SCENARIOS_FILE = os.path.join(DATA_DIR, "scenarios.json")           # named what-if worlds
 
 # --- Predictive / Monte Carlo ----------------------------------------------
 MC_SIMS = int(os.environ.get("CFP_MC_SIMS", "2000"))     # simulations per run
